@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Chattahooligan Hymnal",
-    "description": "The Chattahooligans' stadium chants and songs",
+    "name": "NGS Hymnal",
+    "description": "The Northern Guard's stadium chants and songs",
     "slug": "app",
     "privacy": "public",
     "version": "0.0.31",
@@ -15,18 +15,18 @@
       "image": "./assets/big-c-splash-heebo.png"
     },
     "android": {
-      "package": "com.thechattahooligans.app",
+      "package": "com.northernguard.app",
       "icon": "./assets/big-c-icon-android.png",
       "versionCode": 15,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
     "ios": {
-      "bundleIdentifier": "com.thechattahooligans.app",
+      "bundleIdentifier": "com.northernguard.app",
       "supportsTablet": true,
       "loadJSInBackgroundExperimental": true,
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "Chattahooligan Hymnal will use location to ignore notifications when you are not at the stadium."
+        "NSLocationWhenInUseUsageDescription": "NGS Hymnal will use location to ignore notifications when you are not at the stadium."
       }
     },
     "notification": {

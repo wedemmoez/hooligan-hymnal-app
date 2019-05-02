@@ -1,6 +1,6 @@
 export default [
-  require('./chattahooligans.png'),
-  require('./chattfc_logo.png'),
+  require('./northernguard.png'),
+  require('./dcfc_logo.png'),
   require('./drawer-hero-background.png'),
   require('./drawer-hero-logo.png'),
   require('./gofundme.png'),

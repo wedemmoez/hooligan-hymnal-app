@@ -16,19 +16,19 @@ export const SocialPlatform = {
   YouTube: 'YouTube'
 };
 
-export const TWITTER_URL = 'https://twitter.com/chattahooligan';
-export const FACEBOOK_URL = 'https://www.facebook.com/TheChattahooligans';
-export const INSTAGRAM_URL = 'https://instagram.com/thechattahooligans';
-export const WEBSITE_URL = 'http://chattahooligan.com';
-export const YOUTUBE_URL = '';
-export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
+export const TWITTER_URL = 'https://twitter.com/NGSDetroit';
+export const FACEBOOK_URL = 'https://www.facebook.com/NGSDetroit';
+export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
+export const WEBSITE_URL = 'https://noonelikes.us';
+export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
+export const SHOP_URL = 'https://noonelikes.us/shop/';
 export const PRIDERAISER_URL =
-  'https://cha.prideraiser.org/';
+  'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-KPNjywj/';
 export const GOFUNDME_URL =
-  'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
-export const ESP_TWITTER_URL = 'https://twitter.com/LosCFCHooligans';
-export const ESP_INSTAGRAM_URL = 'https://instagram.com/loschattahooligans';
-export const ESP_WEBSITE_URL = 'http://chattahooligan.com/es';
+  'https://twitter.com/LetsMakeRoots';
+export const ESP_TWITTER_URL = 'https://twitter.com/Rouge_y_Oro';
+export const ESP_INSTAGRAM_URL = '';
+export const ESP_WEBSITE_URL = '';
 export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
@@ -59,20 +59,22 @@ export const esp_websites = [
     App Skin
 */
 
-// Chattahooligans palette
+// Chattahooligans + NGS palette
 export const Palette = {
   Navy: '#002D56',
   Sky: '#A3D8F7',
   White: '#FFFFFF',
-  Black: '#000000'
+  Black: '#000000',
+  Gold: '#c7990b',
+  Rouge: '#5a0204'
 };
 
 export const DefaultColors = {
-  NavigationBarBackground: Palette.Navy,
+  NavigationBarBackground: Palette.Rouge,
   Background: Palette.White,
-  ButtonBackground: Palette.Navy,
+  ButtonBackground: Palette.Rouge,
   ButtonText: Palette.White,
-  HeaderBackground: Palette.Navy,
+  HeaderBackground: Palette.Rouge,
   HeaderText: Palette.White,
   Text: Palette.Black,
   ColorText: Palette.Navy
@@ -80,11 +82,11 @@ export const DefaultColors = {
 
 export const Skin = {
   Home_SocialButtons: DefaultColors.ButtonBackground,
-  Songbook_Background: Palette.Sky,
+  Songbook_Background: Palette.Gold,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
-  SingleSong_Background: Palette.Navy,
+  SingleSong_Background: Palette.Rouge,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Player_Background: Palette.Sky,
+  Player_Background: Palette.Gold,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Player_DefaultImage: CLUB_LOGO,
 };
