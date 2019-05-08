@@ -29,12 +29,12 @@ export const GOFUNDME_URL =
 export const ESP_TWITTER_URL = 'https://twitter.com/Rouge_y_Oro';
 export const ESP_INSTAGRAM_URL = '';
 export const ESP_WEBSITE_URL = '';
-export const EVENTS_URL = 'https://m.facebook.com/TheChattahooligans/events/';
+export const EVENTS_URL = 'https://m.facebook.com/NGSDetroit/events/';
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 
-export const CLUB_LOGO = require('../../assets/chattfc_logo.png');
+export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
 
 // icon: Iconicons name
 export const websites = [

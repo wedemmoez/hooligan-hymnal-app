@@ -267,7 +267,7 @@ class DeferredHomeContent extends React.Component {
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <View style={{ marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: Palette.Sky, paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
+          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: Palette.Gold, paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
             <Image
               source={GOFUNDME_ICON}
               style={{
@@ -280,7 +280,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <MediumText style={{ fontSize: 16 }}>
-              Youth Soccer Investment Crowdfunding
+              Let's Make Roots
             </MediumText>
           </TouchableOpacity>
         </View>
@@ -302,7 +302,7 @@ class DeferredHomeContent extends React.Component {
             Linking.openURL(WEBSITE_URL);
           }}>
             <MediumText>Visit: </MediumText>
-            <UnderlineText>http://comeandjoin.us</UnderlineText>
+            <UnderlineText>http://noonelikes.us</UnderlineText>
           </TouchableOpacity>
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>

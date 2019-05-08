@@ -14,24 +14,24 @@ export default class About extends React.Component {
   };
   render() {
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Gold }}>
         <View style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <Text>Chattahooligan Hymnal</Text>
+          <Text>NGS Hymnal</Text>
           <View style={{ height: 10 }} />
           <Text>
             Thanks for testing! Stay tuned for updates before the season begins
           </Text>
           <Text>
-            Please send feedback to Twitter: @chattahooligan or
-            thechattahooligans@gmail.com
+            Please send feedback to Twitter: @NGSDetroit or
+            webmaster@noonelikes.us
           </Text>
           <View style={{ height: 50 }} />
-          <Text>Home screen video created by Jay Kaley</Text>
-          <Text>Menu photo from Phil Thach photography</Text>
-          <Text>Some player photos from Madonna Kemp and Ray Soldano, used with permission</Text>
-          <Text>Player headshots provided by Chattanooga FC, used with permission</Text>
+          <Text>Home screen video pending</Text>
+          <Text>Menu photo pending</Text>
+          <Text>Player photos pending</Text>
+          <Text>Player headshots pending</Text>
           <Text>
-            Some code based on open source @nodevember conference schedule app
+            Forked from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app
           </Text>
           <View style={{ height: 50 }} />
           <Text>Debug</Text>
