@@ -6,6 +6,8 @@ import { getPlayers } from '../services/playersService';
 import { getRoster } from '../services/rosterService';
 import { HYMNAL_ADDRESS } from '../config/server';
 
+import htmlColors from '../data/htmlColors.json';
+
 const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
 
 export default class GlobalDataContainer extends Container {
@@ -29,8 +31,11 @@ export default class GlobalDataContainer extends Container {
       squads: []
     },
     players: null,
+    goalkeeperNickname: null,
+    htmlColors: null,
     token: null,
-    unlocked: false
+    unlocked: false,
+    response: null
   };
 
   loadData = async () => {
@@ -41,7 +46,7 @@ export default class GlobalDataContainer extends Container {
       const players = await getPlayers();
       const roster = await getRoster();
       
-      this.setState({ songbook: songbook[0], songs, roster: roster[0], players });
+      this.setState({ songbook: songbook[0], songs, roster: roster[0], players, htmlColors });
     } catch (e) {
       //
     }
@@ -127,6 +132,17 @@ export default class GlobalDataContainer extends Container {
     this.setState({ currentSong: song }, () => {
       if (callback) callback();
     });
+
+  setGoalkeeperNickname = (nick, callback) =>
+  this.setState({ goalkeeperNickname: nick }, () => {
+    if (callback) callback();
+  });
+
+  setResponse = (response, callback) =>
+  this.setState({response: response}, () => {
+    if (callback) callback();
+  });
+
 
   setLocation = location => this.setState({ location });
 

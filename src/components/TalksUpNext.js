@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import moment from 'moment-timezone';
 import { BoldText, MediumText } from './StyledText';
 import SongCard from './SongCard';
+import GoalkeeperNicknameCard from './GoalkeeperNicknameCard';
 import { Colors, FontSizes } from '../constants';
 import { getFeaturedSong } from '../data';
 import { RectButton } from 'react-native-gesture-handler';
@@ -10,19 +11,32 @@ import { Ionicons } from '@expo/vector-icons';
 import { HYMNAL_ADDRESS } from '../config/server';
 
 const CAPO_MESSAGE_ENDPOINT = HYMNAL_ADDRESS + '/api/notifications/last';
+const GOALKEEPER_NICKNAME_ENDPOINT = HYMNAL_ADDRESS + '/api/goalkeeperNicknames/last';
+
+const GK_EXPIRATION_HOURS = 2;
 
 class TalksUpNext extends React.Component {
   state = {
     capoMessage: null,
-    label: 'Up Next',
-    song: getFeaturedSong(this.props.songbook, this.props.songs)
+    song: getFeaturedSong(this.props.songbook, this.props.songs),
+    goalkeeperNickname: null
   };
 
   render() {
     const featuredSection = this.state.capoMessage || this.state;
+    const goalkeeperNickname = this.state.goalkeeperNickname;
+
+    let goalkeeperNicknameDisplay;
+    if (goalkeeperNickname) {
+      let createdAt = new Date(goalkeeperNickname.createdAt)
+      createdAt.setHours(createdAt.getHours() + GK_EXPIRATION_HOURS)
+      let now = new Date();
+      if (now < createdAt)
+        goalkeeperNicknameDisplay = <GoalkeeperNicknameCard goalkeeperNickname={goalkeeperNickname}/>
+    }
 
     return (
-      <View style={[{ marginHorizontal: 10 }, this.props.style]}>
+      <View style={[{ marginHorizontal: 10, marginBottom: 10, paddingBottom: 10 }, this.props.style]}>
         <View
           style={{
             flex: 1,
@@ -30,9 +44,7 @@ class TalksUpNext extends React.Component {
             justifyContent: 'space-between'
           }}
         >
-          <MediumText style={{ fontSize: FontSizes.title }}>
-            {this.state.label}
-          </MediumText>
+          <MediumText style={{ fontSize: FontSizes.title }}>{this.state.label}</MediumText>
           <RectButton
             style={styles.bigButton}
             onPress={this._handlePressRefreshButton}
@@ -51,14 +63,18 @@ class TalksUpNext extends React.Component {
         <SongCard
           key={featuredSection.song._id}
           song={featuredSection.song}
-          style={{ marginTop: 10, marginBottom: 10 }}
-        />
+          />
+          {goalkeeperNicknameDisplay}
       </View>
     );
   }
 
   componentWillMount() {
+    this.setState({
+      label: 'Up Next',
+    });
     this._refreshNotification();
+    this._refreshGoalkeeperNickname();
   }
 
   componentDidUpdate(prevProps) {
@@ -69,11 +85,11 @@ class TalksUpNext extends React.Component {
 
   _handlePressRefreshButton = () => {
     this._refreshNotification();
+    this._refreshGoalkeeperNickname();
   };
 
   _setFeaturedSong = () => {
     this.setState({
-      label: 'Up Next',
       song: getFeaturedSong(this.props.songbook, this.props.songs)
     });
   };
@@ -90,7 +106,6 @@ class TalksUpNext extends React.Component {
           if (responseJson.song) {
             this.setState({
               capoMessage: {
-                label: 'Up Next',
                 song: responseJson.song
               }
             });
@@ -103,6 +118,33 @@ class TalksUpNext extends React.Component {
           // no data returns a json parsing error
           this.setState({
             capoMessage: null
+          });
+        }
+      });
+  };
+
+  _refreshGoalkeeperNickname = async () => {
+    // run this on load
+    // on a schedule or maybe not
+    // and trigger it when we receive a notification to refresh this screen
+    fetch(GOALKEEPER_NICKNAME_ENDPOINT)
+      .then(response => response.json())
+      .then(responseJson => {
+        try {
+          // if this is valid ??
+          if (responseJson.nickname) {
+            this.setState({
+              goalkeeperNickname: responseJson
+            });
+          } else {
+            this.setState({
+              goalkeeperNickname: null
+            });
+          }
+        } catch (err) {
+          // no data returns a json parsing error
+          this.setState({
+            goalkeeperNickname: null
           });
         }
       });

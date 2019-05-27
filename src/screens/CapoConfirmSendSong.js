@@ -23,17 +23,19 @@ import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import SongView from '../components/SongView';
 
 import { Colors, FontSizes, Layout } from '../constants';
+import { Skin, DefaultColors } from '../config/Settings';
 import { Constants } from 'expo';
 import { HeaderBackButton } from 'react-navigation';
 import { Location, Permissions } from 'expo';
 
 import CapoMessageSchema from '../data/capo_message_schema';
+import SongSchema from '../data/song_schema';
 import RemoteNotifications from '../server_store/RemoteNotifications';
 
 @withNavigation
-class CapoConfirmSend extends React.Component {
+class CapoConfirmSendSong extends React.Component {
   static navigationOptions = ({ navigation }) => ({
-    title: 'Confirm?',
+    title: 'Confirm Song?',
     ...NavigationOptions,
     headerLeft: (
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
@@ -83,7 +85,6 @@ class CapoConfirmSend extends React.Component {
                   size={23}
                   style={{
                     color: '#fff',
-                    marginTop: 3,
                     backgroundColor: 'transparent',
                     marginRight: 5
                   }}
@@ -104,7 +105,6 @@ class CapoConfirmSend extends React.Component {
                   size={23}
                   style={{
                     color: '#fff',
-                    marginTop: 3,
                     backgroundColor: 'transparent',
                     marginRight: 5
                   }}
@@ -138,7 +138,8 @@ class CapoConfirmSend extends React.Component {
       CapoMessageSchema.sender_latitude = location.coords.latitude;
       CapoMessageSchema.sender_longitude = location.coords.longitude;
     }
-    CapoMessageSchema.song = currentSong;
+    CapoMessageSchema.song = Object.assign({}, currentSong);
+    delete CapoMessageSchema.song._id;
     //console.log('---- object to wrap in a message to server ----\n', CapoMessageSchema);
 
     let notifications = new RemoteNotifications();
@@ -151,28 +152,20 @@ class CapoConfirmSend extends React.Component {
         sender_longitude: CapoMessageSchema.sender_longitude,
         message: '',
         push: pushFlag,
-        announcement: undefined,
-        song: {
-          category: CapoMessageSchema.song.category,
-          delete_local: CapoMessageSchema.song.delete_local,
-          title: CapoMessageSchema.song.title,
-          instructions: CapoMessageSchema.song.instructions,
-          lyrics: CapoMessageSchema.song.lyrics,
-          reference_title: CapoMessageSchema.song.reference_title,
-          reference_link: CapoMessageSchema.song.reference_link,
-          player_id: CapoMessageSchema.song.player_id,
-          legend: CapoMessageSchema.song.legend,
-          create_time: CapoMessageSchema.song.create_time,
-          update_time: CapoMessageSchema.song.update_time
-        }
+        announcement: null,
+        song: CapoMessageSchema.song,
+        goalkeeperNickname: null
       })
       .then(responseJson => {
         // this is the output from the server for sending our capo_message
         console.log(JSON.stringify(responseJson));
+
+        this.props.globalData.setResponse(responseJson);
         // we REALLY need to confirm this got sent
         //alert("success or fail message? do we even know?");
         // if fail, stay here
         // if success
+        this.props.navigation.popToTop();
         this.props.navigation.navigate('Home');
       });
   };
@@ -206,7 +199,7 @@ const styles = StyleSheet.create({
     alignItems: 'stretch'
   },
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 0,
@@ -219,12 +212,12 @@ const styles = StyleSheet.create({
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
+    color: DefaultColors.ButtonText,
     textAlign: 'center',
     marginRight: 15
   }
 });
 
-export default withUnstated(CapoConfirmSend, {
+export default withUnstated(CapoConfirmSendSong, {
   globalData: GlobalDataContainer
 });

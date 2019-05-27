@@ -54,7 +54,8 @@ const RosterNavigation = StackNavigator(
       screen: Screens.Roster
     },
     Player: { screen: Screens.Player },
-    RosterSingleSong: { screen: Screens.SingleSong }
+    RosterSingleSong: { screen: Screens.SingleSong },
+    TwitterList: { screen: Screens.TwitterList }
   },
   {
     ...DefaultStackConfig,
@@ -92,6 +93,34 @@ const StandingsNavigation = StackNavigator(
   }
 );
 
+const ShopNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Shop
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'MERCH SHOP ↗️'
+    }
+  }
+);
+
+const InstrumentationNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Instrumentation
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'INSTRUMENTATION ↗️'
+    }
+  }
+);
+
 const CapoHomeNavigation = StackNavigator(
   {
     CapoLogin: { screen: Screens.CapoLogin },
@@ -99,8 +128,10 @@ const CapoHomeNavigation = StackNavigator(
       screen: Screens.CapoHome
     },
     CapoSelectSong: { screen: Screens.CapoSelectSong },
-    CapoConfirmSend: { screen: Screens.CapoConfirmSend },
-    CapoComposeSong: { screen: Screens.CapoComposeSong }
+    CapoComposeSong: { screen: Screens.CapoComposeSong },
+    CapoConfirmSendSong: { screen: Screens.CapoConfirmSendSong },
+    CapoSetGoalkeeperNickname: { screen: Screens.CapoSetGoalkeeperNickname },
+    CapoConfirmSendGoalkeeperNickname: { screen: Screens.CapoConfirmSendGoalkeeperNickname }
   },
   {
     ...DefaultStackConfig,
@@ -131,6 +162,8 @@ const Drawer = DrawerNavigator(
     Roster: { screen: RosterNavigation },
     Events: { screen: EventsNavigation },
     Standings: { screen: StandingsNavigation },
+    Shop: { screen: ShopNavigation },
+    Instrumentation: {screen: InstrumentationNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },

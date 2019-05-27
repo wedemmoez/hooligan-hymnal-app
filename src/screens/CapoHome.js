@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, Platform, StyleSheet, View } from 'react-native';
+import { Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -10,6 +10,7 @@ import { Ionicons } from '@expo/vector-icons';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import { Colors, FontSizes } from '../constants';
+import { Skin, DefaultColors } from '../config/Settings';
 
 // TODO: If capo mode is not enabled (using AsyncStorage?), redirect to CapoLogin
 
@@ -34,7 +35,6 @@ export default class CapoHome extends React.Component {
               size={23}
               style={{
                 color: '#fff',
-                marginTop: 3,
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
@@ -55,7 +55,6 @@ export default class CapoHome extends React.Component {
               size={23}
               style={{
                 color: '#fff',
-                marginTop: 3,
                 backgroundColor: 'transparent',
                 marginRight: 5
               }}
@@ -65,16 +64,42 @@ export default class CapoHome extends React.Component {
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressGoalkeeperNicknameButton}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-hand"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              GK Nickname
+            </MediumText>
+          </RectButton>
+        </ClipBorderRadius>
       </LoadingPlaceholder>
     );
   }
 
   _handlePressSelectSongButton = () => {
+    Keyboard.dismiss();
     this.props.navigation.navigate('CapoSelectSong');
   };
 
   _handlePressComposeSongButton = () => {
     this.props.navigation.navigate('CapoComposeSong');
+  };
+
+  _handlePressGoalkeeperNicknameButton = () => {
+    Keyboard.dismiss();
+    this.props.navigation.navigate('CapoSetGoalkeeperNickname');
   };
 }
 
@@ -95,7 +120,7 @@ const BORDER_RADIUS = 3;
 
 const styles = StyleSheet.create({
   bigButton: {
-    backgroundColor: Colors.green,
+    backgroundColor: DefaultColors.ButtonBackground,
     paddingHorizontal: 15,
     height: 50,
     marginHorizontal: 15,
@@ -107,7 +132,7 @@ const styles = StyleSheet.create({
   },
   bigButtonText: {
     fontSize: FontSizes.normalButton,
-    color: '#fff',
+    color: DefaultColors.ButtonText,
     textAlign: 'center'
   }
 });

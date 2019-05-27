@@ -37,7 +37,7 @@ import {
 
 import appParams from '../../app.json';
 
-import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON } from '../config/Settings';
+import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON } from '../config/Settings';
 
 let socialButtons = [];
 let socialButtonsEsp = [];
@@ -77,6 +77,7 @@ websites.forEach(item => {
       >
         <Image
           source={item.image}
+          tintColor={item.tint ? Skin.Home_SocialButtons : '' }
           style={{
             width: 30,
             height: 30,
@@ -167,9 +168,12 @@ class Home extends React.Component {
       // TODO: open SingleSong screen and send it the Song object buried inside the notification
 
       // kinda like this but it doesn't work from this far out (because navigation doesn't exist yet)
-      this.props.navigation.navigate('SingleSong', {
-        song: notification.data.song
-      });
+      if (notification.data.song)
+      {
+        this.props.navigation.navigate('SingleSong', {
+          song: notification.data.song
+        });
+      }
 
       // Maybe set app state and do something with it that way?
       // this.setState({ notification: notification });
@@ -269,10 +273,11 @@ class DeferredHomeContent extends React.Component {
         <View style={{ marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
           <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: Palette.Gold, paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
             <Image
-              source={GOFUNDME_ICON}
+              source={GOFUNDME_BW_ICON}
+              tintColor={Skin.Home_SocialButtons}
               style={{
-                width: 16,
-                height: 16,
+                width: 20,
+                height: 20,
                 marginTop: 1,
                 marginBottom: 1,
                 marginRight: 5,

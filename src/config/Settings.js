@@ -30,11 +30,15 @@ export const ESP_TWITTER_URL = 'https://twitter.com/Rouge_y_Oro';
 export const ESP_INSTAGRAM_URL = '';
 export const ESP_WEBSITE_URL = '';
 export const EVENTS_URL = 'https://m.facebook.com/NGSDetroit/events/';
+export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
+export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 
 export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
+
+export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 
 // icon: Iconicons name
 export const websites = [
@@ -42,7 +46,7 @@ export const websites = [
   { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
   { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },  
   { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
-  { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL }
+  { type: SocialPlatform.Web, image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tint: true }
 ];
 
 export const esp_websites = [
