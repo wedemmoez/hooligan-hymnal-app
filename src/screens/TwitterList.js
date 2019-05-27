@@ -67,7 +67,7 @@ class TwitterList extends React.Component {
                 handles += '@'+element.twitter + ' '
           });
 
-          handles += '@ChattanoogaFC @chattahooligan @LosCFCHooligans'
+          handles += '@DetroitCityFC @NGSDetroit'
       }
     });
 
@@ -80,14 +80,14 @@ class TwitterList extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Sky }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Gold }}>
         <View style={{ flex: 1, padding: 5 }}>
           <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18}}>
-            All Together, Now
+            Be the 12th on the pitch
           </MediumText>
           <RegularText style={{backgroundColor: Palette.White, padding: 5, marginBottom: 1}}>          
-          The connection between CFC fans and the team is unique, special, and tangible. 
-          Messages of encouragement, love, whatever, truly mean a lot to the players.
+          Support for the players of DCFC comes in many forms both in and out of the stadium. 
+          Tweets from supporters before and after matches are meaningful and appreciated by players.
           {"\n"}{"\n"}
           You can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.
           </RegularText>

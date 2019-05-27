@@ -244,8 +244,9 @@ class Player extends React.Component {
               <RegularText style={styles.bodyText}>{player.bio}</RegularText>
             </ReadMore>
 
-            <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
-            {playerSongDisplay}
+            {/*NGS does not have player-specific songs*/}
+            {/*<MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+            {playerSongDisplay*/}
           </AnimatableView>
         </AnimatedScrollView>
 
