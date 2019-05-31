@@ -47,7 +47,7 @@ class About extends React.Component {
           <Text>NGS Hymnal</Text>
           <View style={{ height: 10 }} />
           <Text>
-            Thanks for testing! Stay tuned for updates before the season begins
+            Thanks for testing! Stay tuned for updates.
           </Text>
           <Text>
             Please send feedback to Twitter: @NGSDetroit or
