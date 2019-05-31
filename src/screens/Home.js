@@ -222,9 +222,9 @@ class Home extends React.Component {
               <View style={styles.headerVideoOverlay} />
             </View>
             <Image
-              source={require('../../assets/home-big-c-logo.png')}
+              source={require('../../assets/ngs3.png')}
               style={{ height: 100, resizeMode: 'contain', marginTop: 20 }}
-              tintColor={DefaultColors.HeaderText}
+              //tintColor={DefaultColors.HeaderText}
             />
             <View style={styles.headerContent}>
               <RegularText style={styles.headerText}>
@@ -379,7 +379,7 @@ const styles = StyleSheet.create({
   },
   headerVideoOverlay: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: Palette.Navy,
+    backgroundColor: Palette.Rouge,
     opacity: 0.8
   },
   headerText: {

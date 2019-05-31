@@ -10,9 +10,9 @@
     "orientation": "portrait",
     "sdkVersion": "32.0.0",
     "splash": {
-      "backgroundColor": "#FFFFFF",
+      "backgroundColor": "#000000",
       "resizeMode": "contain",
-      "image": "./assets/ngs2.png"
+      "image": "./assets/ngs3.png"
     },
     "android": {
       "package": "com.northernguard.app",

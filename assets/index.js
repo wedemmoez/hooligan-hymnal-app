@@ -1,8 +1,8 @@
 export default [
   require('./northernguard.png'),
   require('./dcfc_logo.png'),
-  require('./drawer-hero-background.png'),
-  require('./drawer-hero-logo.png'),
+  require('./drawer-prideraiser-background.jpg'),
+  require('./ngs3.png'),
   require('./gofundme.png'),
   require('./home-logo.png'),
   require('./icon-android.png'),

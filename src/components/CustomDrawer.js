@@ -9,13 +9,13 @@ const CustomDrawer = props => (
   <View style={styles.container}>
     <View style={styles.drawerHeader}>
       <Image
-        source={require('../../assets/drawer-hero-background.png')}
+        source={require('../../assets/drawer-prideraiser-background.jpg')}
         style={styles.backgroundImage}
       />
       <View style={[StyleSheet.absoluteFill, styles.imageOverlay]} />
       <View style={[StyleSheet.absoluteFill, styles.logoContainer]}>
         <Image
-          source={require('../../assets/drawer-hero-logo.png')}
+          source={require('../../assets/ngs3.png')}
           style={styles.logoImage}
         />
       </View>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333333'
   },
   imageOverlay: {
-    backgroundColor: 'rgba(3, 46, 85, 0.57)'
+    backgroundColor: 'rgba(84, 3, 6, 0.57)'
   },
   logoContainer: {
     alignItems: 'center',
