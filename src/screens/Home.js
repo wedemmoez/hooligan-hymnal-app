@@ -271,20 +271,8 @@ class DeferredHomeContent extends React.Component {
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
         <View style={{ marginBottom: 10, marginTop: 10, alignItems: 'center', justifyContent: 'center' }}>
-          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: Palette.Gold, paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
-            <Image
-              source={GOFUNDME_BW_ICON}
-              tintColor={Skin.Home_SocialButtons}
-              style={{
-                width: 20,
-                height: 20,
-                marginTop: 1,
-                marginBottom: 1,
-                marginRight: 5,
-                backgroundColor: 'transparent'
-              }}
-            />
-            <MediumText style={{ fontSize: 16 }}>
+          <TouchableOpacity style={{flexDirection: 'row', alignItems:'center', backgroundColor: Palette.Rouge, paddingHorizontal: 5, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
+            <MediumText style={{ fontSize: 16, color: "white" }}>
               Let's Make Roots
             </MediumText>
           </TouchableOpacity>
