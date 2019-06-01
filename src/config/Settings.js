@@ -86,7 +86,7 @@ export const DefaultColors = {
 
 export const Skin = {
   Home_SocialButtons: DefaultColors.ButtonBackground,
-  Songbook_Background: Palette.Gold,
+  Songbook_Background: Palette.White,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Rouge,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,

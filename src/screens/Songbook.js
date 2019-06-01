@@ -180,7 +180,7 @@ class Songbook extends React.Component {
               <View style={{ flex: 1 }} />
               <Image
                 style={{ width: screenWidth, height: screenWidth }}
-                source={require('../../assets/songbook-front-cover-heebo.png')}
+                source={require('../../assets/ngs1.png')}
               />
               <View style={{ flex: 1 }} />
               <RegularText>Swipe Left/Right to View Songs</RegularText>

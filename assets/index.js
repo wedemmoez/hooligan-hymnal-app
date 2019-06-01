@@ -9,7 +9,7 @@ export default [
   require('./icon-ios.png'),
   require('./icon.png'),
   require('./prideraiser.png'),
-  require('./songbook-front-cover.png'),
+  require('./ngs1.png'),
   require('./speakerphone.png'),
   require('./splash.png')
 ];
