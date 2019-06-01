@@ -29,7 +29,7 @@ export const GOFUNDME_URL =
 export const ESP_TWITTER_URL = 'https://twitter.com/Rouge_y_Oro';
 export const ESP_INSTAGRAM_URL = '';
 export const ESP_WEBSITE_URL = '';
-export const EVENTS_URL = 'https://m.facebook.com/NGSDetroit/events/';
+export const EVENTS_URL = 'https://noonelikes.us/events/';
 export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
