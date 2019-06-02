@@ -277,11 +277,11 @@ class DeferredHomeContent extends React.Component {
             </MediumText>
           </TouchableOpacity>
         </View>
-        <TalksUpNext
+        {/*<TalksUpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
-        />
+        />*/}
         <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
           <TouchableOpacity onPress={this._handlePressAllSongs}>
             <MediumText style={styles.seeAllSongs}>
