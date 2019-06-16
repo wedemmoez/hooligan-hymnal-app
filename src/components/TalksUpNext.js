@@ -71,7 +71,7 @@ class TalksUpNext extends React.Component {
 
   componentWillMount() {
     this.setState({
-      label: 'Up Next',
+      label: 'Latest News',
     });
     this._refreshNotification();
     this._refreshGoalkeeperNickname();

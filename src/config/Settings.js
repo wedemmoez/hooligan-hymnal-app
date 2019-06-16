@@ -46,6 +46,7 @@ export const websites = [
   { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
   { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },  
   { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
+  { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
   { type: SocialPlatform.Web, image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tint: true }
 ];
 
@@ -69,6 +70,7 @@ export const Palette = {
   Sky: '#A3D8F7',
   White: '#FFFFFF',
   Black: '#000000',
+  Prideraiser: '#a55eea',
   Gold: '#c7990b',
   Rouge: '#5a0204'
 };
