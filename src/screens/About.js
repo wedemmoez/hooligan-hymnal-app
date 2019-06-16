@@ -42,7 +42,7 @@ class About extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Gold }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Palette.White }}>
         <View style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <Text>NGS Hymnal</Text>
           <View style={{ height: 10 }} />
@@ -54,20 +54,20 @@ class About extends React.Component {
             webmaster@noonelikes.us
           </Text>
           <View style={{ height: 50 }} />
-          <Text>Home screen video pending</Text>
-          <Text>Menu photo pending</Text>
-          <Text>Player photos pending</Text>
-          <Text>Player headshots pending</Text>
+          <Text>Home screen video: @mikoDCTID</Text>
+          <Text>Menu photo: @TheDukeNGS</Text>
+          {/*<Text>Player photos pending</Text>*/}
+          {/*<Text>Player headshots pending</Text>*/}
           <Text>
-            Forked from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app
+            Forked with love from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app
           </Text>
           <View style={{ height: 50 }} />
-          <ScrollView style={{flex: 1}}>
+          {/*<ScrollView style={{flex: 1}}>
             <Text>Debug</Text>
             <Text selectable={true}>{this.state.token}</Text>
             <Text></Text>
             <Text selectable={true}>{JSON.stringify(this.state.response)}</Text>
-          </ScrollView>
+          </ScrollView>*/}
           <Text></Text>
         </View>
       </View>

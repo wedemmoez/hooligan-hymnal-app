@@ -92,7 +92,7 @@ export const Skin = {
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Rouge,
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
-  Player_Background: Palette.Gold,
+  Player_Background: Palette.White,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Player_DefaultImage: CLUB_LOGO,
 };
