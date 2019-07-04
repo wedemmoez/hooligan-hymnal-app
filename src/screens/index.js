@@ -10,9 +10,11 @@ import Events from './Events';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
+import Roots from "./Roots";
 import Roster from './Roster';
 import Shop from './Shop';
 import SingleSong from './SingleSong';
+import Smoke from "./Smoke";
 import Songbook from './Songbook';
 import Songs from './Songs';
 import Standings from './Standings';
@@ -32,9 +34,11 @@ export default {
   Home,
   Instrumentation,
   Player,
+  Roots,
   Roster,
   Shop,
   SingleSong,
+  Smoke,
   Songbook,
   Songs,
   Standings,

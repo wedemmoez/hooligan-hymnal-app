@@ -31,6 +31,8 @@ export const ESP_INSTAGRAM_URL = '';
 export const ESP_WEBSITE_URL = '';
 export const EVENTS_URL = 'https://noonelikes.us/events/';
 export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
+export const ROOTS_URL = 'https://noonelikes.us/about-ngs/'
+export const SMOKE_URL = 'https://noonelikes.us/donate/'
 
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');

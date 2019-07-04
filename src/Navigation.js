@@ -107,6 +107,34 @@ const ShopNavigation = StackNavigator(
   }
 );
 
+const LetsMakeRootsNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Roots
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'LET\'S MAKE ROOTS ↗️'
+    }
+  }
+);
+
+const SmokeNavigation = StackNavigator(
+  {
+    Events: {
+      screen: Screens.Smoke
+    }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'DONATE TO SMOKE ↗️'
+    }
+  }
+);
+
 const InstrumentationNavigation = StackNavigator(
   {
     Events: {
@@ -163,8 +191,10 @@ const Drawer = DrawerNavigator(
     Events: { screen: EventsNavigation },
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
-    Instrumentation: {screen: InstrumentationNavigation },
-    CapoHome: { screen: CapoHomeNavigation },
+    Roots: { screen: LetsMakeRootsNavigation },
+    Smoke: { screen: SmokeNavigation },
+    //Instrumentation: {screen: InstrumentationNavigation },
+    //CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
   },
   {
