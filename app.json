@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "NGS Hymnal",
-    "description": "The Northern Guard's stadium chants and songs",
+    "description": "",
     "slug": "app",
     "privacy": "public",
     "version": "0.0.36",
@@ -32,6 +32,10 @@
     "notification": {
       "icon": "./assets/speakerphone.png",
       "color": "#A3D8F7"
-    }
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ]
   }
 }
