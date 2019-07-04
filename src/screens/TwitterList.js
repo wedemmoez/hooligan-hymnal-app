@@ -80,7 +80,7 @@ class TwitterList extends React.Component {
 
   render() {
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.Gold }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Palette.White }}>
         <View style={{ flex: 1, padding: 5 }}>
           <MediumText style={{backgroundColor: Palette.White, paddingHorizontal: 5, fontSize: 18}}>
             Be the 12th on the pitch
