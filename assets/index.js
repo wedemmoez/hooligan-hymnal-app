@@ -10,6 +10,7 @@ export default [
   require('./icon.png'),
   require('./prideraiser.png'),
   require('./ngs1.png'),
+  require('./ngs4.jpg'),
   require('./speakerphone.png'),
   require('./splash.png')
 ];

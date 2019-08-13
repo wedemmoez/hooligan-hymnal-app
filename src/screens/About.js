@@ -44,22 +44,29 @@ class About extends React.Component {
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.White }}>
         <View style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <Text>NGS Hymnal</Text>
+          <Text style={{fontWeight: "bold", fontSize: 20}}>The Guardbook</Text>
           <View style={{ height: 10 }} />
           <Text>
-            Thanks for testing! Stay tuned for updates.
-          </Text>
-          <Text>
-            Please send feedback to Twitter: @NGSDetroit or
-            webmaster@noonelikes.us
+            Please send feedback to Twitter: <Text style={{fontWeight: "bold"}}>@NGSDetroit</Text> or 
+            <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text>
           </Text>
           <View style={{ height: 50 }} />
-          <Text>Home screen video: @mikoDCTID</Text>
-          <Text>Menu photo: @TheDukeNGS</Text>
+          <Text>Home screen video: <Text style={{fontWeight: "bold"}}>@mikoDCTID</Text></Text>
+          <Text>Menu photo: <Text style={{fontWeight: "bold"}}>@TheDukeNGS</Text></Text>
+          <Text>Hell's Hymnal: <Text style={{fontWeight: "bold"}}>@JosephSlowvak</Text></Text>
+          <Text>Roster: <Text style={{fontWeight: "bold"}}>@NGS_Tonto</Text></Text>
+          <Text>Lead Developer: <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text></Text>
           {/*<Text>Player photos pending</Text>*/}
           {/*<Text>Player headshots pending</Text>*/}
+          <View style={{ height: 50 }} />
           <Text>
-            Forked with love from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app
+            Forked with love from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app.
+          </Text>
+          <View style={{ height: 50 }} />
+          <Text>
+            Interested in helping? If you can code, research players, take awesome photos, or otherwise help make the Guardbook better,
+            we'd love to work with you! Please contact <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text> on Twitter or
+            <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text> for more information.
           </Text>
           <View style={{ height: 50 }} />
           {/*<ScrollView style={{flex: 1}}>

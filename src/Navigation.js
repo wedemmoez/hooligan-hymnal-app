@@ -43,7 +43,7 @@ const SongbookNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'SONGBOOK'
+      drawerLabel: "HELL'S HYMNAL"
     }
   }
 );
@@ -193,9 +193,9 @@ const Drawer = DrawerNavigator(
     Shop: { screen: ShopNavigation },
     Roots: { screen: LetsMakeRootsNavigation },
     Smoke: { screen: SmokeNavigation },
-    //Instrumentation: {screen: InstrumentationNavigation },
-    //CapoHome: { screen: CapoHomeNavigation },
+    CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
+    //Instrumentation: {screen: InstrumentationNavigation },
   },
   {
     contentComponent: props => <CustomDrawer {...props} />,

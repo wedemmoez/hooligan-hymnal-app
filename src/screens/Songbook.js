@@ -70,7 +70,7 @@ let defaultChapterTitle = 'Cover';
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 class Songbook extends React.Component {
   static navigationOptions = {
-    title: 'Songbook',
+    title: "Hell's Hymnal",
     ...NavigationOptions
   };
 
