@@ -6,9 +6,9 @@
     "privacy": "public",
     "version": "0.0.36",
     "primaryColor": "#A3D8F7",
-    "icon": "./assets/ngs4.jpg",
+    "icon": "./assets/ngs4.png",
     "orientation": "portrait",
-    "sdkVersion": "32.0.0",
+    "sdkVersion": "34.0.0",
     "splash": {
       "backgroundColor": "#000000",
       "resizeMode": "contain",
