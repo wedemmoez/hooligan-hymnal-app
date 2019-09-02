@@ -11,7 +11,6 @@ import {
   View
 } from 'react-native';
 import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
-import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import FadeIn from 'react-native-fade-in-image';
 import { View as AnimatableView } from 'react-native-animatable';
