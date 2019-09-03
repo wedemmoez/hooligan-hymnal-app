@@ -65,8 +65,7 @@ class PlayerRow extends React.Component {
           style={{justifyContent: 'flex-start', alignContent: 'center'}}
           key={player.twitter}
           onPress={() => {
-            //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
-            Linking.openURL('https://twitter.com/intent/tweet?text=@' + player.twitter + '+');
+            Linking.openURL('http://twitter.com/' + player.twitter);
           }}
         >
           <Ionicons
