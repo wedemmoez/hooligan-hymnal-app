@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "NGS Hymnal",
+    "name": "The Guardbook",
     "description": "",
     "slug": "app",
     "privacy": "public",
@@ -26,7 +26,7 @@
       "supportsTablet": false,
       "loadJSInBackgroundExperimental": true,
       "infoPlist": {
-        "NSLocationWhenInUseUsageDescription": "NGS Hymnal will use location to ignore notifications when you are not at the stadium."
+        "NSLocationWhenInUseUsageDescription": "The Guardbook will use location to ignore notifications when you are not at the stadium."
       }
     },
     "notification": {
