@@ -23,7 +23,7 @@
     },
     "ios": {
       "bundleIdentifier": "com.northernguard.app",
-      "supportsTablet": true,
+      "supportsTablet": false,
       "loadJSInBackgroundExperimental": true,
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "NGS Hymnal will use location to ignore notifications when you are not at the stadium."
