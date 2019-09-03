@@ -17,7 +17,7 @@
     "android": {
       "package": "com.northernguard.app",
       "icon": "./assets/ngs1.png",
-      "versionCode": 15,
+      "versionCode": 16,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },

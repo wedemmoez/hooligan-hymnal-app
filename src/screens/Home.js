@@ -36,7 +36,7 @@ import {
 
 import appParams from '../../app.json';
 
-import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL } from '../config/Settings';
+import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFUNDME_URL, GOFUNDME_ICON, GOFUNDME_BW_ICON, PRIDERAISER_ICON, PRIDERAISER_URL, PRIDERAISER_ACTIVE } from '../config/Settings';
 
 let socialButtons = [];
 let socialButtonsEsp = [];
@@ -267,9 +267,8 @@ class DeferredHomeContent extends React.Component {
     if (!this.state.ready) {
       return null;
     }
-    return (
-      <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        <View style={{ marginBottom: 10 }}>
+    var prideRaiser = (
+      <View style={{ marginBottom: 10 }}>
           <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Prideraiser, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressPrideraiser}>
             <Image
               source={PRIDERAISER_ICON}
@@ -287,6 +286,11 @@ class DeferredHomeContent extends React.Component {
             </MediumText>
           </TouchableOpacity>
         </View>
+    );
+    if(!PRIDERAISER_ACTIVE) prideRaiser = [];
+    return (
+      <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
+        {prideRaiser}
         {<TalksUpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}

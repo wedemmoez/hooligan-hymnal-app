@@ -41,6 +41,7 @@ export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
 
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
+export const PRIDERAISER_ACTIVE = false;
 
 // icon: Iconicons name
 export const websites = [
