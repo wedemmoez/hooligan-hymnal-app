@@ -192,7 +192,7 @@ const Drawer = DrawerNavigator(
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
     Roots: { screen: LetsMakeRootsNavigation },
-    Smoke: { screen: SmokeNavigation },
+    //Smoke: { screen: SmokeNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }
     //Instrumentation: {screen: InstrumentationNavigation },
