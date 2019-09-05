@@ -164,7 +164,7 @@ const CapoHomeNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'CAPO DASHBOARD'
+      drawerLabel: 'GATEKEEPER DASHBOARD'
     }
   }
 );
