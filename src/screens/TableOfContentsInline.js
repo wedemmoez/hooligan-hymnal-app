@@ -67,9 +67,6 @@ class SongRow extends React.Component {
               <RegularText style={{marginRight: 10}}>
                 {capoSignal}
               </RegularText>
-              <RegularText style={styles.pageLabel}>
-                {song.toc_page_label}
-              </RegularText>
             </View>
           </View>
         </View>
