@@ -54,9 +54,7 @@ export const websites = [
 ];
 
 export const esp_websites = [
-  { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: ESP_TWITTER_URL },
-  { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: ESP_INSTAGRAM_URL },
-  { type: SocialPlatform.Web, icon: 'md-browsers', url: ESP_WEBSITE_URL }
+  { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: ESP_TWITTER_URL }
 ];
 
 // { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
