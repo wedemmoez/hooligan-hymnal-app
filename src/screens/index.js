@@ -7,6 +7,8 @@ import CapoLogin from './CapoLogin';
 import CapoSetGoalkeeperNickname from './CapoSetGoalkeeperNickname';
 import CapoSelectSong from './CapoSelectSong';
 import Events from './Events';
+import FoesSelector from './FoesSelector';
+import FoesRoster from './FoesRoster';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
@@ -31,6 +33,8 @@ export default {
   CapoSetGoalkeeperNickname,
   CapoSelectSong,
   Events,
+  FoesSelector,
+  FoesRoster,
   Home,
   Instrumentation,
   Player,

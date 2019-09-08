@@ -6,6 +6,7 @@ import { getSongs } from '../services/songsService';
 import { getSongbook } from '../services/songbookService';
 import { getPlayers } from '../services/playersService';
 import { getRoster } from '../services/rosterService';
+import { getFoes } from '../services/foesService';
 import { HYMNAL_ADDRESS } from '../config/server';
 
 import htmlColors from '../data/htmlColors.json';
@@ -32,12 +33,14 @@ export default class GlobalDataContainer extends Container {
       season: '',
       squads: []
     },
+    foes: null,
     players: null,
     goalkeeperNickname: null,
     htmlColors: null,
     token: null,
     unlocked: false,
-    response: null
+    response: null,
+    currentFoe: null
   };
 
   loadData = async () => {
@@ -47,8 +50,9 @@ export default class GlobalDataContainer extends Container {
 
       const players = await getPlayers();
       const roster = await getRoster();
+      const foes = await getFoes();
       
-      this.setState({ songbook: songbook[0], songs, roster: roster[0], players, htmlColors });
+      this.setState({ songbook: songbook[0], songs, roster: roster[0], players, htmlColors, foes });
     } catch (e) {
       //
     }

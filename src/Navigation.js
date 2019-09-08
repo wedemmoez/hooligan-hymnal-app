@@ -65,6 +65,20 @@ const RosterNavigation = StackNavigator(
   }
 );
 
+const FoesNavigation = StackNavigator(
+  {
+    Foes: {
+      screen: Screens.FoesSelector
+    },
+    FoesRoster: {screen: Screens.FoesRoster }
+  },
+  {
+    ...DefaultStackConfig,
+    navigationOptions: {
+      drawerLabel: 'FOES MAD'
+    }
+  }
+);
 const EventsNavigation = StackNavigator(
   {
     Events: {
@@ -188,6 +202,7 @@ const Drawer = DrawerNavigator(
     Home: { screen: HomeNavigation },
     Songbook: { screen: SongbookNavigation },
     Roster: { screen: RosterNavigation },
+    Foes: { screen: FoesNavigation },
     Events: { screen: EventsNavigation },
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
