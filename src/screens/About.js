@@ -51,6 +51,7 @@ class About extends React.Component {
             <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text>
           </Text>
           <View style={{ height: 50 }} />
+          <Text>All player headshots courtesy of <Text style={{fontWeight: "bold"}}>Detroit City FC</Text></Text>
           <Text>Home screen video: <Text style={{fontWeight: "bold"}}>@mikoDCTID</Text></Text>
           <Text>Menu photo: <Text style={{fontWeight: "bold"}}>@TheDukeNGS</Text></Text>
           <Text>Hell's Hymnal: <Text style={{fontWeight: "bold"}}>@JosephSlowvak</Text></Text>
