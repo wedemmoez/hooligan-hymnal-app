@@ -4,11 +4,11 @@
     "description": "",
     "slug": "app",
     "privacy": "public",
-    "version": "1.0.38",
+    "version": "1.0.39",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
-    "sdkVersion": "34.0.0",
+    "sdkVersion": "35.0.0",
     "splash": {
       "backgroundColor": "#000000",
       "resizeMode": "contain",
