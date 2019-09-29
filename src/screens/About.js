@@ -56,7 +56,9 @@ class About extends React.Component {
           <Text>Menu photo: <Text style={{fontWeight: "bold"}}>@TheDukeNGS</Text></Text>
           <Text>Hell's Hymnal: <Text style={{fontWeight: "bold"}}>@JosephSlowvak</Text></Text>
           <Text>Roster: <Text style={{fontWeight: "bold"}}>@NGS_Tonto</Text></Text>
-          <Text>Lead Developer: <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text></Text>
+          <Text>Administration Developer: <Text style={{fontWeight: "bold"}}>@shortnd667</Text></Text>
+          <Text>Release Manager: <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text></Text>
+          <Text>Official Butt Opinions: <Text style={{fontWeight: "bold"}}>@ThaBlackUnicorn</Text></Text>
           {/*<Text>Player photos pending</Text>*/}
           {/*<Text>Player headshots pending</Text>*/}
           <View style={{ height: 50 }} />
