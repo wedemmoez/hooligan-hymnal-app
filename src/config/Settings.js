@@ -22,9 +22,8 @@ export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
 export const WEBSITE_URL = 'https://noonelikes.us';
 export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
 export const SHOP_URL = 'https://noonelikes.us/shop/';
-export const PRIDERAISER_URL =
-  'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-KPNjywj/';
-export const GOFUNDME_URL =
+export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-KPNjywj/';
+export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
   'https://twitter.com/LetsMakeRoots';
 export const ESP_TWITTER_URL = 'https://twitter.com/Rouge_y_Oro';
 export const ESP_INSTAGRAM_URL = '';
@@ -34,12 +33,13 @@ export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924
 export const ROOTS_URL = 'https://noonelikes.us/about-ngs/'
 export const SMOKE_URL = 'https://noonelikes.us/donate/'
 
+// Common Images
+// like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
-
 export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
-
+// used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 export const PRIDERAISER_ACTIVE = false;
 
@@ -84,7 +84,8 @@ export const DefaultColors = {
   HeaderBackground: Palette.Rouge,
   HeaderText: Palette.White,
   Text: Palette.Black,
-  ColorText: Palette.Navy
+  ColorText: Palette.Navy,
+  Secondary: Palette.Sky
 }
 
 export const Skin = {
@@ -95,5 +96,20 @@ export const Skin = {
   Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Player_Background: Palette.White,
   Roster_DefaultThumbnail: CLUB_LOGO,
+  Roster_TabBackground: DefaultColors.ButtonBackground,
+  Roster_ActiveTabIndicator: DefaultColors.ButtonText,
+  Roster_ActiveTabLabel: DefaultColors.ButtonText,
+  Roster_InactiveTabLabel: DefaultColors.Secondary,
+  Roster_FriendsTabIcon: 'md-heart',
+  Roster_FriendsTabLabel: 'Friends',
+  Roster_FoesTabIcon: 'md-thumbs-down',
+  Roster_FoesTabLabel: 'Foes',
   Player_DefaultImage: CLUB_LOGO,
 };
+
+/*
+  App Feature Flags
+*/
+export const Settings = {
+  Player_ShowSongs: true
+}

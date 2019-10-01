@@ -14,6 +14,9 @@ import Instrumentation from './Instrumentation';
 import Player from './Player';
 import Roots from "./Roots";
 import Roster from './Roster';
+import RosterFoePlayers from './RosterFoePlayers';
+import RosterFoes from './RosterFoes';
+import RosterHome from './RosterHome';
 import Shop from './Shop';
 import SingleSong from './SingleSong';
 import Smoke from "./Smoke";
@@ -22,6 +25,7 @@ import Songs from './Songs';
 import Standings from './Standings';
 import TableOfContentsInline from './TableOfContentsInline';
 import TwitterList from './TwitterList';
+import Volunteer from './Volunteer';
 
 export default {
   About,
@@ -40,6 +44,9 @@ export default {
   Player,
   Roots,
   Roster,
+  RosterFoePlayers,
+  RosterFoes,
+  RosterHome,
   Shop,
   SingleSong,
   Smoke,
@@ -47,5 +54,6 @@ export default {
   Songs,
   Standings,
   TableOfContentsInline,
-  TwitterList
+  TwitterList,
+  Volunteer
 };

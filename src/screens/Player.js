@@ -20,6 +20,7 @@ import ReadMore from 'react-native-read-more-text';
 import { BorderlessButton } from 'react-native-gesture-handler';
 import { HeaderBackButton } from 'react-navigation';
 import { View as AnimatableView } from 'react-native-animatable';
+import ParsedText from 'react-native-parsed-text';
 import _ from 'lodash';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
@@ -30,7 +31,7 @@ import { FontSizes, Icons, Layout } from '../constants';
 import { RegularText, BoldText, MediumText } from '../components/StyledText';
 import { Ionicons } from '@expo/vector-icons';
 import SongCard from '../components/SongCard';
-import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { Skin, DefaultColors, Palette, Settings } from '../config/Settings';
 
 class Player extends React.Component {
   static navigationOptions = {
@@ -133,18 +134,24 @@ class Player extends React.Component {
 
     if (this.state.playerSongs.length === 0) {
       playerSongDisplay = (
-        <RegularText style={styles.bodyText}>
-          We are still working on a song for this player. Want to help? Submit
-          an idea!
-        </RegularText>
+        <View>
+          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <RegularText style={styles.bodyText}>
+            We are still working on a song for this player. Want to help? Submit
+            an idea!
+          </RegularText>
+        </View>
       );
     } else {
       playerSongDisplay = (
-        <FlatList
-          data={this.state.playerSongs}
-          renderItem={this._renderSongCard}
-          keyExtractor={(item, index) => index.toString()}
-        />
+        <View>
+          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <FlatList
+            data={this.state.playerSongs}
+            renderItem={this._renderSongCard}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
       );
     }
 
@@ -242,9 +249,21 @@ class Player extends React.Component {
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
             >
-              <RegularText style={styles.bodyText}>{player.bio}</RegularText>
+              <ParsedText 
+                parse={
+                  [
+                    {type: 'url', style: styles.url, onPress: this._urlPress},
+                    {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                    {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+                  ]
+                }
+                style={styles.bodyText}
+                >
+                {player.bio}
+              </ParsedText>
+              <RegularText style={styles.bodyText}></RegularText>
             </ReadMore>
-
+            {Settings.Player_ShowSongs && playerSongDisplay}
             {/*NGS does not have player-specific songs*/}
             {/*<MediumText style={styles.sectionHeader}>Player Songs</MediumText>
             {playerSongDisplay*/}
@@ -253,7 +272,8 @@ class Player extends React.Component {
 
         <NavigationBar
           animatedBackgroundOpacity={headerOpacity}
-          style={[
+          paddingTop={0}
+          style={[{paddingTop: 0},
             Platform.OS === 'android'
               ? { height: Layout.headerHeight + Constants.statusBarHeight }
               : null
@@ -315,6 +335,10 @@ class Player extends React.Component {
       </TouchableOpacity>
     );
   };
+
+  _renderFormatted = (matchingString) => {
+    return matchingString.slice(1, matchingString.length-1)
+  }
 }
 
 const styles = StyleSheet.create({
@@ -332,7 +356,7 @@ const styles = StyleSheet.create({
   },
   headerContainer: {
     backgroundColor: Skin.Player_TopContainerBackground,
-    paddingTop: Constants.statusBarHeight + Layout.notchHeight + 20,
+    paddingTop: Constants.statusBarHeight + Layout.notchHeight,
     paddingBottom: 20,
     paddingHorizontal: 20,
     alignItems: 'center',
@@ -346,6 +370,16 @@ const styles = StyleSheet.create({
     fontSize: FontSizes.bodyTitle,
     marginTop: 15,
     marginBottom: 3
+  },
+  bold: {
+    fontWeight: 'bold'
+  },
+  italic: {
+    fontStyle: 'italic'
+  },
+  url: {
+    color: 'blue',
+    textDecorationLine: 'underline'
   }
 });
 

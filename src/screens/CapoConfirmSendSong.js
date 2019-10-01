@@ -159,7 +159,7 @@ class CapoConfirmSendSong extends React.Component {
         // if fail, stay here
         // if success
         this.props.navigation.popToTop();
-        this.props.navigation.navigate('Home');
+        this.props.navigation.navigate('Home');        
       });
   };
 }

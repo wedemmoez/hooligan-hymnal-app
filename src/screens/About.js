@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
+import { FontSizes } from '../constants';
+import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 
@@ -43,13 +45,14 @@ class About extends React.Component {
   render() {
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.White }}>
-        <View style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
+        <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <Text style={{fontWeight: "bold", fontSize: 20}}>The Guardbook</Text>
+          <RegularText>The Chattahooligan Hymnal is built to help you support Chattanooga FC.</RegularText>
           <View style={{ height: 10 }} />
-          <Text>
             Please send feedback to Twitter: <Text style={{fontWeight: "bold"}}>@NGSDetroit</Text> or 
             <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text>
-          </Text>
+          <View style={{ height: 20 }} />
+          <MediumText>Credits</MediumText>
           <View style={{ height: 50 }} />
           <Text>All player headshots courtesy of <Text style={{fontWeight: "bold"}}>Detroit City FC</Text></Text>
           <Text>Home screen video: <Text style={{fontWeight: "bold"}}>@mikoDCTID</Text></Text>
@@ -62,24 +65,11 @@ class About extends React.Component {
           {/*<Text>Player photos pending</Text>*/}
           {/*<Text>Player headshots pending</Text>*/}
           <View style={{ height: 50 }} />
-          <Text>
             Forked with love from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app.
-          </Text>
-          <View style={{ height: 50 }} />
-          <Text>
             Interested in helping? If you can code, research players, take awesome photos, or otherwise help make the Guardbook better,
             we'd love to work with you! Please contact <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text> on Twitter or
             <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text> for more information.
-          </Text>
-          <View style={{ height: 50 }} />
-          {/*<ScrollView style={{flex: 1}}>
-            <Text>Debug</Text>
-            <Text selectable={true}>{this.state.token}</Text>
-            <Text></Text>
-            <Text selectable={true}>{JSON.stringify(this.state.response)}</Text>
-          </ScrollView>*/}
-          <Text></Text>
-        </View>
+        </ScrollView>
       </View>
     );
   }

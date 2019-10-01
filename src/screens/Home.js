@@ -11,6 +11,7 @@ import {
   View
 } from 'react-native';
 import { Asset, LinearGradient, Notifications, WebBrowser, Video } from 'expo';
+import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import { NavigationActions } from 'react-navigation';
 import FadeIn from 'react-native-fade-in-image';
 import { View as AnimatableView } from 'react-native-animatable';
@@ -40,9 +41,10 @@ import { Palette, DefaultColors, Skin, websites, esp_websites, WEBSITE_URL, GOFU
 
 let socialButtons = [];
 let socialButtonsEsp = [];
+let banners = [];
 
 websites.forEach(item => {
-  if (item.icon) {
+  if (item.icon && item.url) {
     socialButtons.push(
       <TouchableOpacity
         key={item.url}
@@ -65,7 +67,7 @@ websites.forEach(item => {
         />
       </TouchableOpacity>
     );
-  } else if (item.image) {
+  } else if (item.image && item.url) {
     socialButtons.push(
       <TouchableOpacity
         key={item.url}
@@ -93,7 +95,7 @@ websites.forEach(item => {
 });
 
 esp_websites.forEach(item => {
-  if (item.icon) {
+  if (item.icon && item.url) {
     socialButtonsEsp.push(
       <TouchableOpacity
         key={item.url}
@@ -116,7 +118,7 @@ esp_websites.forEach(item => {
         />
       </TouchableOpacity>
     );
-  } else if (item.image) {
+  } else if (item.image && item.url) {
     socialButtonsEsps.push(
       <TouchableOpacity
         key={item.url}
@@ -141,6 +143,45 @@ esp_websites.forEach(item => {
     );
   }
 });
+
+/*
+banners.push(
+  <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Prideraiser, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressPrideraiser}>
+    <Image
+      source={PRIDERAISER_ICON}
+      style={{
+        width: 20,
+        height: 20,
+        marginTop: 1,
+        marginBottom: 1,
+        marginRight: 5,
+        backgroundColor: 'transparent'
+      }}
+    />
+    <MediumText style={{ fontSize: 16, color: Palette.White }}>
+      Chattanooga Prideraiser
+    </MediumText>
+  </TouchableOpacity>
+)
+banners.push(
+  <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Sky, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressGoFundMe}>
+    <Image
+      source={GOFUNDME_BW_ICON}
+      tintColor={Skin.Home_SocialButtons}
+      style={{
+        width: 20,
+        height: 20,
+        marginTop: 1,
+        marginBottom: 1,
+        marginRight: 5,
+        backgroundColor: 'transparent'
+      }}
+    />
+    <MediumText style={{ fontSize: 16 }}>
+      Youth Soccer Investment Crowdfunding
+    </MediumText>
+  </TouchableOpacity>
+)*/ 
 
 class Home extends React.Component {
   state = {
@@ -246,7 +287,6 @@ class Home extends React.Component {
   }
 }
 
-@withNavigation
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === 'android' ? false : true
@@ -267,66 +307,82 @@ class DeferredHomeContent extends React.Component {
     if (!this.state.ready) {
       return null;
     }
-    var prideRaiser = (
-      <View style={{ marginBottom: 10 }}>
-          <TouchableOpacity style={{flexDirection: 'row', backgroundColor: Palette.Prideraiser, paddingHorizontal: 10, paddingVertical: 3}} onPress={this._handlePressPrideraiser}>
-            <Image
-              source={PRIDERAISER_ICON}
-              style={{
-                width: 20,
-                height: 20,
-                marginTop: 1,
-                marginBottom: 1,
-                marginRight: 5,
-                backgroundColor: 'transparent'
-              }}
-            />
-            <MediumText style={{ fontSize: 16, color: Palette.White }}>
-              Detroit Prideraiser
-            </MediumText>
-          </TouchableOpacity>
-        </View>
-    );
-    if(!PRIDERAISER_ACTIVE) prideRaiser = [];
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>
-        {prideRaiser}
-        {<TalksUpNext
+        <View style={{ marginBottom: banners.length > 0 ? 10 : 0 }}>
+          {banners}
+        </View>
+        <TalksUpNext
           songs={this.props.globalData.state.songs}
           songbook={this.props.globalData.state.songbook}
           style={{ marginTop: 20, marginHorizontal: 15, marginBottom: 2 }}
-        />}
-        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
-          <TouchableOpacity onPress={this._handlePressAllSongs}>
-            <MediumText style={styles.seeAllSongs}>
-              Go to the hymnal →
+        />
+        <ClipBorderRadius style={{marginTop: -2}}>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressSongbook}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-book"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              Songbook
             </MediumText>
-          </TouchableOpacity>
-        </View>
-        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
-          <TouchableOpacity onPress={this._handlePressRoster}>
-            <MediumText style={styles.seeAllSongs}>
-              Go to the roster →
+          </RectButton>
+        </ClipBorderRadius>
+        <ClipBorderRadius>
+          <RectButton
+            style={styles.bigButton}
+            onPress={this._handlePressRoster}
+            underlayColor="#fff"
+          >
+            <Ionicons
+              name="md-people"
+              size={23}
+              style={{
+                color: '#fff',
+                backgroundColor: 'transparent',
+                marginRight: 5
+              }}
+            />
+            <MediumText style={styles.bigButtonText}>
+              Roster
             </MediumText>
-          </TouchableOpacity>
+          </RectButton>
+        </ClipBorderRadius>
+        <View style={{ marginHorizontal: 15, marginBottom: 20 }}>
+          <MediumText style={{color: DefaultColors.ColorText, fontSize: FontSizes.bodyLarge, marginTop: 5}}>
+            Find more great features in the <Ionicons
+              name="md-menu"
+              size={FontSizes.bodyLarge}
+              style={{ backgroundColor: 'transparent', marginRight: 5}}
+            /> menu, top left
+          </MediumText>
         </View>
         <View flexDirection="row" style={{ marginHorizontal: 15, marginBottom: 10 }}>
           <TouchableOpacity style={{flexDirection: 'row'}} onPress={() => {
             //WebBrowser.openBrowserAsync(item.url);
             Linking.openURL(WEBSITE_URL);
           }}>
-            <MediumText>Visit: </MediumText>
+            <MediumText style={{color: DefaultColors.ColorText}}>Visit: </MediumText>
             <UnderlineText>http://noonelikes.us</UnderlineText>
           </TouchableOpacity>
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <MediumText>Follow us</MediumText>
+          <MediumText style={{color: DefaultColors.ColorText}}>Follow us</MediumText>
         </View>
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtons}
         </View>
         <View style={{ marginHorizontal: 15, flex: 1 }}>
-          <MediumText>Síguenos</MediumText>
+          <MediumText style={{color: DefaultColors.ColorText}}>Síguenos</MediumText>
         </View>
         <View flexDirection="row" style={{ paddingHorizontal: 20 }}>
           {socialButtonsEsp}
@@ -335,7 +391,7 @@ class DeferredHomeContent extends React.Component {
     );
   }
 
-  _handlePressAllSongs = () => {
+  _handlePressSongbook = () => {
     this.props.navigation.dispatch(
       NavigationActions.navigate({
         routeName: 'Songbook'

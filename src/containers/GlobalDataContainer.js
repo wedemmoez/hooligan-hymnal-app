@@ -1,6 +1,7 @@
 import { Notifications } from 'expo';
 import * as Permissions from 'expo-permissions';
 import * as Location from 'expo-location';
+import { Platform } from 'react-native';
 import { Container } from 'unstated';
 import { getSongs } from '../services/songsService';
 import { getSongbook } from '../services/songbookService';
@@ -35,6 +36,8 @@ export default class GlobalDataContainer extends Container {
     },
     foes: null,
     players: null,
+    foes: null,
+    currentFoe: null,
     goalkeeperNickname: null,
     htmlColors: null,
     token: null,
@@ -53,10 +56,45 @@ export default class GlobalDataContainer extends Container {
       const foes = await getFoes();
       
       this.setState({ songbook: songbook[0], songs, roster: roster[0], players, htmlColors, foes });
+      this.setState({ 
+        songbook: songbook[0], 
+        songs, 
+        players, 
+        roster: this.verifyRoster(players,roster[0]), 
+        foes, 
+        htmlColors });
     } catch (e) {
-      //
+      alert("loadData exception: " + e.toString());
     }
   };
+
+  verifyRoster = (players,roster) => {
+    let squads = [];
+
+    roster.squads.forEach(squadChild => {
+      let playerList = [];
+
+      squadChild.players.forEach(playerChild => {
+        try {
+          let player = players.find(player => player._id === playerChild._id);
+
+          if (player)
+            playerList.push(player);
+          else
+            console.log(playerChild._id + ' not found in players database');
+        } catch (err) {
+          console.log(playerChild._id + ' not found in players database');
+        }
+      });
+
+      if (0 < playerList.length)
+        squads.push({ _id: squadChild._id, squadTitle: squadChild.squadTitle, players: playerList });
+    });
+
+    roster.squads = squads;
+    
+    return roster;
+  }
 
   getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
@@ -126,7 +164,9 @@ export default class GlobalDataContainer extends Container {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-          pushToken: token
+          pushToken: token,
+          platform: Platform.OS,
+          platformVersion: Platform.Version
         })
       });
     } catch (e) {

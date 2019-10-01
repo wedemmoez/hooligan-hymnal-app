@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-  Platform,
+  FlatList,
   Image,
   Linking,
+  Picker,
   SectionList,
   StyleSheet,
   TouchableOpacity,
   View,
-  Text
 } from 'react-native';
 
 import withUnstated from '@airship/with-unstated';
@@ -22,34 +22,11 @@ import { NavigationActions } from 'react-navigation';
 import { BoldText, MediumText, RegularText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 
-import Players from '../data/players.json';
-import Squads from '../data/roster.json';
-
 import { Colors, FontSizes, Layout } from '../constants';
 import Constants from 'expo-constants';
 
 import { find, propEq } from 'ramda';
 import { Palette, Skin } from '../config/Settings';
-
-let rosterData = [];
-Squads.squads.forEach(squadChild => {
-  let playerList = [];
-
-  //console.log(squadChild.squad_title);
-  squadChild.players.forEach(playerChild => {
-    try {
-      let player = Players.filter(player => player._id === playerChild._id)[0];
-      //console.log(player._id + " " + player.name);
-      
-      playerList.push(player);
-    } catch (err) {
-      console.log(playerChild._id + ' not found in players database');
-    }
-  });
-
-  if (0 < playerList.length)
-    rosterData.push({ title: squadChild.squad_title, data: playerList });
-});
 
 class PlayerRow extends React.Component {
   render() {
@@ -131,7 +108,8 @@ class Roster extends React.Component {
   
   state = {
     rosterTitle: "Roster",
-    squads: []
+    squads: [],
+    currentSquadID: null
   }
 
   componentDidMount() {
@@ -141,58 +119,70 @@ class Roster extends React.Component {
   componentDidUpdate(prevProps) {
     if (
       !prevProps.globalData.state.players &&
-      this.props.globalData.state.players
+      this.props.globalData.state.players ||
+      !prevProps.globalData.state.roster &&
+      this.props.globalData.state.roster
     ) {
       this.setData();
     }
   }
 
   setData = () => {
-    console.log('setData');
-
     let rosterTitle = this.props.globalData.state.roster.rosterTitle;
-    let squads = [];
-    let players = this.props.globalData.state.players;
-    
-    this.props.globalData.state.roster.squads.forEach(squadChild => {
-      let playerList = [];
+    let squads = this.props.globalData.state.roster.squads;
 
-      //console.log(squadChild.squad_title);
-      squadChild.players.forEach(playerChild => {
-        try {
-          let player = players.filter(player => player._id === playerChild._id)[0];
-          //console.log(player._id + " " + player.name);
-
-          playerList.push(player);
-        } catch (err) {
-          console.log(playerChild._id + ' not found in players database');
-        }
-      });
-
-      if (0 < playerList.length)
-        squads.push({ title: squadChild.squadTitle, data: playerList });
-    });
-
-    this.setState({ rosterTitle, squads });
-
-    // TODO:
-    // line 92
-    // fix static navigationOptions.headerTitle = state.rosterTitle (there is a scoping issue here) 
+    if (squads.length > 0)
+      this.setState({ rosterTitle, squads, currentSquadID: squads[0]._id });
+    else
+      this.setState({ rosterTitle, squads, currentSquadID: null });
   }
 
   render() {
+    let listDisplay = null;
+    let header = null;
+
+    if (this.state.squads.length > 0)
+    {
+      let pickerItems = [];
+      this.state.squads.forEach(element => {
+        pickerItems.push(<Picker.Item label={element.squadTitle} value={element._id} key={element._id} />);
+      });
+      header = 
+        <Picker
+          enabled={pickerItems.length > 1}
+          selectedValue={this.state.currentSquadID}
+          onValueChange={(itemValue) => this.setState({currentSquadID: itemValue})}
+        >
+          {pickerItems}
+        </Picker>
+  
+      let playerData = this.state.squads.find(element => element._id == this.state.currentSquadID).players;
+  
+      listDisplay = 
+        <FlatList
+          renderScrollComponent={props => <ScrollView {...props} />}
+          data={playerData}
+          renderItem={this._renderItem}
+          keyExtractor={(item, index) => index.toString()}
+        />
+    }
+    else
+    {
+      header = 
+        <Picker>
+          <Picker.Item label='No Squads found' />
+        </Picker>
+      listDisplay = <View style={{flex: 1}}/>
+    }
+    
+
     return (
       <LoadingPlaceholder>
         <View style={styles.container}>
-          <SectionList style={styles.container}
-            renderScrollComponent={props => <ScrollView {...props} />}
-            stickySectionHeadersEnabled={true}
-            renderItem={this._renderItem}
-            renderSectionHeader={this._renderSectionHeader}
-            sections={this.state.squads}
-            keyExtractor={(item, index) => index}
-          />
+          {header}
+          {listDisplay}
           <RectButton
+            enabled={this.state.squads.length > 0}
             style={styles.twitterListButtonStyle}
             onPress={this._handlePressTwitterListButton}
             underlayColor="#fff"
@@ -221,7 +211,7 @@ class Roster extends React.Component {
   _renderSectionHeader = ({ section }) => {
     return (
       <View style={styles.sectionHeader}>
-        <RegularText>{section.title}</RegularText>
+        <RegularText>{section.squadTitle}</RegularText>
       </View>
     );
   };
@@ -236,7 +226,8 @@ class Roster extends React.Component {
   };
 
   _handlePressTwitterListButton = () => {
-    this.props.navigation.navigate('TwitterList');
+    let squad = this.state.squads.find(element => element._id == this.state.currentSquadID)
+    this.props.navigation.navigate('TwitterList', {squad});
   }
 }
 
