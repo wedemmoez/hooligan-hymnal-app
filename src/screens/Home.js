@@ -334,7 +334,7 @@ class DeferredHomeContent extends React.Component {
               }}
             />
             <MediumText style={styles.bigButtonText}>
-              Songbook
+              Hell's Hymnal
             </MediumText>
           </RectButton>
         </ClipBorderRadius>
