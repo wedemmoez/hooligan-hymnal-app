@@ -132,28 +132,28 @@ class Player extends React.Component {
     if (player.image)
       playerImage = {uri: player.image};
 
-    if (this.state.playerSongs.length === 0) {
-      playerSongDisplay = (
-        <View>
-          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
-          <RegularText style={styles.bodyText}>
-            We are still working on a song for this player. Want to help? Submit
-            an idea!
-          </RegularText>
-        </View>
-      );
-    } else {
-      playerSongDisplay = (
-        <View>
-          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
-          <FlatList
-            data={this.state.playerSongs}
-            renderItem={this._renderSongCard}
-            keyExtractor={(item, index) => index.toString()}
-          />
-        </View>
-      );
-    }
+    //if (this.state.playerSongs.length === 0) {
+    //  playerSongDisplay = (
+    //    <View>
+    //      <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+    //      <RegularText style={styles.bodyText}>
+    //        We are still working on a song for this player. Want to help? Submit
+    //        an idea!
+    //      </RegularText>
+    //    </View>
+    //  );
+    //} else {
+    //  playerSongDisplay = (
+    //    <View>
+    //      <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+    //      <FlatList
+    //        data={this.state.playerSongs}
+    //        renderItem={this._renderSongCard}
+    //        keyExtractor={(item, index) => index.toString()}
+    //      />
+    //    </View>
+    //  );
+    //}
 
     const { scrollY } = this.state;
     const scale = scrollY.interpolate({
