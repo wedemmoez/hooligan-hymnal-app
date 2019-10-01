@@ -47,10 +47,11 @@ class About extends React.Component {
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.White }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <Text style={{fontWeight: "bold", fontSize: 20}}>The Guardbook</Text>
-          <RegularText>The Chattahooligan Hymnal is built to help you support Chattanooga FC.</RegularText>
+          <RegularText>The Guardbook was conjured from the dark web to help everyone support Detroit City FC.</RegularText>
           <View style={{ height: 10 }} />
-            Please send feedback to Twitter: <Text style={{fontWeight: "bold"}}>@NGSDetroit</Text> or 
+            <RegularText>Please send feedback to Twitter: <Text style={{fontWeight: "bold"}}>@NGSDetroit</Text> or 
             <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text>
+            </RegularText>
           <View style={{ height: 20 }} />
           <MediumText>Credits</MediumText>
           <View style={{ height: 50 }} />
@@ -65,10 +66,12 @@ class About extends React.Component {
           {/*<Text>Player photos pending</Text>*/}
           {/*<Text>Player headshots pending</Text>*/}
           <View style={{ height: 50 }} />
+          <RegularText>
             Forked with love from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app.
             Interested in helping? If you can code, research players, take awesome photos, or otherwise help make the Guardbook better,
             we'd love to work with you! Please contact <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text> on Twitter or
             <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text> for more information.
+          </RegularText>
         </ScrollView>
       </View>
     );

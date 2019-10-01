@@ -2,9 +2,9 @@
   "expo": {
     "name": "The Guardbook",
     "description": "",
-    "slug": "chattahooligan-hymnal",
+    "slug": "app",
     "privacy": "public",
-    "version": "1.0.39",
+    "version": "1.0.40",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
@@ -25,7 +25,9 @@
       "bundleIdentifier": "com.northernguard.app",
       "supportsTablet": false,
       "loadJSInBackgroundExperimental": true,
-      "NSLocationWhenInUseUsageDescription": "The Guardbook will use location to ignore notifications when you are not at the stadium."
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "The Guardbook will use location to ignore notifications when you are not at the stadium."
+      }
     },
     "notification": {
       "icon": "./assets/speakerphone.png",

@@ -287,6 +287,7 @@ class Home extends React.Component {
   }
 }
 
+@withNavigation
 class DeferredHomeContent extends React.Component {
   state = {
     ready: Platform.OS === 'android' ? false : true
