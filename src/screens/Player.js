@@ -132,28 +132,28 @@ class Player extends React.Component {
     if (player.image)
       playerImage = {uri: player.image};
 
-    //if (this.state.playerSongs.length === 0) {
-    //  playerSongDisplay = (
-    //    <View>
-    //      <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
-    //      <RegularText style={styles.bodyText}>
-    //        We are still working on a song for this player. Want to help? Submit
-    //        an idea!
-    //      </RegularText>
-    //    </View>
-    //  );
-    //} else {
-    //  playerSongDisplay = (
-    //    <View>
-    //      <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
-    //      <FlatList
-    //        data={this.state.playerSongs}
-    //        renderItem={this._renderSongCard}
-    //        keyExtractor={(item, index) => index.toString()}
-    //      />
-    //    </View>
-    //  );
-    //}
+    if (this.state.playerSongs.length === 0) {
+      playerSongDisplay = (
+        <View>
+          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <RegularText style={styles.bodyText}>
+            We are still working on a song for this player. Want to help? Submit
+            an idea!
+          </RegularText>
+        </View>
+      );
+    } else {
+      playerSongDisplay = (
+        <View>
+          <MediumText style={styles.sectionHeader}>Player Songs</MediumText>
+          <FlatList
+            data={this.state.playerSongs}
+            renderItem={this._renderSongCard}
+            keyExtractor={(item, index) => index.toString()}
+          />
+        </View>
+      );
+    }
 
     const { scrollY } = this.state;
     const scale = scrollY.interpolate({
@@ -244,7 +244,7 @@ class Player extends React.Component {
           >
             <MediumText style={styles.sectionHeader}>Bio</MediumText>
             <ReadMore
-              numberOfLines={3}
+              numberOfLines={20}
               renderTruncatedFooter={this._renderTruncatedFooter}
               renderRevealedFooter={this._renderRevealedFooter}
               onReady={this._handleTextReady}
@@ -263,10 +263,7 @@ class Player extends React.Component {
               </ParsedText>
               <RegularText style={styles.bodyText}></RegularText>
             </ReadMore>
-            {Settings.Player_ShowSongs && playerSongDisplay}
-            {/*NGS does not have player-specific songs*/}
-            {/*<MediumText style={styles.sectionHeader}>Player Songs</MediumText>
-            {playerSongDisplay*/}
+            <Text>{Settings.Player_ShowSongs && playerSongDisplay}</Text>
           </AnimatableView>
         </AnimatedScrollView>
 

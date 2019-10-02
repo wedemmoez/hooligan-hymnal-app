@@ -111,5 +111,5 @@ export const Skin = {
   App Feature Flags
 */
 export const Settings = {
-  Player_ShowSongs: true
+  Player_ShowSongs: false
 }
