@@ -44,6 +44,7 @@ class CapoConfirmSendSong extends React.Component {
 
   componentWillMount() {
     Keyboard.dismiss();
+    //this._getLocationAsync();
   }
 
   _getLocationAsync = async () => {
