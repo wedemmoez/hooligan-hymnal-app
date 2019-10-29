@@ -1,255 +1,62 @@
-# Chattahooligans app
+# Hooligan Hymnal
 
-- Download [Chattahooligans on the Apple App Store](https://itunes.apple.com/us/app/chattahooligans/id1316372562?mt=8)
-- Download [Chattahooligans on Google Play](https://play.google.com/store/apps/details?id=org.chattahooligans.app&hl=en)
-- Open Chattahooligans App [with the Expo client](https://expo.io/@chattahooligans/app)
+[egotistical introduction of the project]
+From the minds that brought you supporter culture revalations like Prideraiser.org and positioning capos in the back of the section, The Chattahooligans, independent supporters of Chattanooga Football Club, have conceived the future of SG information flow- Hooligan Hymnal. After rigorous experimentation and seeing our community embrace the technology, we shared it with our Mitten-state frenemies, the Northern Guard Supporters, and are advancing the platform even further.
 
-## Get it running on your machine (anybody)
+At long last, we're sharing this revolutionary invention with the world- to improve supporter culture for all of us and to make managing supporters groups less exhausting.
 
-- `yarn global add exp`
-- Clone this repo, cd into it, run `yarn`
-- `exp start`
-- Scan the QR code from your phone. Alternatively, in another terminal window run `exp ios` and/or `exp android` to open in simulator.
+## Features
 
-## Deployment (for project owners)
+[brief table-setting]
+The smartphone application and server are chock full of useful features, each born from necessity and based on the experience of managing one of the most sophisticated supporters groups in the game.
 
-### Publishing updates (JS only)
+### Digital Songbook/Chant Sheet
 
-First, sign in `nodevember` Expo account.
+Always up-to-date, no printing or folding required.
 
-- Android: `exp publish --release-channel android`
-- iOS: `exp publish --release-channel ios`
-- Expo client: `exp publish`
+The Hooligan Hymnal songbook can include links to YouTube/Soundcloud, sheet music for brass players, and has an interactive Table of Contents. SGs with large libraries of stadium chants and songs can stay organized by sorting them into chapters.
 
-### Standalone builds
+### Supporter-managed Roster
 
-First, sign in to the `nodevember` Expo account.
+Opening the app is faster for your fans than having them navigate through a club or league website.
 
-- Android: `exp build:android --release-channel android`
-- iOS: `exp build:android --release-channel ios`
+Put some swagger into your deployment with custom bios and photo albums. Include links to players' Instagram and Twitter accounts so fans can give them well wishes on match day.
 
+_Friends and Foes_ will include opponent's roster information right in the app, thanks to a growing collection of league website scrapers.
 
-This project was bootstrapped with [Create React Native App](https://github.com/react-community/create-react-native-app).
+### Updates and Push Notifications
 
-Below you'll find information about performing common tasks. The most recent version of this guide is available [here](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/README.md).
+Send a reference to tricky song lyrics to every phone in the section, right before your capos call for it, to learn new material easier. Issue announcements about special events, merch drops, and more. Updates and push notifications get the information you want circulated in front of the eyeballs of your fans, without relying on the mercy of social media algorithms.
 
-## Table of Contents
+### And More
 
-* [Updating to New Releases](#updating-to-new-releases)
-* [Available Scripts](#available-scripts)
-  * [npm start](#npm-start)
-  * [npm test](#npm-test)
-  * [npm run ios](#npm-run-ios)
-  * [npm run android](#npm-run-android)
-  * [npm run eject](#npm-run-eject)
-* [Writing and Running Tests](#writing-and-running-tests)
-* [Environment Variables](#environment-variables)
-  * [Configuring Packager IP Address](#configuring-packager-ip-address)
-* [Adding Flow](#adding-flow)
-* [Customizing App Display Name and Icon](#customizing-app-display-name-and-icon)
-* [Sharing and Deployment](#sharing-and-deployment)
-  * [Publishing to Expo's React Native Community](#publishing-to-expos-react-native-community)
-  * [Building an Expo "standalone" app](#building-an-expo-standalone-app)
-  * [Ejecting from Create React Native App](#ejecting-from-create-react-native-app)
-    * [Build Dependencies (Xcode & Android Studio)](#build-dependencies-xcode-android-studio)
-    * [Should I Use ExpoKit?](#should-i-use-expokit)
-* [Troubleshooting](#troubleshooting)
-  * [Networking](#networking)
-  * [iOS Simulator won't open](#ios-simulator-wont-open)
-  * [QR Code does not scan](#qr-code-does-not-scan)
+[what else to highlight?]
 
-## Updating to New Releases
+## Roadmap
 
-You should only need to update the global installation of `create-react-native-app` very rarely, ideally never.
+[CALL TO ACTION to get more developers]
+Necessity is the mother of invention. By sharing the project with soccer supporters groups around the world, we will assemble the greatest minds in the culture as contributors, and our collective work will improve all of our communities. 
 
-Updating the `react-native-scripts` dependency of your app should be as simple as bumping the version number in `package.json` and reinstalling your project's dependencies.
+### News Feed
 
-Upgrading to a new version of React Native requires updating the `react-native`, `react`, and `expo` package versions, and setting the correct `sdkVersion` in `app.json`. See the [versioning guide](https://github.com/react-community/create-react-native-app/blob/master/VERSIONS.md) for up-to-date information about package version compatibility.
+The updates/push notifications feature was originally added to circulate chants in the stadium, then we realized later it could also be used for special announcements. Our next major feature will be an in-app news feed, a polished experience to keep our fans informed, all without having to pay Facebook to let them see what we post.
 
-## Available Scripts
+### Localization
 
-If Yarn was installed when the project was initialized, then dependencies will have been installed via Yarn, and you should probably use it to run these commands as well. Unlike dependency installation, command running syntax is identical for Yarn and NPM at the time of this writing.
+We committed to outreach to non-English-speaking communities to bring new fans to the clubs we love. Hooligan Hymnal will have a foundation for localization out-of-the box, so non-native speakers can navigate the application interface, and allowing _La Barra_ supporters to publish their own apps as easily as English-speaking SGs. 
 
-### `npm start`
+### Web-based Data Management
 
-Runs your app in development mode.
+Editing raw JSON is getting old, and we need a better way to keep Capo/SG officer features secure. A web-based application to manage all of the Hooligan Hymnal data is coming soon.
 
-Open it in the [Expo app](https://expo.io) on your phone to view it. It will reload if you save edits to your files, and you will see build errors and logs in the terminal.
+### And Beyond
 
-Sometimes you may need to reset or clear the React Native packager's cache. To do so, you can pass the `--reset-cache` flag to the start script:
+[TBD what we want to include in this section]
 
-```
-npm start -- --reset-cache
-# or
-yarn start -- --reset-cache
-```
+## For Developers
 
-#### `npm test`
+Hooligan Hymnal is a React Native project for Android and iOS devices built using [Expo](https://expo.io) with a Node.js backend and web-based administration tools built with Vue.js
 
-Runs the [jest](https://github.com/facebook/jest) test runner on your tests.
+Review the `docs` directory for information on how to configure and customize the app, and to prepare to deploy to Google Play and the App Store. Visit the [hymnal-server](https://github.com/Chattahooligans/hymnal-server) repo for the server, which is required to serve data to the client.
 
-#### `npm run ios`
-
-Like `npm start`, but also attempts to open your app in the iOS Simulator if you're on a Mac and have it installed.
-
-#### `npm run android`
-
-Like `npm start`, but also attempts to open your app on a connected Android device or emulator. Requires an installation of Android build tools (see [React Native docs](https://facebook.github.io/react-native/docs/getting-started.html) for detailed setup). We also recommend installing Genymotion as your Android emulator. Once you've finished setting up the native build environment, there are two options for making the right copy of `adb` available to Create React Native App:
-
-##### Using Android Studio's `adb`
-
-1. Make sure that you can run adb from your terminal.
-2. Open Genymotion and navigate to `Settings -> ADB`. Select “Use custom Android SDK tools” and update with your [Android SDK directory](https://stackoverflow.com/questions/25176594/android-sdk-location).
-
-##### Using Genymotion's `adb`
-
-1. Find Genymotion’s copy of adb. On macOS for example, this is normally `/Applications/Genymotion.app/Contents/MacOS/tools/`.
-2. Add the Genymotion tools directory to your path (instructions for [Mac](http://osxdaily.com/2014/08/14/add-new-path-to-path-command-line/), [Linux](http://www.computerhope.com/issues/ch001647.htm), and [Windows](https://www.howtogeek.com/118594/how-to-edit-your-system-path-for-easy-command-line-access/)).
-3. Make sure that you can run adb from your terminal.
-
-#### `npm run eject`
-
-This will start the process of "ejecting" from Create React Native App's build scripts. You'll be asked a couple of questions about how you'd like to build your project.
-
-**Warning:** Running eject is a permanent action (aside from whatever version control system you use). An ejected app will require you to have an [Xcode and/or Android Studio environment](https://facebook.github.io/react-native/docs/getting-started.html) set up.
-
-## Customizing App Display Name and Icon
-
-You can edit `app.json` to include [configuration keys](https://docs.expo.io/versions/latest/guides/configuration.html) under the `expo` key.
-
-To change your app's display name, set the `expo.name` key in `app.json` to an appropriate string.
-
-To set an app icon, set the `expo.icon` key in `app.json` to be either a local path or a URL. It's recommended that you use a 512x512 png file with transparency.
-
-## Writing and Running Tests
-
-This project is set up to use [jest](https://facebook.github.io/jest/) for tests. You can configure whatever testing strategy you like, but jest works out of the box. Create test files in directories called `__tests__` or with the `.test` extension to have the files loaded by jest. See the [the template project](https://github.com/react-community/create-react-native-app/blob/master/react-native-scripts/template/App.test.js) for an example test. The [jest documentation](https://facebook.github.io/jest/docs/en/getting-started.html) is also a wonderful resource, as is the [React Native testing tutorial](https://facebook.github.io/jest/docs/en/tutorial-react-native.html).
-
-## Environment Variables
-
-You can configure some of Create React Native App's behavior using environment variables.
-
-### Configuring Packager IP Address
-
-When starting your project, you'll see something like this for your project URL:
-
-```
-exp://192.168.0.2:19000
-```
-
-The "manifest" at that URL tells the Expo app how to retrieve and load your app's JavaScript bundle, so even if you load it in the app via a URL like `exp://localhost:19000`, the Expo client app will still try to retrieve your app at the IP address that the start script provides.
-
-In some cases, this is less than ideal. This might be the case if you need to run your project inside of a virtual machine and you have to access the packager via a different IP address than the one which prints by default. In order to override the IP address or hostname that is detected by Create React Native App, you can specify your own hostname via the `REACT_NATIVE_PACKAGER_HOSTNAME` environment variable:
-
-Mac and Linux:
-
-```
-REACT_NATIVE_PACKAGER_HOSTNAME='my-custom-ip-address-or-hostname' npm start
-```
-
-Windows:
-```
-set REACT_NATIVE_PACKAGER_HOSTNAME='my-custom-ip-address-or-hostname'
-npm start
-```
-
-The above example would cause the development server to listen on `exp://my-custom-ip-address-or-hostname:19000`.
-
-## Adding Flow
-
-Flow is a static type checker that helps you write code with fewer bugs. Check out this [introduction to using static types in JavaScript](https://medium.com/@preethikasireddy/why-use-static-types-in-javascript-part-1-8382da1e0adb) if you are new to this concept.
-
-React Native works with [Flow](http://flowtype.org/) out of the box, as long as your Flow version matches the one used in the version of React Native.
-
-To add a local dependency to the correct Flow version to a Create React Native App project, follow these steps:
-
-1. Find the Flow `[version]` at the bottom of the included [.flowconfig](.flowconfig)
-2. Run `npm install --save-dev flow-bin@x.y.z` (or `yarn add --dev flow-bin@x.y.z`), where `x.y.z` is the .flowconfig version number.
-3. Add `"flow": "flow"` to the `scripts` section of your `package.json`.
-4. Add `// @flow` to any files you want to type check (for example, to `App.js`).
-
-Now you can run `npm run flow` (or `yarn flow`) to check the files for type errors.
-You can optionally use a [plugin for your IDE or editor](https://flow.org/en/docs/editors/) for a better integrated experience.
-
-To learn more about Flow, check out [its documentation](https://flow.org/).
-
-## Sharing and Deployment
-
-Create React Native App does a lot of work to make app setup and development simple and straightforward, but it's very difficult to do the same for deploying to Apple's App Store or Google's Play Store without relying on a hosted service.
-
-### Publishing to Expo's React Native Community
-
-Expo provides free hosting for the JS-only apps created by CRNA, allowing you to share your app through the Expo client app. This requires registration for an Expo account.
-
-Install the `exp` command-line tool, and run the publish command:
-
-```
-$ npm i -g exp
-$ exp publish
-```
-
-### Building an Expo "standalone" app
-
-You can also use a service like [Expo's standalone builds](https://docs.expo.io/versions/latest/guides/building-standalone-apps.html) if you want to get an IPA/APK for distribution without having to build the native code yourself.
-
-### Ejecting from Create React Native App
-
-If you want to build and deploy your app yourself, you'll need to eject from CRNA and use Xcode and Android Studio.
-
-This is usually as simple as running `npm run eject` in your project, which will walk you through the process. Make sure to install `react-native-cli` and follow the [native code getting started guide for React Native](https://facebook.github.io/react-native/docs/getting-started.html).
-
-#### Should I Use ExpoKit?
-
-If you have made use of Expo APIs while working on your project, then those API calls will stop working if you eject to a regular React Native project. If you want to continue using those APIs, you can eject to "React Native + ExpoKit" which will still allow you to build your own native code and continue using the Expo APIs. See the [ejecting guide](https://github.com/react-community/create-react-native-app/blob/master/EJECTING.md) for more details about this option.
-
-## Troubleshooting
-
-### Networking
-
-If you're unable to load your app on your phone due to a network timeout or a refused connection, a good first step is to verify that your phone and computer are on the same network and that they can reach each other. Create React Native App needs access to ports 19000 and 19001 so ensure that your network and firewall settings allow access from your device to your computer on both of these ports.
-
-Try opening a web browser on your phone and opening the URL that the packager script prints, replacing `exp://` with `http://`. So, for example, if underneath the QR code in your terminal you see:
-
-```
-exp://192.168.0.1:19000
-```
-
-Try opening Safari or Chrome on your phone and loading
-
-```
-http://192.168.0.1:19000
-```
-
-and
-
-```
-http://192.168.0.1:19001
-```
-
-If this works, but you're still unable to load your app by scanning the QR code, please open an issue on the [Create React Native App repository](https://github.com/react-community/create-react-native-app) with details about these steps and any other error messages you may have received.
-
-If you're not able to load the `http` URL in your phone's web browser, try using the tethering/mobile hotspot feature on your phone (beware of data usage, though), connecting your computer to that WiFi network, and restarting the packager.
-
-### iOS Simulator won't open
-
-If you're on a Mac, there are a few errors that users sometimes see when attempting to `npm run ios`:
-
-* "non-zero exit code: 107"
-* "You may need to install Xcode" but it is already installed
-* and others
-
-There are a few steps you may want to take to troubleshoot these kinds of errors:
-
-1. Make sure Xcode is installed and open it to accept the license agreement if it prompts you. You can install it from the Mac App Store.
-2. Open Xcode's Preferences, the Locations tab, and make sure that the `Command Line Tools` menu option is set to something. Sometimes when the CLI tools are first installed by Homebrew this option is left blank, which can prevent Apple utilities from finding the simulator. Make sure to re-run `npm/yarn run ios` after doing so.
-3. If that doesn't work, open the Simulator, and under the app menu select `Reset Contents and Settings...`. After that has finished, quit the Simulator, and re-run `npm/yarn run ios`.
-
-### QR Code does not scan
-
-If you're not able to scan the QR code, make sure your phone's camera is focusing correctly, and also make sure that the contrast on the two colors in your terminal is high enough. For example, WebStorm's default themes may [not have enough contrast](https://github.com/react-community/create-react-native-app/issues/49) for terminal QR codes to be scannable with the system barcode scanners that the Expo app uses.
-
-If this causes problems for you, you may want to try changing your terminal's color theme to have more contrast, or running Create React Native App from a different terminal. You can also manually enter the URL printed by the packager script in the Expo app's search bar to load it manually.
-
-### Privacy Policy
-https://privacypolicies.com/privacy/view/266239d2e49848886568b6f8d4b68e19
-
+Hooligan Hymnal maintains an active Slack channel with developers and SG leadership to guide the future of the platform. Our DMs are open [@hooliganhymnal](https://twitter.com/hooliganhymnal), if you can contribute to the project.

@@ -7,15 +7,6 @@
 
 // TODO: Build home screen dynamically based on this websites object
 
-// enum
-export const SocialPlatform = {
-  Twitter: 'Twitter',
-  Facebook: 'Facebook',
-  Instagram: 'Instagram',
-  Web: 'web',
-  YouTube: 'YouTube'
-};
-
 export const TWITTER_URL = 'https://twitter.com/NGSDetroit';
 export const FACEBOOK_URL = 'https://www.facebook.com/NGSDetroit';
 export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
@@ -42,24 +33,6 @@ export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 export const PRIDERAISER_ACTIVE = false;
-
-// icon: Iconicons name
-export const websites = [
-  { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: TWITTER_URL },
-  { type: SocialPlatform.Facebook, icon: 'logo-facebook', url: FACEBOOK_URL },
-  { type: SocialPlatform.Instagram, icon: 'logo-instagram', url: INSTAGRAM_URL },  
-  { type: SocialPlatform.Web, icon: 'md-cart', url: SHOP_URL },
-  { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
-  { type: SocialPlatform.Web, image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tint: true }
-];
-
-export const esp_websites = [
-  { type: SocialPlatform.Twitter, icon: 'logo-twitter', url: ESP_TWITTER_URL }
-];
-
-// { type: SocialPlatform.Web, icon: 'md-browsers', url: WEBSITE_URL },
-// { type: SocialPlatform.Web, image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
-// { type: SocialPlatform.Web, image: GOFUNDME_ICON, url: GOFUNDME_URL }
 
 /*
     App Skin
@@ -108,8 +81,52 @@ export const Skin = {
 };
 
 /*
+  Pass this structure to the config property of components/SocialButtonPanel
+*/
+// icon: Iconicons name
+export const socialButtons = [
+  {
+    header: "Follow us",
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { icon: 'logo-twitter', url: TWITTER_URL },
+      { icon: 'logo-facebook', url: FACEBOOK_URL },
+      { icon: 'logo-instagram', url: INSTAGRAM_URL },  
+      { icon: 'md-cart', url: SHOP_URL },
+      { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false }
+      //,
+      //{ image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
+    ]
+  }
+  //,
+  //{
+  //  header: "Síguenos",
+  //  headerColor: DefaultColors.ColorText,
+  //  items: [
+  //    { icon: 'logo-twitter', url: ESP_TWITTER_URL },
+  //    { icon: 'logo-instagram', url: ESP_INSTAGRAM_URL },
+  //    { icon: 'md-browsers', url: ESP_WEBSITE_URL }
+  //  ]
+  //}
+]
+// Other/Seasonal
+// { icon: 'md-browsers', url: WEBSITE_URL },
+// { image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
+// { image: GOFUNDME_ICON, url: GOFUNDME_URL }
+
+/*
+  "Headline" banners on home screen
+*/
+export const banners = [
+]
+//{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: PRIDERAISER_URL, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
+// { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: GOFUNDME_URL, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
+
+
+/*
   App Feature Flags
 */
 export const Settings = {
-  Player_ShowSongs: false
+  Player_ShowSongs: false,
+  CapoHome_GKNicknameEnabled: true,
 }

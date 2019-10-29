@@ -4,7 +4,7 @@
     "description": "",
     "slug": "app",
     "privacy": "public",
-    "version": "1.0.40",
+    "version": "1.2.44",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
