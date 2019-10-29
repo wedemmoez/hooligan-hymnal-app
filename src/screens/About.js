@@ -63,8 +63,6 @@ class About extends React.Component {
           <Text>Administration Developer: <Text style={{fontWeight: "bold"}}>@shortnd667</Text></Text>
           <Text>Release Manager: <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text></Text>
           <Text>Official Butt Opinions: <Text style={{fontWeight: "bold"}}>@ThaBlackUnicorn</Text></Text>
-          {/*<Text>Player photos pending</Text>*/}
-          {/*<Text>Player headshots pending</Text>*/}
           <View style={{ height: 50 }} />
           <RegularText>
             Forked with love from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app.
