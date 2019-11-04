@@ -4,7 +4,7 @@
     "description": "",
     "slug": "app",
     "privacy": "public",
-    "version": "1.2.44",
+    "version": "1.4.0",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     "android": {
       "package": "com.northernguard.app",
       "icon": "./assets/ngs1.png",
-      "versionCode": 18,
+      "versionCode": 19,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
