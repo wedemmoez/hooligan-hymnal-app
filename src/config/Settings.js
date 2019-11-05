@@ -33,6 +33,7 @@ export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 export const PRIDERAISER_ACTIVE = false;
+import i18n from "../../i18n"
 
 /*
     App Skin
@@ -74,9 +75,7 @@ export const Skin = {
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
-  Roster_FriendsTabLabel: 'Friends',
   Roster_FoesTabIcon: 'md-thumbs-down',
-  Roster_FoesTabLabel: 'Foes',
   Player_DefaultImage: CLUB_LOGO,
 };
 
@@ -86,7 +85,7 @@ export const Skin = {
 // icon: Iconicons name
 export const socialButtons = [
   {
-    header: "Follow us",
+    header: i18n.t('settings.socialEN'),
     headerColor: DefaultColors.ColorText,
     items: [
       { icon: 'logo-twitter', url: TWITTER_URL },

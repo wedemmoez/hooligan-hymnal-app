@@ -3,6 +3,7 @@ import { Dimensions } from 'react-native';
 import { StackNavigator, DrawerNavigator } from 'react-navigation';
 import Screens from './screens';
 import CustomDrawer from './components/CustomDrawer';
+import i18n from "../i18n";
 
 const { width: deviceWidth } = Dimensions.get('window');
 
@@ -29,7 +30,7 @@ const HomeNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'HOME'
+      drawerLabel: i18n.t('navigation.home')
     }
   }
 );
@@ -43,7 +44,7 @@ const SongbookNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: "HELL'S HYMNAL"
+      drawerLabel: i18n.t('navigation.songbook')
     }
   }
 );
@@ -55,7 +56,7 @@ const RosterNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'ROSTER'
+      drawerLabel: i18n.t('navigation.roster')
     }
   }
 );
@@ -83,7 +84,7 @@ const EventsNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'EVENTS ↗️'
+      drawerLabel: i18n.t('navigation.events')
     }
   }
 );
@@ -97,7 +98,7 @@ const StandingsNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'NPSL MC STANDINGS ↗️'
+      drawerLabel: i18n.t('navigation.standings')
     }
   }
 );
@@ -111,7 +112,7 @@ const ShopNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'MERCH SHOP ↗️'
+      drawerLabel: i18n.t('navigation.shop')
     }
   }
 );
@@ -125,7 +126,7 @@ const LetsMakeRootsNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'LET\'S MAKE ROOTS ↗️'
+      drawerLabel: i18n.t('navigation.volunteer')
     }
   }
 );
@@ -153,7 +154,7 @@ const InstrumentationNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'INSTRUMENTATION ↗️'
+      drawerLabel: i18n.t('navigation.instrumentation')
     }
   }
 );
@@ -173,7 +174,7 @@ const CapoHomeNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'GATEKEEPER DASHBOARD'
+      drawerLabel: i18n.t('navigation.capo')
     }
   }
 );
@@ -187,7 +188,7 @@ const AboutNavigation = StackNavigator(
   {
     ...DefaultStackConfig,
     navigationOptions: {
-      drawerLabel: 'ABOUT'
+      drawerLabel: i18n.t('navigation.about')
     }
   }
 );

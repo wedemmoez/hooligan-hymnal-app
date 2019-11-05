@@ -1,11 +1,13 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { View, Linking, Text, StyleSheet, ScrollView } from 'react-native';
 import NavigationOptions from '../config/NavigationOptions';
 import { Skin, DefaultColors, Palette } from '../config/Settings';
 import { FontSizes } from '../constants';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
+import ParsedText from 'react-native-parsed-text';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
+import i18n from "../../i18n";
 
 // About info, link to website/fb/twitter
 // maybe a url for the /songs page on website (where App Store/Google Play icons will be found)
@@ -13,7 +15,7 @@ import GlobalDataContainer from '../containers/GlobalDataContainer';
 
 class About extends React.Component {
   static navigationOptions = {
-    title: 'About',
+    title: i18n.t('screens.about.title'),
     ...NavigationOptions
   };
 
@@ -42,33 +44,89 @@ class About extends React.Component {
     this.setState({token, response})
   }
 
+  _urlPress = (url) => {
+    WebBrowser.openBrowserAsync(url);
+  }
+
+  _emailPress = (email) => {
+    Linking.openURL('mailto:' + email);
+  }
+
+  _renderFormatted = (matchingString) => {
+    return matchingString.slice(1, matchingString.length-1)
+  }
+
   render() {
+    let creditsTexts = []
+    let creditsItems = i18n.t('screens.about.credits')
+    creditsItems.forEach(element => {
+      creditsTexts.push(
+        <ParsedText 
+          parse={
+            [
+              {type: 'url', style: styles.url, onPress: this._urlPress}, 
+              {type: 'email', style: styles.url, onPress: this._emailPress},
+              {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+              {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+            ]
+          }
+          style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+          >
+          {element}
+        </ParsedText>
+      )
+    });
+
     return (
-      <View style={{flex: 1, padding: 10, backgroundColor: Palette.White }}>
+      <View style={{flex: 1, padding: 10, backgroundColor: Palette.White, flexDirection: i18n.getFlexDirection()  }}>
         <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
-          <Text style={{fontWeight: "bold", fontSize: 20}}>The Guardbook</Text>
-          <RegularText>The Guardbook was conjured from the dark web to help everyone support Detroit City FC.</RegularText>
+          <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
+          <ParsedText 
+            parse={
+              [
+                {type: 'url', style: styles.url, onPress: this._urlPress}, 
+                {type: 'email', style: styles.url, onPress: this._emailPress},
+                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+              ]
+            }
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+            >
+            {i18n.t('screens.about.why')}
+          </ParsedText>
           <View style={{ height: 10 }} />
-            <RegularText>Please send feedback to Twitter: <Text style={{fontWeight: "bold"}}>@NGSDetroit</Text> or 
-            <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text>
-            </RegularText>
+          <ParsedText 
+            parse={
+              [
+                {type: 'url', style: styles.url, onPress: this._urlPress}, 
+                {type: 'email', style: styles.url, onPress: this._emailPress},
+                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+              ]
+            }
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+            >
+            {i18n.t('screens.about.feedback')}
+          </ParsedText>
           <View style={{ height: 20 }} />
-          <MediumText>Credits</MediumText>
-          <View style={{ height: 50 }} />
-          <Text>All player headshots courtesy of <Text style={{fontWeight: "bold"}}>Detroit City FC</Text></Text>
-          <Text>Home screen video: <Text style={{fontWeight: "bold"}}>@mikoDCTID</Text></Text>
-          <Text>Menu photo: <Text style={{fontWeight: "bold"}}>@TheDukeNGS</Text></Text>
-          <Text>Hell's Hymnal: <Text style={{fontWeight: "bold"}}>@JosephSlowvak</Text></Text>
-          <Text>Roster: <Text style={{fontWeight: "bold"}}>@NGS_Tonto</Text></Text>
-          <Text>Administration Developer: <Text style={{fontWeight: "bold"}}>@shortnd667</Text></Text>
-          <Text>Release Manager: <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text></Text>
-          <Text>Official Butt Opinions: <Text style={{fontWeight: "bold"}}>@ThaBlackUnicorn</Text></Text>
-          <View style={{ height: 50 }} />
-          <RegularText>
-            Forked with love from the Chattahooligan Hymnal, which used some code based on the open source @nodevember conference schedule app.
-            Interested in helping? If you can code, research players, take awesome photos, or otherwise help make the Guardbook better,
-            we'd love to work with you! Please contact <Text style={{fontWeight: "bold"}}>@tacoman_x86</Text> on Twitter or
-            <Text style={{fontWeight: "bold"}}>webmaster@noonelikes.us</Text> for more information.
+          <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.creditsheading')}</MediumText>
+          {creditsTexts}
+          <ParsedText 
+            parse={
+              [
+                {type: 'url', style: styles.url, onPress: this._urlPress}, 
+                {type: 'email', style: styles.url, onPress: this._emailPress},
+                {pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted},
+                {pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted}
+              ]
+            }
+            style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}
+            >
+            {i18n.t('screens.about.contribute')}
+          </ParsedText>
+            <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
+            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.token}</RegularText>
+            <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
           </RegularText>
         </ScrollView>
       </View>
@@ -76,6 +134,20 @@ class About extends React.Component {
   }
 }
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  credits: {
+    fontFamily: 'heebo',
+  },
+  bold: {
+    fontWeight: 'bold'
+  },
+  italic: {
+    fontStyle: 'italic'
+  },
+  url: {
+    color: 'blue',
+    textDecorationLine: 'underline'
+  }
+});
 
 export default withUnstated(About, { globalData: GlobalDataContainer });
