@@ -8,7 +8,6 @@ import de from './locales/de.json';
 i18n.defaultLocale = 'en';
 //get user's current locale
 i18n.locale = Localization.locale;
-i18n.locale = "de-DE"
 console.log(i18n.locale)
 //if not found in the current locale, fallback to English
 i18n.fallbacks = true;
