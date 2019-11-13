@@ -2,15 +2,16 @@
 import i18n from 'i18n-js';
 import * as Localization from 'expo-localization';
 //import files
-import en from './locales/en.json';
 import de from './locales/de.json';
+import en from './locales/en.json';
+import es from './locales/es.json';
 //default to English
 i18n.defaultLocale = 'en';
 //get user's current locale
 i18n.locale = Localization.locale;
 //if not found in the current locale, fallback to English
 i18n.fallbacks = true;
-i18n.translations = { en, de };
+i18n.translations = { de, en, es };
 //future: when app returns from backgroud on Android,
 //check `await Localization.getLocalizationAsync();` to update locale
 
@@ -44,6 +45,16 @@ function getFlexDirection() {
     }
 }
 
+//we want the drawer menu to pop out of the right for RTL languages
+//if the user is using an rtl language
+function getDrawerPosition() {
+    if(isRTL) {
+        return "right"
+    } else {
+        return "left"
+    }
+}
+
 //for text areas that we align or default to the left in English, we invert that for rtl
 function getRTLTextAlign() {
     if(isRTL) {
@@ -65,6 +76,7 @@ function getWritingDirection() {
 
 i18n.getLocalizedBio = getLocalizedBio;
 i18n.getFlexDirection = getFlexDirection;
+i18n.getDrawerPosition = getDrawerPosition;
 i18n.getRTLTextAlign = getRTLTextAlign;
 i18n.getWritingDirection = getWritingDirection;
 export default i18n;

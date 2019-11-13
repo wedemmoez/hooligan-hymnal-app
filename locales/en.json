@@ -12,12 +12,12 @@
                 "Menu photo: *@TheDukeNGS*",
                 "Hell's Hymnal: *@JosephSlowvak*",
                 "Roster: *@NGS_Tonto*",
-                "Localizations: */u/nigol313*",
+                "Localizations: */u/nigol313*, *manuel_mg*",
                 "Administration Developer: *@shortnd667*",
                 "Release Manager: *@tacoman_x86*"
             ],
             "debug": "Debug",
-            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to _@NGSDetroit_ on Twitter, or email webmaster@noonelikes.us for more information"
+            "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to *@NGSDetroit* on Twitter, or email webmaster@noonelikes.us for more information"
         },
         "capocompose": {
             "title": "Compose Song",

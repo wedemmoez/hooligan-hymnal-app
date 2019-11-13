@@ -46,7 +46,7 @@ class Home extends React.Component {
   };
 
   static navigationOptions = {
-    drawerLabel: 'HOME',
+    drawerLabel: i18n.t('navigation.home'),
     header: null
   };
 
