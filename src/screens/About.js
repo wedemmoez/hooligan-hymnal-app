@@ -127,7 +127,11 @@ class About extends React.Component {
             <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>
             <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{this.state.token}</RegularText>
             <RegularText selectable={true} style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>
-          </RegularText>
+              {
+                this.state.response ? 
+                  JSON.stringify(this.state.response) : ''
+              }
+            </RegularText>
         </ScrollView>
       </View>
     );
