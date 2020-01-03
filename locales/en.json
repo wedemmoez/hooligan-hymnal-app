@@ -28,12 +28,12 @@
         "capoconfirmGK": {
             "title": "Confirm GK Nickname?",
             "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
+            "sendnotify": "Send & Notify"
         },
         "capoconfirmsong": {
             "title": "Confirm Song?",
             "sendonly": "Send Only",
-            "sendnotify": "Send &amp; Notify"
+            "sendnotify": "Send & Notify"
         },
         "capohome": {
             "title": "Capo Dashboard",
@@ -160,7 +160,16 @@
         "Goalkeeper": "Goalkeeper",
         "Head Coach": "Head Coach",
         "Associate Head Coach": "Associate Head Coach",
-        "Goalkeeper Coach": "Goalkeeper Coach"
+        "Goalkeeper Coach": "Goalkeeper Coach",
+        "2007 Boys": "2007 Boys",
+        "2007 Girls": "2007 Girls",
+        "2006 Boys": "2006 Boys",
+        "2006 Girls": "2006 Girls",
+        "2005 Boys": "2005 Boys",
+        "2004 Boys": "2004 Boys",
+        "2003 Boys": "2003 Boys",
+        "2002 Boys": "2002 Boys",
+        "2001 Boys": "2001 Boys"
     },
     "settings": {
         "socialEN": "Follow us",

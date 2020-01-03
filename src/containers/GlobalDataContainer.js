@@ -11,6 +11,7 @@ import { getFoes } from '../services/foesService';
 import { HYMNAL_ADDRESS } from '../config/server';
 import appParams from '../../app.json';
 import htmlColors from '../data/htmlColors.json';
+import { objectTypeAnnotation } from '@babel/types';
 
 const PUSH_ENDPOINT = HYMNAL_ADDRESS + '/api/pushToken';
 
@@ -77,17 +78,75 @@ export default class GlobalDataContainer extends Container {
         try {
           let player = players.find(player => player._id === playerChild._id);
 
-          if (player)
-            playerList.push(player);
+          if (player) 
+          {
+            // overrides for Academy data
+            let clonePlayer = { ...player };
+            if (playerChild.hasOwnProperty('override'))
+            {
+              /*
+              if (playerChild.override.hasOwnProperty('position'))
+                clonePlayer.position = playerChild.override.position;
+              if (playerChild.override.hasOwnProperty('squadNumber'))
+                clonePlayer.squadNumber = playerChild.override.squadNumber;
+              if (playerChild.override.hasOwnProperty('bio'))
+                clonePlayer.bio = playerChild.override.bio;
+              if (playerChild.override.hasOwnProperty('thumbnail'))
+                clonePlayer.thumbnail = playerChild.override.thumbnail;
+              if (playerChild.override.hasOwnProperty('image'))
+                clonePlayer.image = playerChild.override.image;
+                */
+              Object.assign(clonePlayer, playerChild.override);
+            }
+
+            playerList.push(clonePlayer);
+          }
           else
+          {
+            //alert('creating new ' + JSON.stringify(playerChild));
             console.log(playerChild._id + ' not found in players database');
+
+            if (playerChild.hasOwnProperty('override'))
+            {
+              // make a temp player
+              let player = {
+                name: '',
+                position: '',
+                squadNumber: '',
+                bio: ''
+              }
+
+              /*
+              if (playerChild.override.hasOwnProperty('name'))
+                player.name = playerChild.override.name;
+              if (playerChild.override.hasOwnProperty('position'))
+                player.position = playerChild.override.position;
+              if (playerChild.override.hasOwnProperty('squadNumber'))
+                player.squadNumber = playerChild.override.squadNumber;
+              if (playerChild.override.hasOwnProperty('bio'))
+                player.bio = playerChild.override.bio;
+              if (playerChild.override.hasOwnProperty('thumbnail'))
+                player.thumbnail = playerChild.override.thumbnail;
+              if (playerChild.override.hasOwnProperty('image'))
+                player.image = playerChild.override.image;
+              */
+              Object.assign(player, playerChild.override);
+
+              playerList.push(player);
+            }
+          }
         } catch (err) {
           console.log(playerChild._id + ' not found in players database');
         }
       });
 
       if (0 < playerList.length)
-        rosterList.push({ _id: roster._id, rosterTitle: roster.rosterTitle, players: playerList, default: roster.default });
+      {
+        let thisRoster = {}
+        Object.assign(thisRoster, roster);
+        thisRoster.players = playerList;
+        rosterList.push(thisRoster);
+      }
     });
 
     //roster.squads = squads;

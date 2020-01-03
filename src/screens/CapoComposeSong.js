@@ -1,13 +1,13 @@
 import React from 'react';
 import {
   Image,
+  Keyboard,
   Platform,
   StyleSheet,
   View,
   Text,
   TextInput,
-  KeyboardAvoidingView,
-  Keyboard
+  KeyboardAvoidingView
 } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
@@ -40,20 +40,19 @@ class CapoComposeSong extends React.Component {
     title: i18n.t('screens.capocompose.title'),
     ...NavigationOptions,
     headerLeft: (
-      <>
       <HeaderBackButton onPress={() => navigation.goBack()} tintColor="#fff" />
-      <RectButton onPress={() => Keyboard.dismiss()} underlayColor="#fff" >
+    ),
+    headerRight: (
         <Ionicons
-              name="md-keypad"
-              size={23}
-              style={{
-                color: "#fff",
+            name="md-code-download"
+            size={23}
+            style={{
+                color: '#fff',
                 backgroundColor: 'transparent',
-                marginHorizontal: 0,
-              }}
+                marginRight: 16
+            }}
+            onPress={() => Keyboard.dismiss()}
         />
-      </RectButton>
-      </>
     )
   });
 
