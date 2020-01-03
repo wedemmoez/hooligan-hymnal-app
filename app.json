@@ -2,6 +2,7 @@
   "expo": {
     "name": "The Guardbook",
     "description": "",
+    "owner": "ngsdetroit",
     "slug": "app",
     "privacy": "public",
     "version": "1.4.2",
