@@ -120,19 +120,19 @@ const ShopNavigation = StackNavigator(
   }
 );
 
-const LetsMakeRootsNavigation = StackNavigator(
-  {
-    Events: {
-      screen: Screens.Roots
-    }
-  },
-  {
-    ...DefaultStackConfig,
-    navigationOptions: {
-      drawerLabel: i18n.t('navigation.volunteer')
-    }
-  }
-);
+//const LetsMakeRootsNavigation = StackNavigator(
+//  {
+//    Events: {
+//      screen: Screens.Roots
+//    }
+//  },
+//  {
+//    ...DefaultStackConfig,
+//    navigationOptions: {
+//      drawerLabel: i18n.t('navigation.volunteer')
+//    }
+//  }
+//);
 
 const SmokeNavigation = StackNavigator(
   {
@@ -204,7 +204,7 @@ const Drawer = DrawerNavigator(
     Events: { screen: EventsNavigation },
     Standings: { screen: StandingsNavigation },
     Shop: { screen: ShopNavigation },
-    Roots: { screen: LetsMakeRootsNavigation },
+    //Roots: { screen: LetsMakeRootsNavigation },
     //Smoke: { screen: SmokeNavigation },
     CapoHome: { screen: CapoHomeNavigation },
     About: { screen: AboutNavigation }

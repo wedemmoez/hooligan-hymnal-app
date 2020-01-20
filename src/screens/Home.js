@@ -44,7 +44,6 @@ import {
   HOME_SCREEN_NAVBAR,
   HOME_SCREEN_VIDEO_OVERLAY,
 } from '../config/Settings';
-} from '../config/Settings';
 import i18n from "../../i18n";
 import { watchPositionAsync } from 'expo-location';
 class Home extends React.Component {

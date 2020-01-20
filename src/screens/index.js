@@ -20,7 +20,6 @@ import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
 import PostPreview from  './PostPreview';
-import PostPreview from  './PostPreview';
 import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
 import RosterFoes from './RosterFoes';
@@ -59,7 +58,6 @@ export default {
   PostCreate,
   PostPreview,
   PostPreview,
-  Roots,
   Roster,
   RosterFoePlayers,
   RosterFoes,
