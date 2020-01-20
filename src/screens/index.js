@@ -12,7 +12,6 @@ import FoesRoster from './FoesRoster';
 import Home from './Home';
 import Instrumentation from './Instrumentation';
 import Player from './Player';
-import Roots from "./Roots";
 import PostAttach from './PostAttach';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
@@ -20,6 +19,7 @@ import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
 import PostCreate from './PostCreate';
+import PostPreview from  './PostPreview';
 import PostPreview from  './PostPreview';
 import Roster from './Roster';
 import RosterFoePlayers from './RosterFoePlayers';
@@ -51,7 +51,6 @@ export default {
   Home,
   Instrumentation,
   Player,
-  Roots,
   PostAttach,
   PostAttachmentComposeSong,
   PostAttachmentComposeGkNickname,
@@ -59,6 +58,8 @@ export default {
   PostAttachmentSelectSong,
   PostCreate,
   PostPreview,
+  PostPreview,
+  Roots,
   Roster,
   RosterFoePlayers,
   RosterFoes,

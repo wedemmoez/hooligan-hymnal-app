@@ -11,6 +11,8 @@ export const TWITTER_URL = 'https://twitter.com/NGSDetroit';
 export const FACEBOOK_URL = 'https://www.facebook.com/NGSDetroit';
 export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
 export const WEBSITE_URL = 'https://noonelikes.us';
+export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://radiant-citadel-22556.herokuapp.com/'
+
 export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
 export const SHOP_URL = 'https://noonelikes.us/shop/';
 export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-KPNjywj/';
@@ -23,7 +25,6 @@ export const EVENTS_URL = 'https://noonelikes.us/events/';
 export const INSTRUMENTATION_URL ='https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr';
 export const ROOTS_URL = 'https://noonelikes.us/about-ngs/'
 export const SMOKE_URL = 'https://noonelikes.us/donate/'
-export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://hymnal-serve-news-feed-vf0sbpf.herokuapp.com'
 
 // Common Images
 export const HOME_SCREEN_NAVBAR = require('../../assets/home-logo.png');
@@ -84,8 +85,10 @@ export const Skin = {
   SingleSong_Background: Palette.Rouge,
   Player_Background: Palette.White,
   Player_DefaultImage: CLUB_LOGO,
-  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Post_DefaultChannelThumbnail: require('../../assets/ngs1.png'),
+  Player_DefaultImage: CLUB_LOGO,
+  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
+  Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
