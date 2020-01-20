@@ -25,6 +25,9 @@ export const ROOTS_URL = 'https://noonelikes.us/about-ngs/'
 export const SMOKE_URL = 'https://noonelikes.us/donate/'
 
 // Common Images
+export const HOME_SCREEN_NAVBAR = require('../../assets/home-logo.png');
+//export const HOME_SCREEN_NAVBAR = require('../../assets/home-big-c-logo.png');
+export const HOME_SCREEN_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
 // like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
@@ -59,16 +62,29 @@ export const DefaultColors = {
   HeaderText: Palette.White,
   Text: Palette.Black,
   ColorText: Palette.Navy,
+  Primary: Palette.Navy,
   Secondary: Palette.Sky
 }
 
 export const Skin = {
-  Home_SocialButtons: DefaultColors.ButtonBackground,
+  Home_BackgroundColor: DefaultColors.Primary,
   Songbook_Background: Palette.White,
+  Home_BigButtonsBackground: DefaultColors.ButtonBackground,
+  Home_BigButtonsLabel: DefaultColors.ButtonText,
+  Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_SocialButtons: DefaultColors.Primary,
+  Home_Website: Palette.Black,
+  Home_PostMarginVertical: 6,
+  ModalLoader_ActivityIndicator: DefaultColors.Primary,
+  ModalLoader_Background: DefaultColors.Secondary,
+  ModalLoader_Container: "#00000040",
+  Songbook_Background: Palette.Rouge,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Rouge,
-  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
   Player_Background: Palette.White,
+  Player_DefaultImage: CLUB_LOGO,
+  Player_TopContainerBackground: DefaultColors.NavigationBarBackground,
+  Post_DefaultChannelThumbnail: require('../../assets/big-c-icon-android.png'),
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -76,7 +92,6 @@ export const Skin = {
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
   Roster_FoesTabIcon: 'md-thumbs-down',
-  Player_DefaultImage: CLUB_LOGO,
 };
 
 /*
