@@ -61,9 +61,9 @@ export const DefaultColors = {
   HeaderBackground: Palette.Rouge,
   HeaderText: Palette.White,
   Text: Palette.Black,
-  ColorText: Palette.Navy,
-  Primary: Palette.Navy,
-  Secondary: Palette.Sky
+  ColorText: Palette.Rouge,
+  Primary: Palette.Rouge,
+  Secondary: Palette.White
 }
 
 export const Skin = {

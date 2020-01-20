@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
+        color: Palette.Rouge,
         textAlign: i18n.getRTLTextAlign(),
         writingDirection: i18n.getWritingDirection()
     },

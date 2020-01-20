@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        color: Palette.Navy,
+        color: Palette.Rouge,
         backgroundColor: Palette.White,
         paddingLeft: 4,
         textAlign: i18n.getRTLTextAlign(),
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         lineHeight: 24,
         flex: 1,
-        color: Palette.Navy,
+        color: Palette.Rouge,
         backgroundColor: Palette.White,
         marginLeft: 5,
         textAlign: i18n.getRTLTextAlign(),

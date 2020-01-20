@@ -133,7 +133,7 @@ class Home extends React.Component {
         >
           <View
             style={{
-              backgroundColor: Palette.Navy,
+              backgroundColor: Palette.Rouge,
               padding: 8,
               paddingTop: Layout.headerHeight - 10,
               justifyContent: 'center',
@@ -287,7 +287,6 @@ class DeferredHomeContent extends React.Component {
         <StaticHomeContent />
         */}
         {scrollItems}
-            <UnderlineText>http://noonelikes.us</UnderlineText>
       </AnimatableView>
     );
   }
@@ -301,7 +300,7 @@ const OverscrollView = () => (
       height: 400,
       left: 0,
       right: 0,
-      backgroundColor: Palette.Navy
+      backgroundColor: Palette.Rouge
     }}
   />
 );

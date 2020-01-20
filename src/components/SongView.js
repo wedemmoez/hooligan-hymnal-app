@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   reference: {
     fontStyle: 'italic',
-    color: Palette.Navy,
+    color: Palette.Rouge,
     backgroundColor: Palette.White,
     paddingLeft: 12,
     paddingBottom: 3
@@ -175,7 +175,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     flex: 1,
-    color: Palette.Navy,
+    color: Palette.Rouge,
     backgroundColor: Palette.White,
     paddingLeft: 8,
     textAlign: i18n.getRTLTextAlign(),
