@@ -109,7 +109,7 @@ export const socialButtons = [
     items: [
       { icon: 'logo-twitter', url: TWITTER_URL },
       { icon: 'logo-facebook', url: FACEBOOK_URL },
-      { icon: 'logo-instagram', url: INSTAGRAM_URL },  
+      { icon: 'logo-instagram', url: INSTAGRAM_URL },
       { icon: 'md-cart', url: SHOP_URL },
       { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false }
       //,
