@@ -1,5 +1,5 @@
 import React from 'react';
-import { Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
+import { Button, Keyboard, Image, Platform, StyleSheet, View } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import FadeIn from 'react-native-fade-in-image';
 import { withNavigation } from 'react-navigation';
@@ -26,6 +26,13 @@ class CapoHome extends React.Component {
   };
 
   render() {
+    if (null == this.props.globalData.state.currentUser) {
+      this.props.navigation.popToTop();
+      return (
+        <RegularText>Not logged in</RegularText>
+      )
+    }
+
     console.log("Logged in as " + JSON.stringify(this.props.globalData.state.currentUser))
     return (
       <View style={{ flex: 1 }}>
@@ -102,6 +109,8 @@ class CapoHome extends React.Component {
             </RectButton>
           </ClipBorderRadius>
         }
+        <View style={{ flex: 1 }} />
+        <Button title={i18n.t('screens.capohome.logout')} color={DefaultColors.ButtonBackground} onPress={this._handlePressLogoutButton} />
       </View>
     );
   }
@@ -130,6 +139,14 @@ class CapoHome extends React.Component {
     }
     this.props.globalData.initNewPost(navToPostCreate);
   };
+
+  _handlePressLogoutButton = () => {
+    let nav = this.props.navigation
+    function navLogout() {
+      nav.popToTop();
+    }
+    this.props.globalData.logoutCurrentUser(navLogout);
+  }
 }
 
 const ClipBorderRadius = ({ children, style }) => {

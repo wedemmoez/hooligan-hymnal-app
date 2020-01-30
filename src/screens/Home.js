@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  ActivityIndicator,
   Animated,
   Linking,
   Platform,
@@ -20,7 +21,7 @@ import { withNavigation } from 'react-navigation';
 
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
-import { getPost } from '../services/feedService';
+import { getPost, engageNotification } from '../services/feedService';
 
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
@@ -49,7 +50,8 @@ import { watchPositionAsync } from 'expo-location';
 class Home extends React.Component {
   state = {
     scrollY: new Animated.Value(0),
-    refreshing: false
+    refreshing: false,
+    loadingMore: false
   };
 
   static navigationOptions = {
@@ -58,8 +60,15 @@ class Home extends React.Component {
   };
 
   async componentDidMount() {
-    if (!this.props.globalData.state.loadDataComplete)
+    if (this.props.globalData.state.pushToken == null)
+      await this.props.globalData.registerForPushNotificationsAsync();
+
+    if (!this.props.globalData.state.loadDataComplete) {
+      // shot refresh indicator on initial load
+      this.setState({ refreshing: true })
       await this.props.globalData.loadData();
+      this.setState({ refreshing: false })
+    }
     else
       this.onRefresh()
 
@@ -73,8 +82,17 @@ class Home extends React.Component {
       // notification was tapped, either from the app already open or from entering the app
 
       if (notification.data.postId) {
-        let post = await getPost(notification.data.postId)
-        this.props.navigation.navigate("SinglePost", { post });
+        engageNotification(notification.data.postId, this.props.globalData.state.pushToken)
+
+        try {
+          let post = await getPost(notification.data.postId)
+          if (post)
+            if (post.active)
+              this.props.navigation.navigate("SinglePost", { post });
+        }
+        catch (e) {
+          //
+        }
       }
 
       // classic Song notifications for users without the update, deprecate this soon
@@ -85,8 +103,8 @@ class Home extends React.Component {
       }
     } else if (notification.origin === 'received') {
       // notification was received, either app was already open or it just opened up but not from the notification
-      // We don't necessarily want to do anything in this case
 
+      /*
       if (notification.data.postId) {
         // refresh the feed data itself
         this.onRefresh()
@@ -94,6 +112,7 @@ class Home extends React.Component {
         let post = await getPost(notification.data.postId)
         this.props.navigation.navigate("SinglePost", { post });
       }
+      */
     }
   };
 
@@ -103,6 +122,17 @@ class Home extends React.Component {
     await this.props.globalData.refreshFeed();
 
     this.setState({ refreshing: false });
+  }
+
+  onLoadMore = async () => {
+    // don't load more if we're already loading
+    if (this.state.loadingMore === false) {
+      this.setState({ loadingMore: true });
+
+      await this.props.globalData.loadMoreFeed();
+
+      this.setState({ loadingMore: false });
+    }
   }
 
   render() {
@@ -136,8 +166,8 @@ class Home extends React.Component {
                 listener: (event) => {
                   if ((event.nativeEvent.layoutMeasurement.height + event.nativeEvent.contentOffset.y >
                     (event.nativeEvent.contentSize.height - 20)) && ((event.nativeEvent.contentOffset.y + event.nativeEvent.contentSize.height) > event.nativeEvent.contentSize.height)) {
-                      console.log("At bottom, load the next page of posts (if it's not already loading)")
-                    }
+                    this.onLoadMore();
+                  }
                 }
               }
             )
@@ -170,6 +200,14 @@ class Home extends React.Component {
           </View>
 
           <DeferredHomeContent globalData={this.props.globalData} />
+          <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
+            {this.state.loadingMore &&
+              <ActivityIndicator
+                animating={true}
+                size="large"
+                color={Skin.Home_LoadMoreActivityIndicator} />
+            }
+          </View>
           <OverscrollView />
         </AnimatedScrollView>
 
@@ -257,9 +295,6 @@ class DeferredHomeContent extends React.Component {
   };
 
   componentDidMount() {
-    if (this.props.globalData.state.pushToken == null)
-      this.props.globalData.registerForPushNotificationsAsync();
-
     if (this.state.ready) {
       return;
     }

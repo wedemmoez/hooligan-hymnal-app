@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+    Alert,
     Clipboard,
     Image,
     Linking,
@@ -8,6 +9,14 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
+import {
+    Menu,
+    MenuProvider,
+    MenuOptions,
+    MenuOption,
+    MenuTrigger,
+    renderers
+} from 'react-native-popup-menu';
 import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
@@ -23,6 +32,8 @@ import PostAttachmentPlayer from './PostAttachmentPlayer';
 import PostAttachmentSong from './PostAttachmentSong';
 import moment from 'moment';
 import i18n from "../../i18n";
+
+const { SlideInMenu } = renderers;
 
 class Post extends React.Component {
     state = {
@@ -49,6 +60,11 @@ class Post extends React.Component {
         }
     }
 
+    hidePost = async () => {
+        if (this.props.post)
+            this.props.globalData.hidePost(this.props.post._id)
+    }
+
     render() {
         let post = this.state.post;
         // turn back on when learning 2 Images
@@ -65,6 +81,12 @@ class Post extends React.Component {
             publishedAtDisplay = moment(post.publishedAt).fromNow()
         else
             publishedAtDisplay = moment(post.publishedAt).format("M/D/YY h:mma")
+
+        let navToFullScreen = true;
+        if (this.props.hasOwnProperty("navToFullScreen"))
+            if (false == this.props.navToFullScreen)
+                navToFullScreen = false;
+
 
         let textDisplay;
         if (post.text) {
@@ -120,6 +142,68 @@ class Post extends React.Component {
             }
         });
 
+        let menuOptions = [];
+        let menuDisplay;
+        if (this.props.globalData.getCurrentUser()) {
+            const channelId = post.channelData._id;
+            const currentUserId = this.props.globalData.getCurrentUser().user.id;
+            const currentUserFeedAllowed = this.props.globalData.getCurrentUser().user.feedAllowed;
+            const channelPermissions = this.props.globalData.getChannelPermissions(channelId, currentUserId);
+
+            if (currentUserFeedAllowed) {
+                /*
+                if (channelPermissions.canEdit)
+                    menuOptions.push(<MenuOption value={"edit"} text="Edit Post" />)
+                if (channelPermissions.canDelete)
+                    menuOptions.push(<MenuOption value={"delete"} text="Hide Post" />)
+                */
+                if (channelPermissions.canDelete) {
+                    menuDisplay =
+                        <TouchableOpacity
+                            onPress={() => {
+                                Alert.alert(
+                                    i18n.t('components.post.hidealerttitle'),
+                                    i18n.t('components.post.hidealertmessage'),
+                                    [
+                                        {
+                                            text: i18n.t('components.post.hidealertcancel'),
+                                            style: "cancel"
+                                        },
+                                        {
+                                            text: i18n.t('components.post.hidealertconfirm'),
+                                            onPress: () => { this.hidePost() }
+                                        }
+                                    ]
+                                )
+                            }}>
+                            <Ionicons
+                                name="md-arrow-dropdown"
+                                size={18}
+                                style={styles.menu} />
+                        </TouchableOpacity>
+                }
+            }
+
+            /*
+            if (menuOptions.length > 0) {
+                menuDisplay =
+                    <MenuProvider>
+                        <Menu renderer={SlideInMenu} onSelect={value => alert(`Selected number: ${value}`)}>
+                            <MenuTrigger>
+                                    <Ionicons
+                                        name="md-arrow-dropdown"
+                                        size={18}
+                                        style={styles.menu} />
+                            </MenuTrigger>
+                            <MenuOptions>
+                                {menuOptions}
+                            </MenuOptions>
+                        </Menu>
+                    </MenuProvider>
+                }
+                   */
+        }
+
         return (
             <View style={styles.container}>
                 {/* Facebook style */}
@@ -131,9 +215,14 @@ class Post extends React.Component {
                     </FadeIn>
                     <View style={styles.headerTextContainer}>
                         <BoldText style={styles.channelText}>{post.channelData.name}</BoldText>
-                        <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
+                        {navToFullScreen &&
+                            <TouchableOpacity onPress={() => { this.props.navigation.navigate("SinglePost", { post }) }}>
+                                <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
+                            </TouchableOpacity>
+                        }
+                        {!navToFullScreen &&
                             <RegularText style={styles.timestampText}>{publishedAtDisplay}</RegularText>
-                        </TouchableOpacity>
+                        }
                     </View>
                     {post.push &&
                         <Ionicons
@@ -141,6 +230,7 @@ class Post extends React.Component {
                             size={18}
                             style={styles.notificationSymbol} />
                     }
+                    {menuDisplay}
                 </View>
                 {textDisplay}
 
@@ -189,21 +279,27 @@ const styles = StyleSheet.create({
         flex: 1
     },
     channelText: {
-
+        fontSize: 16,
+        color: Skin.Post_ChannelTextColor
     },
     timestampText: {
-
+        color: Skin.Post_TimestampTextColor
     },
     notificationSymbol: {
         color: Palette.Sky,
         marginRight: 3
     },
+    menu: {
+        color: Skin.Post_ChannelTextColor,
+        marginLeft: 5,
+        marginRight: 3
+    },
     text: {
         paddingVertical: 3,
         paddingHorizontal: 8,
-        fontFamily: 'heebo',
-        fontSize: 18,
-        lineHeight: 24,
+        fontFamily: Skin.Font_ParsedText,
+        fontSize: Skin.Post_FontSize,
+        lineHeight: Skin.Post_LineHeight,
         flex: 1,
         color: Palette.Rouge,
         textAlign: i18n.getRTLTextAlign(),
@@ -222,7 +318,7 @@ const styles = StyleSheet.create({
         fontStyle: 'italic'
     },
     url: {
-        color: 'blue',
+        color: Skin.Post_LinkColor,
         textDecorationLine: 'underline'
     }
 })

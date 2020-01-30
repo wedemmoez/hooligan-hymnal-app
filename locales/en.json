@@ -40,7 +40,8 @@
             "selectsong": "Select Song",
             "composesong": "Compose Song",
             "gknickname": "GK Nickname",
-            "postcreate": "Create Post"
+            "postcreate": "Create Post",
+            "logout": "Logout"
         },
         "capologin": {
             "title": "Capo Dashboard",
@@ -187,7 +188,11 @@
             "gonnascore": "We're gonna score on you, "
         },
         "post": {
-            "copied": "Copied"
+            "copied": "Copied",
+            "hidealerttitle": "Hide Post",
+            "hidealertmessage": "Are you sure you want to hide this post from the Feed?",
+            "hidealertcancel": "Cancel",
+            "hidealertconfirm": "Hide"
         },
         "postattachmentgknickname": {
             "gonnascore": "We're gonna score on you, "
@@ -213,8 +218,10 @@
         "Midfielder": "Midfielder",
         "Goalkeeper": "Goalkeeper",
         "Head Coach": "Head Coach",
-        "Associate Head Coach": "Associate Head Coach",
+        "Assistant Coach": "Assistant Coach",
         "Goalkeeper Coach": "Goalkeeper Coach",
+        "Technical Director": "Technical Director",
+        "Associate Head Coach": "Associate Head Coach",
         "2007 Boys": "2007 Boys",
         "2007 Girls": "2007 Girls",
         "2006 Boys": "2006 Boys",
@@ -227,6 +234,7 @@
     },
     "settings": {
         "socialEN": "Follow us",
-        "socialES": "Síguenos"
+        "socialES": "Síguenos",
+        "other": "Unaffiliated Independent Fan Projects"
     }
 }

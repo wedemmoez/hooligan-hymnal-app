@@ -68,12 +68,31 @@ export const DefaultColors = {
   Secondary: Palette.White
 }
 
+// NOTE: Heebo is a Chattahooligan-brand font.
+/*
+  You can use your own fonts in Hooligan Hymnal by including files in /assets/
+  and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
+
+  Default fonts are included in /assets/ and the proper config values are...
+  Font_Regular: 'open-sans',
+  Font_Medium: 'open-sans-semibold',
+  Font_Bold: 'open-sans-bold',
+  Font_ParsedText: 'open-sans',
+
+  Font_Light is currently unused in the app.
+*/
 export const Skin = {
+  Font_Light: 'heebo-light',
+  Font_Regular: 'heebo',
+  Font_Medium: 'heebo-medium',
+  Font_Bold: 'heebo-bold',
+  Font_ParsedText: 'heebo',
   Home_BackgroundColor: DefaultColors.Primary,
   Songbook_Background: Palette.White,
   Home_BigButtonsBackground: DefaultColors.ButtonBackground,
   Home_BigButtonsLabel: DefaultColors.ButtonText,
   Home_FindTheMenuLabel: DefaultColors.Primary,
+  Home_LoadMoreActivityIndicator: DefaultColors.Secondary,
   Home_SocialButtons: DefaultColors.Primary,
   Home_Website: Palette.Black,
   Home_PostMarginVertical: 6,
@@ -95,7 +114,7 @@ export const Skin = {
   Roster_ActiveTabLabel: DefaultColors.ButtonText,
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'md-heart',
-  Roster_FoesTabIcon: 'md-thumbs-down',
+  Roster_FoesTabIcon: 'md-thumbs-down'
 };
 
 /*
@@ -114,6 +133,14 @@ export const socialButtons = [
       { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false }
       //,
       //{ image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
+    ]
+  },
+  {
+    header: i18n.t('settings.other'),
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { image: BAD_PODCAST_423_ICON, url: BAD_PODCAST_423_URL, tintToSkin: false },
+      { image: BAD_PODCAST_109_ICON, url: BAD_PODCAST_109_URL, tintToSkin: false },
     ]
   }
   //,
@@ -144,6 +171,9 @@ export const banners = [
 /*
   App Feature Flags
 */
+// Roster_SortPlayersBy: "default", "number", "name"
+//      later- "position" with priority
+//      (hopefully this gets deprecated and replaced with something in the UI later)
 export const Settings = {
   Player_ShowSongs: false,
   CapoHome_GKNicknameEnabled: true,
