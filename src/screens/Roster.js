@@ -48,6 +48,18 @@ class PlayerRow extends React.Component {
           onPress={() => {
             Linking.openURL('http://twitter.com/' + player.twitter);
           }}
+        >
+        <Ionicons
+          name={'logo-twitter'}
+          size={30}
+          style={{
+            color: Palette.Rouge,
+            marginTop: 3,
+            marginBottom: 3,
+            marginLeft: 10,
+            marginRight: 10,
+            backgroundColor: 'transparent'
+          }}
         />
       </TouchableOpacity>
     }

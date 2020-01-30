@@ -12,6 +12,7 @@ export const FACEBOOK_URL = 'https://www.facebook.com/NGSDetroit';
 export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
 export const WEBSITE_URL = 'https://noonelikes.us';
 export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://radiant-citadel-22556.herokuapp.com'
+// export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://guardbook-beta.herokuapp.com/'
 
 export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
 export const SHOP_URL = 'https://noonelikes.us/shop/';
@@ -139,8 +140,8 @@ export const socialButtons = [
     header: i18n.t('settings.other'),
     headerColor: DefaultColors.ColorText,
     items: [
-      { image: BAD_PODCAST_423_ICON, url: BAD_PODCAST_423_URL, tintToSkin: false },
-      { image: BAD_PODCAST_109_ICON, url: BAD_PODCAST_109_URL, tintToSkin: false },
+      // { image: BAD_PODCAST_423_ICON, url: BAD_PODCAST_423_URL, tintToSkin: false },
+      // { image: BAD_PODCAST_109_ICON, url: BAD_PODCAST_109_URL, tintToSkin: false },
     ]
   }
   //,
