@@ -36,7 +36,7 @@
             "sendnotify": "Send & Notify"
         },
         "capohome": {
-            "title": "Capo Dashboard",
+            "title": "Gatekeeper Dashboard",
             "selectsong": "Select Song",
             "composesong": "Compose Song",
             "gknickname": "GK Nickname",
@@ -44,7 +44,7 @@
             "logout": "Logout"
         },
         "capologin": {
-            "title": "Capo Dashboard",
+            "title": "Gatekeeper Dashboard",
             "username": "Username/Email",
             "password": "Password",
             "unlock": "Unlock"
@@ -188,7 +188,7 @@
         "shop": "MERCH SHOP ↗️",
         "volunteer": "LET'S MAKE ROOTS ↗️",
         "instrumentation": "INSTRUMENTATION ↗️",
-        "capo": "CAPO DASHBOARD",
+        "capo": "GATEKEEPER DASHBOARD",
         "about": "ABOUT"
     },
     "components": {
