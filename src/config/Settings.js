@@ -219,7 +219,7 @@ export const banners = [
 //      Matches .competition field of objects from the database foes collection
 //      This field is case sensitive and must match exactly
 export const Settings = {
-  Player_ShowSongs: true,
+  Player_ShowSongs: false,
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
   RefereeCards_Show: false,
