@@ -272,7 +272,7 @@ class Player extends React.Component {
               </ParsedText>
               <RegularText style={styles.bodyText}></RegularText>
             </ReadMore>
-            <Text>{Settings.Player_ShowSongs && playerSongDisplay}</Text>
+            {Settings.Player_ShowSongs && playerSongDisplay}
           </AnimatableView>
         </AnimatedScrollView>
 
@@ -321,7 +321,7 @@ class Player extends React.Component {
         hitSlop={{ top: 15, left: 15, right: 15, bottom: 15 }}
         onPress={handlePress}
       >
-        <MediumText style={{ color: Rouge, marginTop: 5 }}>
+        <MediumText style={{ color: Palette.Rouge, marginTop: 5 }}>
           {i18n.t('screens.player.readmore')}
         </MediumText>
       </TouchableOpacity>
