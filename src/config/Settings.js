@@ -29,13 +29,13 @@ export const SMOKE_URL = 'https://noonelikes.us/donate/'
 
 // Common Images
 export const HOME_SCREEN_NAVBAR = require('../../assets/ngs3.png');
-export const HOME_NAVBAR_LOGO = require('../../assets/home-logo.png');
+export const HOME_NAVBAR_LOGO = require('../../assets/ngs3.png');
 //export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
 export const HOME_SCREEN_VIDEO_OVERLAY = require('../../assets/ngs3.png');
 export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
-export const HOME_VIDEO_OVERLAY = require('../../assets/home-big-c-logo.png');
-export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-hero-background.png');
-export const DRAWER_HERO_OVERLAY = require('../../assets/drawer-hero-logo.png');
+export const HOME_VIDEO_OVERLAY = require('../../assets/ngs3.png');
+export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-prideraiser-background.jpg');
+export const DRAWER_HERO_OVERLAY = require('../../assets/ngs3.png');
 // like social media icons
 export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');

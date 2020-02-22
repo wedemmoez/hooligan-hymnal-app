@@ -85,6 +85,7 @@ class About extends React.Component {
 
     return (
       <View style={{flex: 1, padding: 10, backgroundColor: Palette.White, flexDirection: i18n.getFlexDirection()  }}>
+        <ScrollView style={{ flex: 1, backgroundColor: Palette.White, padding: 5 }}>
           <BoldText style={{ fontSize: FontSizes.title, marginBottom: 10, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
           <ParsedText
             parse={
@@ -139,6 +140,7 @@ class About extends React.Component {
                   JSON.stringify(this.state.response) : ''
               }
             </RegularText>
+          </ScrollView>
         </ScrollView>
       </View>
     );
