@@ -42,8 +42,6 @@ import {
   banners,
   socialButtons,
   WEBSITE_URL,
-  HOME_SCREEN_NAVBAR,
-  HOME_SCREEN_VIDEO_OVERLAY,
 } from '../config/Settings';
 import i18n from "../../i18n";
 import { watchPositionAsync } from 'expo-location';
@@ -207,7 +205,7 @@ class Home extends React.Component {
               <View style={styles.headerVideoOverlay} />
             </View>
             <Image
-              source={HOME_SCREEN_VIDEO_OVERLAY}
+              source={Skin.Home_VideoOverlay}
               style={{ height: 100, resizeMode: 'contain', marginTop: 20 }}
               //tintColor={DefaultColors.HeaderText}
             />
@@ -234,7 +232,7 @@ class Home extends React.Component {
           renderLeftButton={() => <MenuButton />}
           renderTitle={() =>
             <Image
-              source={HOME_SCREEN_NAVBAR}
+              source={Skin.Home_NavbarLogo}
               style={{ height: Layout.headerHeight - (Constants.statusBarHeight / 2), width: Layout.window.width, resizeMode: 'contain' }}
               tintColor={DefaultColors.HeaderText} />
           }
@@ -267,11 +265,11 @@ class StaticHomeContent_Buttons extends React.Component {
     return (
       <View style={styles.staticButtonsContainer}>
         <BigButton
-          style={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
+          buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
           label={i18n.t('screens.home.songbook')} iconName="md-book"
           onPress={this._handlePressSongbook} />
         <BigButton
-          style={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
+          buttonStyle={{ backgroundColor: Skin.Home_BigButtonsBackground }} tintColor={Skin.Home_BigButtonsLabel}
           label={i18n.t('screens.home.roster')} iconName="md-people"
           onPress={this._handlePressRoster} />
         <View style={{ marginHorizontal: 15, flexDirection: i18n.getFlexDirection() }}>

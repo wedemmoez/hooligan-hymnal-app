@@ -102,6 +102,10 @@
             "submit": "Submit Post",
             "schedule": "Schedule Post"
         },
+        "refereecard": {
+            "titlered": "Flash 'Em a Card",
+            "titleyellow": "Flash 'Em a Card"
+        },
         "events": {
             "title": "Events",
             "fallback": "Events open in WebBrowser component"
@@ -128,6 +132,10 @@
             "title": "Roster",
             "nosquadsfound": "No squads found",
             "twitterlist": "Twitter List"
+        },
+        "rosterfoes": {
+            "title": "Roster",
+            "nonefound": "None found"
         },
         "rosterhome": {
             "title": "Roster",
