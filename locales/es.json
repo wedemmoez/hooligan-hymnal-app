@@ -199,6 +199,9 @@
         "postattachmentmasstweet": {
             "tweettheplayers": "Tweet the Players"
         },
+        "postattachmentmultitweet": {
+            "tweettheplayers": "Tweet them all!"
+        },
         "songview": {
            "copiedtitle": "Título copiado al portapapeles",
            "copiedreference": "Referencia copiado al portapapeles",
