@@ -221,10 +221,15 @@ export const banners = [
 //      Matches .competition field of objects from the database foes collection
 //      This field is case sensitive and must match exactly
 export const Settings = {
-  Player_ShowSongs: false,
+  Player_ShowSongs: true,
   CapoHome_GKNicknameEnabled: true,
   ChannelUI_Enabled: false,
   RefereeCards_Show: false,
   Roster_SortPlayersBy: "number",
-  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase"
+  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
+  Home_PostsPerPage: 5,
+  ImageResizeQuality: 1,
+  ImageResizeDimensions: { larger: 1216, smaller: 912 },
+  Juanstagram: false,
+  PostCreate_UploadImageEnabled: true,
 }
