@@ -12,7 +12,7 @@ export const FACEBOOK_URL = 'https://www.facebook.com/NGSDetroit';
 export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
 export const WEBSITE_URL = 'https://noonelikes.us';
 export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://radiant-citadel-22556.herokuapp.com'
-//export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://guardbook-beta.herokuapp.com'
+// export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://guardbook-beta.herokuapp.com'
 
 export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
 export const SHOP_URL = 'https://noonelikes.us/shop/';
@@ -186,7 +186,7 @@ export const socialButtons = [
 // Other/Seasonal
 // { icon: 'md-browsers', url: WEBSITE_URL },
 // { image: PRIDERAISER_ICON, url: PRIDERAISER_URL },
-// { image: GOFUNDME_ICON, url: GOFUNDME_URL }
+// { image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
 
 /*
   "Headline" banners on home screen
@@ -210,6 +210,8 @@ export const banners = [
 // Player_ShowSongs: true, false
 //      Some SGs write songs for each player
 //      Toggle a related UI element in the Roster/Player screen
+// PostCreate_UploadImageEnabled: true, false
+//      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
 // RefereeCards_Show: true, false
 //      Show yellow/red card icons in the nav drawer
 // Roster_SortPlayersBy: "default", "number", "name"

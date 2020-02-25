@@ -14,7 +14,7 @@ import i18n from "../../i18n";
 
 export default class PostAttachmentMultiTweet extends React.Component {
     render() {
-        
+
         return (
             <View style={styles.container}>
                 <TouchableOpacity
@@ -46,7 +46,7 @@ export default class PostAttachmentMultiTweet extends React.Component {
         for(player of players) {
             handleList += "@" + player.twitter + "%20"
         }
-        Linking.openURL('https://twitter.com/intent/tweet?text=' + handleList + '+') 
+        Linking.openURL('https://twitter.com/intent/tweet?text=' + handleList + '+')
     };
 }
 

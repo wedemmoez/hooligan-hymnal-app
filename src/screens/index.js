@@ -16,6 +16,7 @@ import Player from './Player';
 import PostAttach from './PostAttach';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
 import PostAttachmentSelectSong from './PostAttachmentSelectSong';
@@ -56,6 +57,8 @@ export default {
   PostAttach,
   PostAttachmentComposeSong,
   PostAttachmentComposeGkNickname,
+  PostAttachmentSelectJuanstagram,
+  PostAttachmentSelectMassTweet,
   PostAttachmentSelectPlayer,
   PostAttachmentSelectSong,
   PostCreate,
