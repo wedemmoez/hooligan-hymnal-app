@@ -12,17 +12,14 @@ export const TWITTER_URL = 'https://twitter.com/NGSDetroit';
 export const FACEBOOK_URL = 'https://www.facebook.com/NGSDetroit';
 export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
 export const WEBSITE_URL = 'https://noonelikes.us';
-export const YOUTUBE_URL = '';
-export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
+export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
+export const SHOP_URL = 'https://noonelikes.us/shop/';
 // PRIDERAISER_URL moved to a different section
 // HEY! Don't include a trailing slash / on this url.
 // If you do, you're gonna have a bad time because your serer calls will not work
 export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://radiant-citadel-22556.herokuapp.com'
 // export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://guardbook-beta.herokuapp.com'
 
-export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
-export const SHOP_URL = 'https://noonelikes.us/shop/';
-export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-LmzzAmx/';
 export const GOFUNDME_URL = 'https://twitter.com/LetsMakeRoots';
 export const ESP_TWITTER_URL = 'https://twitter.com/Rouge_y_Oro';
 export const ESP_INSTAGRAM_URL = '';
@@ -43,18 +40,11 @@ export const HOME_VIDEO_OVERLAY = require('../../assets/ngs3.png');
 export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-prideraiser-background.jpg');
 export const DRAWER_HERO_OVERLAY = require('../../assets/ngs3.png');
 // like social media icons
-export const PRIDERAISER_ICON = require('../../assets/prideraiser.png');
 export const GOFUNDME_ICON = require('../../assets/gofundme.png');
 export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
-export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
-// used in SongView to link to sheet music
-export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 export const PRIDERAISER_ACTIVE = true;
 export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
 export const CLUB_NAME = "Detroit City FC";
-// social media icons
-export const GOFUNDME_ICON = require('../../assets/gofundme.png');
-export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 
@@ -62,7 +52,7 @@ export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
 export const REDDIT_DCFC_URL = 'https://www.reddit.com/r/DetroitCityFC'
 
 // Prideraiser
-export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-2020-LmzzAmx/';
+export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-LmzzAmx/';
 export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
 export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
 export const PRIDERAISER_CAMPAIGN_ID = 'LmzzAmx';

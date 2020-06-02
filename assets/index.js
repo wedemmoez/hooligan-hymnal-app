@@ -11,7 +11,7 @@ export default [
   require('./icon-ios.png'),
   require('./icon.png'),
   require('./musical-score.png'),
-  require('./prideraiser.png'),
+  require('./prideraiser-icon.png'),
   require('./ngs1.png'),
   require('./ngs4.jpg'),
   require('./speakerphone.png'),
