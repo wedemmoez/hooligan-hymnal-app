@@ -12,17 +12,11 @@ import {
     TouchableOpacity,
     View
 } from 'react-native';
-import {
-    Menu,
-    MenuProvider,
-    MenuOptions,
-    MenuOption,
-    MenuTrigger,
-    renderers
-} from 'react-native-popup-menu';
+import Menu, { MenuItem, MenuDivider } from 'react-native-material-menu';
 import FadeIn from 'react-native-fade-in-image';
 import { BoldText, RegularText, MediumText } from '../components/StyledText';
 import ParsedText from 'react-native-parsed-text';
+import { parsePatterns, parsedStyles, renderBoldItalic, onUrlPress, onEmailPress } from './ParsedTextHelper';
 import { Ionicons } from '@expo/vector-icons';
 // import Toast from 'react-native-simple-toast';
 import Toast from "react-native-tiny-toast";
@@ -33,15 +27,15 @@ import PostAttachmentGkNickname from './PostAttachmentGkNickname';
 import PostAttachmentJuanstagram from './PostAttachmentJuanstagram';
 import PostAttachmentMassTweet from './PostAttachmentMassTweet';
 import PostAttachmentPlayer from './PostAttachmentPlayer';
+import PostAttachmentPrideraiserMatch from './PostAttachmentPrideraiserMatch';
 import PostAttachmentSong from './PostAttachmentSong';
 import PostImageWrapper from './PostImageWrapper';
 import ImageViewer from 'react-native-image-zoom-viewer';
 import ImageViewerFooter from './ImageViewerFooter';
+import NotificationEngagementsModal from './NotificationEngagementsModal';
 import moment from 'moment';
 import i18n from "../../i18n";
 import PostAttachmentMultiTweet from './PostAttachmentMultiTweet';
-
-const { SlideInMenu } = renderers;
 
 class Post extends React.Component {
     state = {
@@ -54,7 +48,8 @@ class Post extends React.Component {
         },
         imageViewerVisible: false,
         imageViewerIndex: 0,
-        imageViewerFooterVisible: true
+        imageViewerFooterVisible: true,
+        statsModalVisible: false
     }
 
     componentDidMount = () => this.setData();
@@ -75,6 +70,36 @@ class Post extends React.Component {
         if (this.props.post)
             this.props.globalData.hidePost(this.props.post._id)
     }
+
+    // new admin menu
+    menu = null
+    setMenuRef = (ref) => { this.menu = ref }
+    hideMenu = () => { this.menu.hide() }
+    showMenu = () => { this.menu.show() }
+    showStatsModal = () => {
+        this.hideMenu()
+
+        this.setState({ statsModalVisible: true })
+    }
+    showHidePostAlert = () => {
+        this.hideMenu()
+
+        Alert.alert(
+            i18n.t('components.post.hidealerttitle'),
+            i18n.t('components.post.hidealertmessage'),
+            [
+                {
+                    text: i18n.t('components.post.hidealertcancel'),
+                    style: "cancel"
+                },
+                {
+                    text: i18n.t('components.post.hidealertconfirm'),
+                    onPress: () => { this.hidePost() }
+                }
+            ]
+        )
+    }
+
 
     getScaledUri = (uri) => {
         let host = "cloudinary.com"
@@ -138,10 +163,10 @@ class Post extends React.Component {
                 <ParsedText
                     parse={
                         [
-                            { type: 'url', style: styles.url, onPress: this._urlPress },
-                            { type: 'email', style: styles.url, onPress: this._emailPress },
-                            { pattern: /(\*)(.*?)\1/, style: styles.bold, renderText: this._renderFormatted },
-                            { pattern: /(_)(.*?)\1/, style: styles.italic, renderText: this._renderFormatted }
+                            { type: 'url', style: parsedStyles.url, onPress: onUrlPress },
+                            { type: 'email', style: parsedStyles.url, onPress: onEmailPress },
+                            { pattern: parsePatterns.bold, style: parsedStyles.bold, renderText: renderBoldItalic },
+                            { pattern: parsePatterns.italic, style: parsedStyles.italic, renderText: renderBoldItalic }
                         ]
                     }
                     style={styles.text}
@@ -256,7 +281,7 @@ class Post extends React.Component {
                     let playerDisplay = <PostAttachmentPlayer key={index} player={player}
                         onPress={() => { this.props.navigation.navigate("Player", { player }) }} />
                     attachmentDisplay.push(playerDisplay);
-                    if(player.hasOwnProperty("twitter") && player.twitter != "") {
+                    if (player.hasOwnProperty("twitter") && player.twitter != "") {
                         tweetablePlayers.push(player);
                     }
                     break;
@@ -282,9 +307,14 @@ class Post extends React.Component {
                         onPress={() => { this.props.navigation.navigate("TwitterList", { roster }) }} />
                     attachmentDisplay.push(massTweetDisplay);
                     break;
+                case "prideraisermatch":
+                    let data = attachment.data;
+                    let prideraiserMatchDisplay = <PostAttachmentPrideraiserMatch data={data} />;
+                    attachmentDisplay.push(prideraiserMatchDisplay);
+                    break;
                 case "juanstagram":
                     let juanstagramPost = attachment.data.juanstagramPost;
-                    let juanstagramDisplay = <PostAttachmentJuanstagram juanstagramPost={juanstagramPost} />
+                    let juanstagramDisplay = <PostAttachmentJuanstagram key={index} juanstagramPost={juanstagramPost} />
                     attachmentDisplay.push(juanstagramDisplay);
                     break;
                 default:
@@ -292,12 +322,22 @@ class Post extends React.Component {
             }
         });
 
-        if(tweetablePlayers.length > 1) {
+        if (tweetablePlayers.length > 1) {
             attachmentDisplay.push(<PostAttachmentMultiTweet key={post.attachments.length} players={tweetablePlayers} />)
         }
 
-        let menuOptions = [];
-        let menuDisplay;
+        let menuDisplayAndroid
+        let menuOptionsAndroid = []
+
+        let menuDisplayIOS
+        let iosMenuOptions = []
+        iosMenuOptions.push(
+            {
+                text: i18n.t('components.post.hidealertcancel'),
+                style: "cancel"
+            }
+        )
+
         if (this.props.globalData.getCurrentUser()) {
             const channelId = post.channelData._id;
             const currentUserId = this.props.globalData.getCurrentUser().user.id;
@@ -305,57 +345,68 @@ class Post extends React.Component {
             const channelPermissions = this.props.globalData.getChannelPermissions(channelId, currentUserId);
 
             if (currentUserFeedAllowed) {
-                /*
-                if (channelPermissions.canEdit)
-                    menuOptions.push(<MenuOption value={"edit"} text="Edit Post" />)
-                if (channelPermissions.canDelete)
-                    menuOptions.push(<MenuOption value={"delete"} text="Hide Post" />)
-                */
+                if (post.push) {
+                    menuOptionsAndroid.push(<MenuItem onPress={this.showStatsModal} key={post._id + "-menu-stats"}>Stats</MenuItem>)
+
+                    iosMenuOptions.push(
+                        {
+                            text: "Stats",
+                            onPress: () => { this.setState({ statsModalVisible: true }) }
+                        }
+                    )
+                }
+                if (channelPermissions.canEdit) {
+                    menuOptionsAndroid.push(<MenuItem key={post._id + "-menu-edit"} disabled>Edit Post</MenuItem>)
+                }
                 if (channelPermissions.canDelete) {
-                    menuDisplay =
-                        <TouchableOpacity
-                            onPress={() => {
-                                Alert.alert(
-                                    i18n.t('components.post.hidealerttitle'),
-                                    i18n.t('components.post.hidealertmessage'),
-                                    [
-                                        {
-                                            text: i18n.t('components.post.hidealertcancel'),
-                                            style: "cancel"
-                                        },
-                                        {
-                                            text: i18n.t('components.post.hidealertconfirm'),
-                                            onPress: () => { this.hidePost() }
-                                        }
-                                    ]
-                                )
-                            }}>
-                            <Ionicons
-                                name="md-arrow-dropdown"
-                                size={18}
-                                style={styles.menu} />
-                        </TouchableOpacity>
+                    menuOptionsAndroid.push(<MenuDivider key={post._id + "-menu-divider"} />)
+                    menuOptionsAndroid.push(<MenuItem onPress={this.showHidePostAlert} key={post._id + "-menu-hide"}>Hide Post</MenuItem>)
+
+                    iosMenuOptions.push(
+                        {
+                            text: i18n.t('components.post.hidealertconfirm'),
+                            onPress: () => { this.hidePost() },
+                            style: "destructive"
+                        }
+                    )
+                }
+
+                if (menuOptionsAndroid.length > 0) {
+                    menuDisplayAndroid = <Menu
+                        ref={this.setMenuRef}
+                        button={
+                            <TouchableOpacity>
+                                <Ionicons
+                                    name="md-arrow-dropdown"
+                                    size={30}
+                                    style={styles.menu}
+                                    onPress={this.showMenu} />
+                            </TouchableOpacity>
+                        }>
+                        {menuOptionsAndroid}
+                    </Menu>
+                }
+
+                if (iosMenuOptions.length > 1) {
+                    let message = ""
+                    if (channelPermissions.canDelete)
+                        message = i18n.t('components.post.postadminalerthidemessageios')
+
+                    menuDisplayIOS = <TouchableOpacity
+                        onPress={() => {
+                            Alert.alert(
+                                i18n.t('components.post.postadminalertitleios'),
+                                message,
+                                iosMenuOptions
+                            )
+                        }}>
+                        <Ionicons
+                            name="md-arrow-dropdown"
+                            size={30}
+                            style={styles.menu} />
+                    </TouchableOpacity>
                 }
             }
-
-            /*
-            if (menuOptions.length > 0) {
-                menuDisplay =
-                    <MenuProvider>
-                        <Menu renderer={SlideInMenu} onSelect={value => alert(`Selected number: ${value}`)}>
-                            <MenuTrigger>
-                                    <Ionicons
-                                        name="md-arrow-dropdown"
-                                        size={18}
-                                        style={styles.menu} />
-                            </MenuTrigger>
-                            <MenuOptions>
-                                {menuOptions}
-                            </MenuOptions>
-                        </Menu>
-                    </MenuProvider>
-                }
-                   */
         }
 
         return (
@@ -402,7 +453,8 @@ class Post extends React.Component {
                             size={18}
                             style={styles.notificationSymbol} />
                     }
-                    {menuDisplay}
+                    {Platform.OS === "android" && menuDisplayAndroid}
+                    {Platform.OS === "ios" && menuDisplayIOS}
                 </View>
                 {textDisplay}
 
@@ -451,6 +503,10 @@ class Post extends React.Component {
                         />
                     </Modal>
                 }
+                <NotificationEngagementsModal
+                    visible={this.state.statsModalVisible}
+                    post={post}
+                    onRequestClose={() => this.setState({ statsModalVisible: false })} />
             </View>
         )
     }
@@ -459,13 +515,6 @@ class Post extends React.Component {
         Toast.show(i18n.t('components.post.copied'));
         Clipboard.setString(this.props.post.text);
     };
-
-    _urlPress = (url) => Linking.openURL(url);
-    _emailPress = (email) => Linking.openURL('mailto:' + email);
-    _renderFormatted = (matchingString) => {
-        return matchingString.slice(1, matchingString.length - 1)
-    }
-
 }
 
 const styles = StyleSheet.create({
@@ -501,7 +550,9 @@ const styles = StyleSheet.create({
     menu: {
         color: Skin.Post_ChannelLabel,
         marginLeft: 5,
-        marginRight: 3
+        marginRight: 3,
+        marginTop: -6,
+        backgroundColor: 'transparent'
     },
     text: {
         paddingVertical: 3,
@@ -519,16 +570,6 @@ const styles = StyleSheet.create({
     },
     attachmentsContainer: {
 
-    },
-    bold: {
-        fontWeight: 'bold'
-    },
-    italic: {
-        fontStyle: 'italic'
-    },
-    url: {
-        color: Skin.Post_LinkColor,
-        textDecorationLine: 'underline'
     }
 })
 

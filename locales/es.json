@@ -37,9 +37,6 @@
         },
         "capohome": {
             "title": "Tablero de Capo",
-            "selectsong": "Elige una canción",
-            "composesong": "Compone Una Canción",
-            "gknickname": "Apodo de Portero",
             "logout": "Logout"
         },
         "capologin": {
@@ -48,33 +45,24 @@
             "password": "Contraseña",
             "unlock": "Abrir"
         },
-        "caposelectsong": {
-            "title": "Elegir Una Canción"
-        },
-        "caposetGKnickname": {
-            "title": "Apodo del Portero",
-            "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Elige un color, cualquier color",
-            "instructions3": "3. ¿Cual es más legible?"
-        },
         "postattach": {
             "attachmenttypes": "Attachment Types",
             "selectplayer": "Select Player",
-            "selectsong": "Select Song",
-            "composesong": "Compose Song",
+            "selectsong": "Elegir Una Canción",
+            "composesong": "Compone Una Canción",
             "masstweet": "Tweet the Players",
             "gknickname": "GK Nickname"
         },
         "postattachmentcomposegknickname": {
             "gknickname": "GK Nickname",
             "instructions1": "1. We're gonna score on you...",
-            "instructions2": "2. Pick a color, any color",
-            "instructions3": "3. Which is more readable?"
+            "instructions2": "2. Elige un color, cualquier color",
+            "instructions3": "3. ¿Cual es más legible?"
         },
         "postattchmentcomposesong": {
-            "composesong": "Compose Song",
-            "title": "Title",
-            "lyrics": "Lyrics",
+            "composesong": "Compone Una Canción",
+            "title": "Título",
+            "lyrics": "Letra",
             "attach": "Attach"
         },
         "postattachmentselectmasstweet": {
@@ -86,7 +74,7 @@
             "search": "Search"
         },
         "postattachmentselectsong": {
-            "selectsong": "Select Song",
+            "selectsong": "Elegir Una Canción",
             "search": "Search"
         },
         "postcreate": {

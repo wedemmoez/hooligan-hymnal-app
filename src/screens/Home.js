@@ -26,18 +26,20 @@ import { getPost, engageNotification } from '../services/feedService';
 import AnimatedScrollView from '../components/AnimatedScrollView';
 import NavigationBar from '../components/NavigationBar';
 import MenuButton from '../components/MenuButton';
-import VideoBackground from '../components/VideoBackground';
+import HomeVideoPanel from '../components/HomeVideoPanel';
 import SocialButtonPanel from '../components/SocialButtonPanel';
 import HomeBannersPanel from '../components/HomeBannersPanel';
+import PrideraiserCampaignSummary from '../components/PrideraiserCampaignSummary';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
+import { ModalLoader } from '../components/ModalLoader';
 import Post from '../components/Post';
 import { FontSizes, Layout, Colors } from '../constants';
 import Constants from 'expo-constants';
 
-import appParams from '../../app.json';
 import {
   Palette,
   DefaultColors,
+  Settings,
   Skin,
   banners,
   socialButtons,
@@ -141,6 +143,18 @@ class Home extends React.Component {
       extrapolate: 'clamp'
     });
 
+    let heroComponent;
+    switch (Settings.Home_HeroContent) {
+      case "video":
+        heroComponent = <HomeVideoPanel />
+        break;
+      case "prideraiser":
+        heroComponent = <PrideraiserCampaignSummary key={"prideraiserCampaignSummary"} />
+        break;
+      default:
+        heroComponent = null
+    }
+
     return (
       <View style={{ flex: 1, backgroundColor: Skin.Home_BackgroundColor }}>
         <AnimatedScrollView
@@ -191,30 +205,8 @@ class Home extends React.Component {
                 color={Skin.Home_LoadMoreActivityIndicator_iOS} />
             </View>
           }
-          <View
-            style={{
-              backgroundColor: Palette.Rouge,
-              padding: 8,
-              paddingTop: Layout.headerHeight - 10,
-              justifyContent: 'center',
-              alignItems: 'center'
-            }}
-          >
-            <View style={styles.headerVideoLayer}>
-              <VideoBackground />
-              <View style={styles.headerVideoOverlay} />
-            </View>
-            <Image
-              source={Skin.Home_VideoOverlay}
-              style={{ height: 100, resizeMode: 'contain', marginTop: 20 }}
-              //tintColor={DefaultColors.HeaderText}
-            />
-            <View style={styles.headerContent}>
-              <RegularText style={styles.headerText}>
-                {appParams.expo.version}
-              </RegularText>
-            </View>
-          </View>
+
+          {heroComponent}
 
           <DeferredHomeContent globalData={this.props.globalData} />
           <View style={{ flex: 1, flexDirection: "row", justifyContent: "center", paddingVertical: 10 }}>
@@ -226,6 +218,7 @@ class Home extends React.Component {
             }
           </View>
           <OverscrollView />
+          <ModalLoader loading={!this.props.globalData.state.loadDataComplete} />
         </AnimatedScrollView>
 
         <NavigationBar
@@ -233,8 +226,7 @@ class Home extends React.Component {
           renderTitle={() =>
             <Image
               source={Skin.Home_NavbarLogo}
-              style={{ height: Layout.headerHeight - (Constants.statusBarHeight / 2), width: Layout.window.width, resizeMode: 'contain' }}
-              tintColor={DefaultColors.HeaderText} />
+              style={{ height: Layout.headerHeight - (Constants.statusBarHeight / 2), width: Layout.window.width, resizeMode: 'contain' }} />
           }
           animatedBackgroundOpacity={headerOpacity}
         />
@@ -334,11 +326,11 @@ class DeferredHomeContent extends React.Component {
     })
 
     // for some reason this doesn't blow up when scrollItems.length is small or zero
+    let buttonsIndex = 2
+    let linksIndex = 4
     scrollItems.splice(0, 0, <HomeBannersPanel key={"homeBanners"} config={banners} />)
-    scrollItems.splice(2, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
-    scrollItems.splice(4, 0, <StaticHomeContent_Links key={"homeLinks"} />)
-
-    //scrollItems.splice(2, 0, <StaticHomeContent />)
+    scrollItems.splice(buttonsIndex, 0, <StaticHomeContent_Buttons key={"homeButtons"} navigation={this.props.navigation} />)
+    scrollItems.splice(linksIndex, 0, <StaticHomeContent_Links key={"homeLinks"} />)
 
     return (
       <AnimatableView animation="fadeIn" useNativeDriver duration={800}>

@@ -1,11 +1,6 @@
 import About from './About';
-import CapoComposeSong from './CapoComposeSong';
-import CapoConfirmSendGoalkeeperNickname from './CapoConfirmSendGoalkeeperNickname';
-import CapoConfirmSendSong from './CapoConfirmSendSong';
 import CapoHome from './CapoHome';
 import CapoLogin from './CapoLogin';
-import CapoSetGoalkeeperNickname from './CapoSetGoalkeeperNickname';
-import CapoSelectSong from './CapoSelectSong';
 import Channel from './Channel';
 import Events from './Events';
 import FoesSelector from './FoesSelector';
@@ -16,6 +11,7 @@ import Player from './Player';
 import PostAttach from './PostAttach';
 import PostAttachmentComposeSong from './PostAttachmentComposeSong';
 import PostAttachmentComposeGkNickname from './PostAttachmentComposeGkNickname';
+import PostAttachmentComposePrideraiserMatch from './PostAttachmentComposePrideraiserMatch';
 import PostAttachmentSelectJuanstagram from './PostAttachmentSelectJuanstagram';
 import PostAttachmentSelectMassTweet from './PostAttachmentSelectMassTweet';
 import PostAttachmentSelectPlayer from './PostAttachmentSelectPlayer';
@@ -40,13 +36,8 @@ import Volunteer from './Volunteer';
 
 export default {
   About,
-  CapoComposeSong,
-  CapoConfirmSendGoalkeeperNickname,
-  CapoConfirmSendSong,
   CapoHome,
   CapoLogin,
-  CapoSetGoalkeeperNickname,
-  CapoSelectSong,
   Channel,
   Events,
   FoesSelector,
@@ -57,6 +48,7 @@ export default {
   PostAttach,
   PostAttachmentComposeSong,
   PostAttachmentComposeGkNickname,
+  PostAttachmentComposePrideraiserMatch,
   PostAttachmentSelectJuanstagram,
   PostAttachmentSelectMassTweet,
   PostAttachmentSelectPlayer,

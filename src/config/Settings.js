@@ -1,3 +1,5 @@
+import appParams from '../../app.json';
+
 /*
     Supporter Group Info
 */
@@ -5,20 +7,23 @@
 // Web presence config
 // "Follow Us" on Home screen
 
-// TODO: Build home screen dynamically based on this websites object
-
+// URLs
 export const TWITTER_URL = 'https://twitter.com/NGSDetroit';
 export const FACEBOOK_URL = 'https://www.facebook.com/NGSDetroit';
 export const INSTAGRAM_URL = 'https://instagram.com/northernguard';
 export const WEBSITE_URL = 'https://noonelikes.us';
+export const YOUTUBE_URL = '';
+export const SHOP_URL = 'https://squareup.com/store/the-chattahooligans';
+// PRIDERAISER_URL moved to a different section
+// HEY! Don't include a trailing slash / on this url.
+// If you do, you're gonna have a bad time because your serer calls will not work
 export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://radiant-citadel-22556.herokuapp.com'
 // export const HOOLIGAN_HYMNAL_SERVER_ADDRESS = 'https://guardbook-beta.herokuapp.com'
 
 export const YOUTUBE_URL = 'https://www.youtube.com/user/NorthernGuardDCFC';
 export const SHOP_URL = 'https://noonelikes.us/shop/';
-export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-KPNjywj/';
-export const GOFUNDME_URL = 'https://www.gofundme.com/chattahooligan-youth-soccer-investment';
-  'https://twitter.com/LetsMakeRoots';
+export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-LmzzAmx/';
+export const GOFUNDME_URL = 'https://twitter.com/LetsMakeRoots';
 export const ESP_TWITTER_URL = 'https://twitter.com/Rouge_y_Oro';
 export const ESP_INSTAGRAM_URL = '';
 export const ESP_WEBSITE_URL = '';
@@ -33,6 +38,7 @@ export const HOME_NAVBAR_LOGO = require('../../assets/ngs3.png');
 //export const HOME_NAVBAR_LOGO = require('../../assets/home-big-c-logo.png');
 export const HOME_SCREEN_VIDEO_OVERLAY = require('../../assets/ngs3.png');
 export const HOME_VIDEO = require('../../assets/5MB_video.mp4');
+
 export const HOME_VIDEO_OVERLAY = require('../../assets/ngs3.png');
 export const DRAWER_HERO_BACKGROUND = require('../../assets/drawer-prideraiser-background.jpg');
 export const DRAWER_HERO_OVERLAY = require('../../assets/ngs3.png');
@@ -43,7 +49,26 @@ export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
 export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
 // used in SongView to link to sheet music
 export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
-export const PRIDERAISER_ACTIVE = false;
+export const PRIDERAISER_ACTIVE = true;
+export const CLUB_LOGO = require('../../assets/dcfc_logo.png');
+export const CLUB_NAME = "Detroit City FC";
+// social media icons
+export const GOFUNDME_ICON = require('../../assets/gofundme.png');
+export const GOFUNDME_BW_ICON = require('../../assets/gofundme_bw.png');
+// used in SongView to link to sheet music
+export const MUSICAL_SCORE_ICON = require('../../assets/musical-score.png');
+
+// Other link
+export const REDDIT_DCFC_URL = 'https://www.reddit.com/r/DetroitCityFC'
+
+// Prideraiser
+export const PRIDERAISER_URL = 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-2020-LmzzAmx/';
+export const PRIDERAISER_LOGO = require('../../assets/prideraiser-logo.png');
+export const PRIDERAISER_ICON = require('../../assets/prideraiser-icon.png');
+export const PRIDERAISER_CAMPAIGN_ID = 'LmzzAmx';
+//export const PRIDERAISER_CAMPAIGN_ID = 'invalid_id_for_testing';
+
+//end diff
 import i18n from "../../i18n"
 
 /*
@@ -76,7 +101,7 @@ export const DefaultColors = {
   Secondary: Palette.White
 }
 
-// NOTE: Heebo is a Chattahooligan-brand font.
+// NOTE: Roboto is a Chattahooligan-brand font.
 /*
   You can use your own fonts in Hooligan Hymnal by including files in /assets/
   and editing App.js. Look for Font.loadAsync() to see how fonts are loaded and registered as strings
@@ -85,16 +110,18 @@ export const DefaultColors = {
   Font_Regular: 'open-sans',
   Font_Medium: 'open-sans-semibold',
   Font_Bold: 'open-sans-bold',
+  Font_Italic: 'open-sans-italic',
   Font_ParsedText: 'open-sans',
 
   Font_Light is currently unused in the app.
 */
 export const Skin = {
-  Font_Light: 'heebo-light',
-  Font_Regular: 'heebo',
-  Font_Medium: 'heebo-medium',
-  Font_Bold: 'heebo-bold',
-  Font_ParsedText: 'heebo',
+  Font_Light: 'roboto-light',
+  Font_Regular: 'roboto',
+  Font_Medium: 'roboto-medium',
+  Font_Bold: 'roboto-bold',
+  Font_Italic: 'roboto-italic',
+  Font_ParsedText: 'roboto',
   Channel_Background: DefaultColors.Secondary,
   Channel_DescriptionLabel: DefaultColors.Primary,
   Channel_LoadMoreActivityIndicator_Android: DefaultColors.Primary,
@@ -118,11 +145,15 @@ export const Skin = {
   Home_SocialButtons: DefaultColors.Primary,
   Home_Video: HOME_VIDEO,
   Home_VideoOverlay: HOME_VIDEO_OVERLAY,
+  HomeVideoPanel_TintColor: DefaultColors.NavigationBarBackground,
+  HomeVideoPanel_TintOpacity: 0.8,
+  HomeVideoPanel_VersionLabel: DefaultColors.HeaderText,
   Home_Website: Palette.Black,
   ModalLoader_ActivityIndicator: DefaultColors.Primary,
   ModalLoader_Background: DefaultColors.Secondary,
   ModalLoader_Container: "#00000040",
   Songbook_Background: Palette.White,
+  NotificationEngagementsModal_Container: "#00000040",
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: Palette.Rouge,
   Player_Background: Palette.White,
@@ -137,6 +168,8 @@ export const Skin = {
   Post_LinkColor: "blue",
   Post_TextColor: DefaultColors.Text,
   Post_TimestampLabel: DefaultColors.ColorText,
+  PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
+  PrideraiserCampaignSummary_AnalyticsSource: DefaultColors.HeaderText,
   Roster_DefaultThumbnail: CLUB_LOGO,
   Roster_TabBackground: DefaultColors.ButtonBackground,
   Roster_ActiveTabIndicator: DefaultColors.ButtonText,
@@ -160,8 +193,15 @@ export const socialButtons = [
       { icon: 'logo-instagram', url: INSTAGRAM_URL },
       { icon: 'md-cart', url: SHOP_URL },
       { image: PRIDERAISER_ICON, url: PRIDERAISER_URL, tintToSkin: false }
-      //,
-      //{ image: GOFUNDME_BW_ICON, url: GOFUNDME_URL, tintToSkin: true }
+    ]
+  },
+  {
+    header: i18n.t('settings.socialES'),
+    headerColor: DefaultColors.ColorText,
+    items: [
+      { icon: 'logo-twitter', url: ESP_TWITTER_URL },
+      { icon: 'logo-instagram', url: ESP_INSTAGRAM_URL },
+      { icon: 'md-browsers', url: ESP_WEBSITE_URL }
     ]
   },
   {
@@ -196,40 +236,92 @@ export const banners = [
 //{ backgroundColor: Palette.Prideraiser, image: PRIDERAISER_ICON, url: PRIDERAISER_URL, text: "Pledge to Chattanooga Prideraiser", textColor: Palette.White },
 // { backgroundColor: Palette.Sky, image: GOFUNDME_BW_ICON, tintColor: Skin.Home_SocialButtons, url: GOFUNDME_URL, text: "Youth Soccer Investment Crowdfunding", textColor: Palette.Black }
 
+/*
+  Common Image Credit
+
+  It's likely that photos will come from a select few SG or club photographers. 
+  Let's make it easy to credit those people for letting us use their work.
+*/
+export const commonImageCredit = [
+  "Detroit City Football Club"
+]
 
 /*
   App Feature Flags
 */
-// CapoHome_GKNicknameEnabled: true, false
-//      This is a longrunning inside joke in Chattanooga
-// Channels_Enabled: true, false
-//      Some SGs will only ever have one channel
-//      and tapping into a whole hunk of UI will be jarring and confusing to users
-// Home_PostsPerPage: number
-//      Load this many news feed items, then load this many more if the user scrolls to the bottom
-// Player_ShowSongs: true, false
-//      Some SGs write songs for each player
-//      Toggle a related UI element in the Roster/Player screen
-// PostCreate_UploadImageEnabled: true, false
-//      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
-// RefereeCards_Show: true, false
-//      Show yellow/red card icons in the nav drawer
-// Roster_SortPlayersBy: "default", "number", "name"
-//      later- "position" with priority
-//      (hopefully this gets deprecated and replaced with something in the UI later)
-// RosterFoes_DefaultCompetition: string
-//      Matches .competition field of objects from the database foes collection
-//      This field is case sensitive and must match exactly
 export const Settings = {
-  Player_ShowSongs: true,
-  CapoHome_GKNicknameEnabled: true,
-  ChannelUI_Enabled: false,
-  RefereeCards_Show: false,
   Roster_SortPlayersBy: "number",
   RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
-  Home_PostsPerPage: 5,
-  ImageResizeQuality: 1,
-  ImageResizeDimensions: { larger: 1216, smaller: 912 },
   Juanstagram: false,
   PostCreate_UploadImageEnabled: true,
+  // Channels_Enabled: true, false
+  //      Some SGs will only ever have one channel
+  //      and tapping into a whole hunk of UI will be jarring and confusing to users
+  ChannelUI_Enabled: false,
+
+  // Home_HeroContent: "video", "prideraiser", ("image" coming soon)
+  //      Hero content on the home screen
+  Home_HeroContent: "prideraiser",
+
+  // Home_PostsPerPage: number
+  //      Load this many news feed items, then load this many more if the user scrolls to the bottom
+  Home_PostsPerPage: 5,
+
+  // Player_ShowSongs: true, false
+  //      Some SGs write songs for each player
+  //      Toggle a related UI element in the Roster/Player screen
+  Player_ShowSongs: true,
+
+  // PostAttach_ShowGKNickname: true, false
+  //      This is a longrunning inside joke in Chattanooga
+  PostAttach_ShowGKNickname: true,
+
+  // PostAttach_ShowJuanstagram: true, false
+  //      This is a longrunning inside joke in Chattanooga
+  PostAttach_ShowJuanstagram: true,
+
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourcePrefix: appParams.expo.slug,
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourceDateFormat: "YYYY-MM-DD",
+  PostAttachmentComposePrideraiserMatch_AnalyticsSourceSuffix: "",
+
+  // PostCreate_UploadImageEnabled: true, false
+  //      Some SGs may not want to pay for image hosting, turn the feature off entirely if so
+  PostCreate_UploadImageEnabled: true,
+
+  // PostCreate_UploadImageResizeQuality and PostCreate_UploadImageResizeDimensions
+  //      These two values determine sizing and JPG compression of images before they are uploaded
+  //      This is done client side to save data (and time in a stadium environment)
+  //      These values have NOT been optimized yet, so fiddle with them and report your thoughts back to the core team
+  PostCreate_UploadImageResizeQuality: 1,
+  PostCreate_UploadImageResizeDimensions: { larger: 1216, smaller: 912 },
+
+  Prideraiser_CampaignId: PRIDERAISER_CAMPAIGN_ID,
+
+  // Prideraiser_CampaignCoverParams: string
+  //      default: "?w=768&h=200&wm=pr&wmp=br"
+  //      Check how this renders on your deployment with your Prideraiser campaign cover photo
+  //      You may want to adjust the height param and/or design the cover photo with Hooligan Hymnal in mind
+  //      wm=pr&wmp=br add the Prideraiser Logo watermark onto the image. We recommend leaving this alone
+  PrideraiserCampaignSummary_CampaignCoverParams: "?w=768&h=300", //432&wm=pr&wmp=bl",
+
+  PrideraiserCampaignSummary_AnalyticsSource: appParams.expo.slug + "-home",
+
+  // RefereeCards_Show: true, false
+  //      Show yellow/red card icons in the nav drawer
+  RefereeCards_Show: false,
+
+  // Roster_SortPlayersBy: "default", "number", "name"
+  //      later- "position" with priority
+  //      (hopefully this gets deprecated and replaced with something in the UI later)
+  Roster_SortPlayersBy: "number",
+
+  // RosterFoes_DefaultCompetition: string
+  //      Matches .competition field of objects from the database foes collection
+  //      This field is case sensitive and must match exactly
+  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
+
+  // TwitterList_ExtraHandles: string
+  //      Extra Twitter handles concatenated after the players on the TwitterList screen
+  //      In Chattanooga, we add the club and our SG accounts
+  TwitterList_ExtraHandles: "@DetroitCityFC @NGSDetroit"
 }
