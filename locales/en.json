@@ -3,6 +3,7 @@
     "about": {
       "title": "About",
       "appTitle": "The Guardbook",
+      "version": "v",
       "why": "The Guardbook was conjured from the dark web to help everyone support Detroit City FC.",
       "feedback": "Please send feedback to *@NGSDetroit* or *@Guardbook* on Twitter, or email webmaster@noonelikes.us",
       "creditsheading": "Credits",
@@ -234,6 +235,12 @@
     },
     "postattachmentmultitweet": {
       "tweettheplayers": "Tweet them all!"
+    },
+    "prideraisercampaignsummary": {
+      "title": "%supporter_group.name% present *%name%*",
+      "benefitting": "Benefitting %charity_name%",
+      "pledged": "$%pledged_total% pledged per %goal_name%",
+      "learnmore": "Tap to learn more about Prideraiser"
     },
     "songview": {
       "copiedtitle": "Copied title to clipboard",
