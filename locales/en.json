@@ -37,7 +37,7 @@
       "sendonly": "Send Only",
       "sendnotify": "Send & Notify"
     },
-    "capohome": {
+    "adminhome": {
       "title": "Gatekeeper Dashboard",
       "selectsong": "Select Song",
       "composesong": "Compose Song",
@@ -45,11 +45,11 @@
       "postcreate": "Create Post",
       "logout": "Logout"
     },
-    "capologin": {
+    "adminlogin": {
       "title": "Gatekeeper Dashboard",
       "username": "Username/Email",
       "password": "Password",
-      "unlock": "Unlock"
+      "login": "Login"
     },
     "caposelectsong": {
       "title": "Select Song"
@@ -66,7 +66,8 @@
       "selectsong": "Select Song",
       "composesong": "Compose Song",
       "masstweet": "Tweet the Players",
-      "gknickname": "GK Nickname"
+      "gknickname": "GK Nickname",
+      "prideraisermatch": "Prideraiser Match Update"
     },
     "postattachmentcomposegknickname": {
       "gknickname": "GK Nickname",
