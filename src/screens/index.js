@@ -20,7 +20,6 @@ import RosterFoes from './RosterFoes';
 import RosterTeam from './RosterTeam';
 import SinglePost from './SinglePost';
 import SingleSong from './SingleSong';
-import Smoke from "./Smoke";
 import Songbook from './Songbook';
 import SongbookContents from './SongbookContents';
 import SongbookCover from './SongbookCover';
@@ -52,7 +51,6 @@ export default {
   RosterTeam,
   SinglePost,
   SingleSong,
-  Smoke,
   Songbook,
   SongbookContents,
   SongbookCover,
