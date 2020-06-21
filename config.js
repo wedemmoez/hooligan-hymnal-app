@@ -469,7 +469,7 @@ export const Settings = {
 
   // RefereeCards_Show: true, false
   //      Show yellow/red card icons in the nav drawer
-  RefereeCards_Show: true,
+  RefereeCards_Show: false,
 
   // Roster_FoesEnabled: true, false
   //      enables tabs in the roster screen to display opponent rosters
