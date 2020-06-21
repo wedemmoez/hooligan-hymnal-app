@@ -5,7 +5,7 @@ import i18n from "./src/i18n";
 /*
   Hooligan Hymnal
 
-  Copyright 2018-2020 The Chattahooligans, released open source under MIT license
+  Copyright 2018-2020 The Chattahooligans and Northern Guard Supporters, released open source under MIT license
 
   The latest source code and documentation for this project are located at:
   https://github.com/Chattahooligans/hooligan-hymnal-app
@@ -43,32 +43,28 @@ export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
   // If you do, you're gonna have a bad time because your serer calls will not work 
-  HooliganHymnalServer: 'https://chattahooligan-hymnal.herokuapp.com',
+  HooliganHymnalServer: 'https://radiant-citadel-22556.herokuapp.com',
   // dev/beta server
-  //HooliganHymnalServer: 'https://chattahooligan-dev.herokuapp.com',
+  //HooliganHymnalServer: 'https://guardbook-beta.herokuapp.com',
 
   // Social media and websites
-  Twitter: 'https://twitter.com/chattahooligan',
-  Facebook: 'https://facebook.com/TheChattahooligans',
-  Instagram: 'https://instagram.com/thechattahooligans',
-  Website: 'http://comeandjoin.us',
+  Twitter: 'https://twitter.com/NGSDetroit',
+  Facebook: 'https://facebook.com/NGSDetroit',
+  Instagram: 'https://instagram.com/northernguard',
+  Website: 'http://noonelikes.us',
   YouTube: '',
-  Shop: 'https://squareup.com/store/the-chattahooligans',
-  Prideraiser: 'https://chatt.prideraiser.org/',
+  Shop: 'https://noonelikes.us/shop/',
+  Prideraiser: 'https://www.prideraiser.org/campaigns/northern-guard-supporters-detroit-prideraiser-2020-LmzzAmx/',
   // Look for random characters at the end of your current campaign url (must update for each campaign season)
-  PrideraiserCampaignId: 'aw43AmO',
-  GoFundMe: 'https://www.gofundme.com/chattahooligan-youth-soccer-investment',
-  EsTwitter: 'https://twitter.com/LosCFCHooligans',
+  PrideraiserCampaignId: 'LmzzAmx',
+  GoFundMe: 'https://twitter.com/LetsMakeRoots',
+  EsTwitter: 'https://twitter.com/Rouge_y_Oro',
   EsFacebook: '',
-  EsInstagram: 'https://instagram.com/loschattahooligans',
-  EsWebsite: 'http://chattahooligan.com/es',
-  Events: 'https://facebook.com/TheChattahooligans/events/',
-  Standings: 'https://www.nisaofficial.com/standings',
-  Instrumentation: 'https://drive.google.com/open?id=1dW9z4lh5924mXKtOyhc4dt8_OuAT9UXr',
-  Volunteer: 'http://chattahooligan.com/join/',
-  Postcast423: 'https://anchor.fm/423soccerpod',
-  Postcast109: 'https://podcasts.apple.com/us/podcast/the-section-109-podcast/id1476968964',
-  RedditClub: 'https://www.reddit.com/r/ChattanoogaFC'
+  EsInstagram: '',
+  EsWebsite: '',
+  Events: 'https://noonelikes.us/events/',
+  Standings: 'https://uwssoccer.com/standings/',
+  RedditClub: 'https://www.reddit.com/r/DetroitCityFC'
 }
 
 
@@ -120,9 +116,7 @@ export const Images = {
   PrideraiserIcon: require('./assets/prideraiser-icon.png'),
 
   // Add optional images
-  GoFundMe: require('./assets/gofundme.png'),
-  Postcast423: require('./assets/logo-podcast-423.png'),
-  Postcast109: require('./assets/logo-podcast-109.png')
+  GoFundMe: require('./assets/gofundme.png')
 }
 
 
@@ -141,15 +135,8 @@ export const Images = {
   Feel free to add or remove lines as necessary
 */
 export const CommonImageCredits = [
-  "Ray Soldano | https://www.facebook.com/RaySoldanoPhotography/",
-  "Galen Riley | https://twitter.com/thatgalen",
-  "Jeff Underwood | https://www.facebook.com/jeff.underwood.359",
-  "Kayja Swanson | https://www.facebook.com/kajsaphotog/",
-  "Madonna Fajardo Kemp | https://www.facebook.com/madonna.kemp",
-  "Matt Reiter | https://www.facebook.com/mreiterphoto/",
-  "Phil Thach | https://www.facebook.com/philthachphoto",
-  "Shannon Millsaps | https://www.facebook.com/smillsapsphoto/",
-  "Chattanooga Football Club"
+  "Dion DeGennaro | https://twitter.com/TheDukeNGS",
+  "Detroit City Football Club"
 ]
 
 
@@ -171,6 +158,8 @@ export const Palette = {
   Sky: '#A3D8F7',
   White: '#FFFFFF',
   Black: '#000000',
+  Rouge: '#5a0204',
+  Gold: '#c7990b',
 
   // Leave these three alone unless you know you want to change them/don't need them
   Prideraiser: '#a55eea',
@@ -193,14 +182,14 @@ export const Palette = {
 */
 export const DefaultColors = {
   Background: Palette.White,
-  ButtonBackground: Palette.Navy,
+  ButtonBackground: Palette.Rouge,
   ButtonText: Palette.White,
-  HeaderBackground: Palette.Navy,
+  HeaderBackground: Palette.Rouge,
   HeaderText: Palette.White,
   BlackText: "#222222",
-  ColorText: Palette.Navy,
-  Primary: Palette.Navy,
-  Secondary: Palette.Sky
+  ColorText: Palette.Rouge,
+  Primary: Palette.Rouge,
+  Secondary: Palette.White
 }
 
 
@@ -352,8 +341,6 @@ export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },
   { drawerLabel: i18n.t('navigation.links.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
   { drawerLabel: i18n.t('navigation.links.shop'), drawerIcon: 'shopping', url: Urls.Shop },
-  { drawerLabel: i18n.t('navigation.links.volunteer'), drawerIcon: 'human-greeting', url: Urls.Volunteer },
-  { drawerLabel: i18n.t('navigation.links.instrumentation'), drawerIcon: 'music-clef-treble', url: Urls.Instrumentation },
 ]
 
 
@@ -405,17 +392,13 @@ export const SocialButtons = [
     header: i18n.t('settings.socialES'),
     headerColor: DefaultColors.ColorText,
     items: [
-      { icon: 'twitter', url: Urls.EsTwitter },
-      { icon: 'instagram', url: Urls.EsInstagram },
-      { icon: 'link', url: Urls.EsWebsite }
+      { icon: 'twitter', url: Urls.EsTwitter }
     ]
   },
   {
     header: i18n.t('settings.other'),
     headerColor: DefaultColors.ColorText,
     items: [
-      { image: Images.Postcast423, url: Urls.Postcast423, tintToSkin: false },
-      { image: Images.Postcast109, url: Urls.Postcast109, tintToSkin: false },
       { icon: 'reddit', url: Urls.RedditClub },
     ]
   }
@@ -506,5 +489,5 @@ export const Settings = {
   //      Extra Twitter handles concatenated after the players on the TwitterList screen
   //      Each account should be seperated by a space
   //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
-  TwitterList_AppendHandles: "@ChattanoogaFC @chattahooligan @LosCFCHooligans"
+  TwitterList_AppendHandles: "@DetroitCityFC @NGSDetroit @Guardbook"
 }
