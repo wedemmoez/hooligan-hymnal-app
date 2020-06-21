@@ -4,7 +4,7 @@
       "title": "About",
       "appTitle": "The Guardbook",
       "version": "v",
-      "why": "The Guardbook was conjured from the dark web to help everyone support Detroit City FC.",
+      "description": "The Guardbook was conjured from the dark web to help everyone support Detroit City FC.",
       "feedback": "Please send feedback to *@NGSDetroit* or *@Guardbook* on Twitter, or email webmaster@noonelikes.us",
       "creditsheading": "Credits",
       "credits": [
@@ -14,12 +14,12 @@
         "Hell's Hymnal: *@JosephSlowvak*",
         "Roster: *@NGS_Tonto*",
         "Localizations: */u/nigol313*, *manuel_mg*",
-        "Blue guy: *@thatgalen@",
+        "Blue guy: *@thatgalen*",
         "Administration Developer: *@shortnd667*",
         "Release Manager: *@tacoman_x86*"
       ],
       "debug": "Debug",
-      "contribute": "Interested in contributing? If you can code, design, write, or help in any way, we'd love to work with you! Please reach out to *@NGSDetroit* on Twitter, or email webmaster@noonelikes.us for more information"
+      "hymnalplug": " is built using the open source *Hooligan Hymnal* platform.\n\nFollow  _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
     },
     "capocompose": {
       "title": "Compose Song",
