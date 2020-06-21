@@ -9,7 +9,6 @@
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
-    "sdkVersion": "35.0.0",
     "splash": {
       "backgroundColor": "#000000",
       "resizeMode": "contain",
@@ -31,7 +30,7 @@
       }
     },
     "notification": {
-      "icon": "./assets/speakerphone.png",
+      "icon": "./assets/notification.png",
       "iosDisplayInForeground": true,
       "color": "#A3D8F7"
     },

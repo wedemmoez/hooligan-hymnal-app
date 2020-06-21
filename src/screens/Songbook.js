@@ -11,19 +11,16 @@ import {
   Dimensions
 } from 'react-native';
 import SongView from '../components/SongView';
-import NavigationOptions from '../config/NavigationOptions';
-import { Ionicons } from '@expo/vector-icons';
-import { NavigationActions } from 'react-navigation';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { BorderlessButton, RectButton } from 'react-native-gesture-handler';
 import withUnstated from '@airship/with-unstated';
 import GlobalDataContainer from '../containers/GlobalDataContainer';
 import { FontSizes, Layout } from '../constants';
-import MenuButton from '../components/MenuButton';
 import { BoldText, MediumText, RegularText, UnderlineText } from '../components/StyledText';
 import LoadingPlaceholder from '../components/LoadingPlaceholder';
 import TableOfContentsInline from './TableOfContentsInline';
-import { Skin, DefaultColors} from '../config/Settings';
-import i18n from "../../i18n";
+import { Skin, DefaultColors } from '../../config';
+import i18n from '../i18n';
 
 const screenWidth = Dimensions.get('window').width;
 const firstValidPageIndex = 1;
@@ -71,11 +68,6 @@ let defaultChapterTitle = i18n.t('screens.songbook.defaultchaptertitle');
 // Android uses ViewPagerAndroid
 // iOS uses ScrollView with pagingEnabled and horizontal properties
 class Songbook extends React.Component {
-  static navigationOptions = {
-    title: i18n.t('screens.songbook.title'),
-    ...NavigationOptions
-  };
-
   state = {
     chapter_title: defaultChapterTitle,
     tocButtonDisplay: true,
@@ -85,6 +77,10 @@ class Songbook extends React.Component {
   };
 
   componentDidMount() {
+    this.props.navigation.setOptions({
+      headerTitle: i18n.t('screens.songbook.title')
+    })
+
     this.setData();
   }
 
@@ -102,7 +98,7 @@ class Songbook extends React.Component {
     let songs = [];
     let pageCount = 0;
     this.props.globalData.state.songbook.chapters.forEach(chapterChild => {
-      chapterChild.songs.forEach(songChild => {
+      chapterChild.songs.forEach((songChild, index) => {
         try {
           let item = this.props.globalData.state.songs.filter(
             song => song._id === songChild._id
@@ -112,7 +108,7 @@ class Songbook extends React.Component {
           songs.push({ index: pageCount, song: item });
           songViews.push(
             <View
-              key={item._id}
+              key={index + "-" + item._id}
               chapter_title={chapterChild.chapter_title}
               style={{ flex: 1, width: screenWidth, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}
             >
@@ -142,8 +138,8 @@ class Songbook extends React.Component {
           onPress={this._handlePressTOCButton}
           underlayColor="#fff"
         >
-          <Ionicons
-            name="md-list"
+          <MaterialCommunityIcons
+            name="table-of-contents"
             size={23}
             style={{
               color: '#fff',
@@ -182,7 +178,7 @@ class Songbook extends React.Component {
               <View style={{ flex: 1 }} />
               <Image
                 style={{ width: screenWidth, height: screenWidth }}
-                source={require('../../assets/ngs1.png')}
+                source={Skin.Songbook_Cover}
               />
               <View style={{ flex: 1 }} />
               <RegularText style={{ textAlign: 'center', writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.songbook.swipetoview')}</RegularText>
