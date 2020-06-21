@@ -190,16 +190,16 @@
     }
   },
   "navigation": {
-    "home": "HOME",
-    "songbook": "HELL'S HYMNAL",
-    "roster": "ROSTER",
-    "events": "EVENTS ↗️",
-    "standings": "NISA STANDINGS ↗️",
-    "shop": "MERCH SHOP ↗️",
-    "volunteer": "LET'S MAKE ROOTS ↗️",
-    "instrumentation": "INSTRUMENTATION ↗️",
-    "capo": "GATEKEEPER DASHBOARD",
-    "about": "ABOUT"
+    "home": "Home",
+    "songbook": "Hell's Hymnal",
+    "roster": "Roster",
+    "links": {
+      "events": "Events",
+      "standings": "UWS Standings",
+      "shop": "Merch Shop",
+      "volunteer": "Volunteer",
+      "instrumentation": "Instrumentation"
+    }
   },
   "components": {
     "gkNickname": {
