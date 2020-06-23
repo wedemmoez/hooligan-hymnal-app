@@ -489,7 +489,7 @@ export const Settings = {
   // RosterFoes_DefaultCompetition: string
   //      Matches .competition field of objects from the database foes collection
   //      This field is case sensitive and must match exactly
-  RosterFoes_DefaultCompetition: "2020 NISA Spring Showcase",
+  RosterFoes_DefaultCompetition: "Women 2020",
 
   // TwitterList_AppendHandles: string
   //      Extra Twitter handles concatenated after the players on the TwitterList screen
