@@ -64,7 +64,10 @@ export const Urls = {
   EsWebsite: '',
   Events: 'https://noonelikes.us/events/',
   Standings: 'https://uwssoccer.com/standings/',
-  RedditClub: 'https://www.reddit.com/r/DetroitCityFC'
+  GetInvolved: 'https://noonelikes.us/get-involved/',
+  Quarantifo: 'https://noonelikes.us/tifo/',
+  RedditClub: 'https://www.reddit.com/r/DetroitCityFC',
+  NgsCares: 'https://noonelikes.us/ngscares/'
 }
 
 
@@ -341,6 +344,9 @@ export const NavigationDrawerItems = [
   { drawerLabel: i18n.t('navigation.links.events'), drawerIcon: 'calendar', url: Urls.Events },
   { drawerLabel: i18n.t('navigation.links.standings'), drawerIcon: 'menu-swap', url: Urls.Standings },
   { drawerLabel: i18n.t('navigation.links.shop'), drawerIcon: 'shopping', url: Urls.Shop },
+  { drawerLabel: i18n.t('navigation.links.getinvolved'), drawerIcon: 'gift', url: Urls.GetInvolved },
+  { drawerLabel: i18n.t('navigation.links.quarantifo'), drawerIcon: 'flag-plus', url: Urls.Quarantifo },
+  { drawerLabel: i18n.t('navigation.links.ngscares'), drawerIcon: 'heart-pulse', url: Urls.NgsCares }
 ]
 
 

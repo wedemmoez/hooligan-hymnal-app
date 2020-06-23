@@ -218,7 +218,10 @@
       "standings": "UWS Standings",
       "shop": "Merch Shop",
       "volunteer": "Volunteer",
-      "instrumentation": "Instrumentation"
+      "instrumentation": "Instrumentation",
+      "getinvolved": "Get Involved",
+      "quarantifo": "Quarantifo",
+      "ngscares": "NGS Cares"
     }
   },
   "components": {
