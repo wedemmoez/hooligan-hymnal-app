@@ -71,7 +71,7 @@ class About extends React.Component {
     });
 
     return (
-      <View style={{ flex: 1, padding: 10, backgroundColor: DefaultColors.Secondary, flexDirection: i18n.getFlexDirection() }}>
+      <View style={{ flex: 1, padding: 10, backgroundColor: Skin.About_BackgroundColor, flexDirection: i18n.getFlexDirection() }}>
         <ScrollView style={{ flex: 1, backgroundColor: DefaultColors.Background, padding: 5 }}>
           <View style={{ flexDirection: i18n.getFlexDirection(), marginBottom: 10 }}>
             <BoldText style={{ fontSize: FontSizes.title, textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.appTitle')}</BoldText>
@@ -94,7 +94,7 @@ class About extends React.Component {
           <ParsedText
             parse={parsedTextOptions}
             style={[styles.credits, { textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }]}>
-            {i18n.t('screens.about.appTitle') + i18n.t('screens.about.hymnalplug')}
+            {i18n.t('screens.about.appTitle') + i18n.getLocalizedText(appParams.expo.extra.hooliganHymnal.aboutPlug)}
           </ParsedText>
           <ScrollView style={{ flex: 1 }}>
             <MediumText style={{ textAlign: i18n.getRTLTextAlign(), writingDirection: i18n.getWritingDirection() }}>{i18n.t('screens.about.debug')}</MediumText>

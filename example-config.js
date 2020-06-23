@@ -227,6 +227,7 @@ export const Fonts = {
   appearance of the app. It's always in flux.
 */
 export const Skin = {
+  About_BackgroundColor: DefaultColors.Secondary,
   Font_Light: Fonts.Light.family,
   Font_Regular: Fonts.Regular.family,
   Font_Medium: Fonts.Medium.family,
@@ -290,6 +291,7 @@ export const Skin = {
   Post_HeaderContainerPaddingHorizontal: 16,
   Post_LineHeight: 22,
   Post_LinkColor: "blue",
+  Post_NotificationColor: DefaultColors.Secondary,
   Post_TextColor: DefaultColors.BlackText,
   Post_TextNumberOfLines: Number.MAX_SAFE_INTEGER,
   Post_TextPaddingTop: 6,
@@ -298,6 +300,10 @@ export const Skin = {
   Post_TextShowHide: false,
   Post_TimestampLabel: DefaultColors.ColorText,
   PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
+  PostAttachmentMassTweet_TwitterColor: DefaultColors.Secondary,
+  PostAttachmentMultiTweet_TwitterColor: DefaultColors.Secondary,
+  PostAttachmentPlayer_InstagramColor: DefaultColors.Secondary,
+  PostAttachmentPlayer_TwitterColor: DefaultColors.Secondary,
   PrideraiserCampaignSummary_VersionColor: DefaultColors.HeaderText,
   Roster_DefaultThumbnail: Images.ClubLogo,
   Roster_TabBackground: DefaultColors.ButtonBackground,
@@ -306,10 +312,14 @@ export const Skin = {
   Roster_InactiveTabLabel: DefaultColors.Secondary,
   Roster_FriendsTabIcon: 'heart',
   Roster_FoesTabIcon: 'thumb-down',
+  RosterTeam_TwitterColor: DefaultColors.Secondary,
   SongView_TitleColor: DefaultColors.Primary,
   SongView_ReferenceColor: DefaultColors.Primary,
   SongView_InstructionsColor: '#AAAAAA',
-  SongView_LyricsColor: DefaultColors.Primary
+  SongView_LyricsColor: DefaultColors.Primary,
+  StatusBar_BackgroundColor: DefaultColors.Primary,
+  StatusBar_BarStyle: "default",
+  TwitterList_BackgroundColor: DefaultColors.Secondary
 };
 
 
