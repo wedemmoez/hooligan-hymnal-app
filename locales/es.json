@@ -133,17 +133,17 @@
         }
     },
     "navigation": {
-        "home": "CASA",
-       "songbook": "HIMNARIO DEL INFIERNO",
-        "roster": "LISTA DE EQUIPO",
-        "admin": "TABLERO DE CAPO",
-        "about": "ACERCA DE",
+        "home": "Casa",
+       "songbook": "Himnario Del Infierno",
+        "roster": "Lista De Equipo",
+        "admin": "Tablero De Capo",
+        "about": "Acerca De",
         "links": {
-            "events": "EVENTOS",
-            "standings": "TABLA DE LIGA",
-            "shop": "TIENDA DE MERCANCÍAS",
-            "volunteer": "SÈ VOLUNTARIO",
-            "instrumentation": "INSTRUMENTACIÓN"
+            "events": "Eventos",
+            "standings": "Tabla de liga",
+            "shop": "Tienda de mercancías",
+            "volunteer": "Sè volunatrio",
+            "instrumentation": "Instrumentación"
         }
     },
     "components": {

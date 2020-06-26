@@ -119,17 +119,17 @@
         }
     },
     "navigation": {
-        "home": "HOME",
-        "songbook": "GESANGSBUCH",
-        "roster": "SPIELERLISTE",
-        "admin": "CAPO DASHBOARD",
-        "about": "ÜBER",
+        "home": "Home",
+        "songbook": "Gesangsbuch",
+        "roster": "Spielerliste",
+        "admin": "Capo dashboard",
+        "about": "Über",
         "links": {
-            "events": "EREIGNIS",
-            "standings": "TABELLE",
-            "shop": "FANARTIKEL SHOP",
-            "volunteer": "FREIWILLIGE",
-            "instrumentation": "INTRUMENTIERUNG"
+            "events": "Ereignis",
+            "standings": "Tabelle",
+            "shop": "Fanartikel shop",
+            "volunteer": "Freiwillige",
+            "instrumentation": "Intrumentierung"
         }
     },
     "components": {
