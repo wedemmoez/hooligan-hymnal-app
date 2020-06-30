@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "Dallas Beer Guardians",
+    "description": "The official app of those who drink beer and support FC Dallas",
+    "owner": "dallasguardians",
+    "slug": "DBG-hymnal",
+    "privacy": "unlisted",
+    "version": "2.0.1",
+    "primaryColor": "#002457",
+    "icon": "./assets/icon-ios.png",
+    "orientation": "portrait",
+    "splash": {
+      "backgroundColor": "#002457",
+      "resizeMode": "contain",
+      "image": "./assets/splash.png"
+    },
+    "android": {
+      "package": "com.dallasguardians.hymnal",
+      "icon": "./assets/icon-android.png",
+      "versionCode": 2001,
+      "permissions": [],
+      "googleServicesFile": "./google-services.json"
+    },
+    "ios": {
+      "bundleIdentifier": "com.dallasguardians.hymnal",
+      "buildNumber": "1",
+      "supportsTablet": false,
+      "loadJSInBackgroundExperimental": true
+    },
+    "notification": {
+      "icon": "./assets/notification.png",
+      "iosDisplayInForeground": true,
+      "color": "#001E60"
+    },
+    "platforms": [
+      "android",
+      "ios"
+    ],
+    "githubUrl": "https://github.com/Chattahooligans/",
+    "extra": {
+      "hooliganHymnal": {
+        "version": "2.0.1",
+        "aboutPlug": {
+          "en": " is built using the open source *Hooligan Hymnal* platform, v2.0.1.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
+        }
+      }
+    }
+  }
+}
