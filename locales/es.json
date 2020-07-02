@@ -17,7 +17,7 @@
                 "Gerente de descarga: *@tacoman_x86*"
             ],
             "debug": "Debug",
-            "hymnalplug": "¿Interesado en contribuir? Si puedes codificar, diseñar, escribir o ayudar de cualquier manera, ¡ nos encantaría trabajar contigo! Por favor contacte con nosotros en_ @ngsdetroit o @guardbook _ en twitter, o por correo electrónico webmaster@noonelikes.us"
+            "hymnalplug": "es desarrollado usando la plataforma de código abierto Hooligan Hymnal"
         },
         "capocompose": {
             "title": "Compone Una Canción",
@@ -134,7 +134,7 @@
     },
     "navigation": {
         "home": "Casa",
-       "songbook": "Himnario Del Infierno",
+        "songbook": "Himnario Del Infierno",
         "roster": "Lista De Equipo",
         "admin": "Tablero De Capo",
         "about": "Acerca De",
@@ -143,7 +143,10 @@
             "standings": "Tabla de liga",
             "shop": "Tienda de mercancías",
             "volunteer": "Sè volunatrio",
-            "instrumentation": "Instrumentación"
+            "instrumentation": "Instrumentación",
+            "getinvolved": "Participa",
+            "quarantifo": "Cuarentifo",
+            "ngscares": "NGS Se Preocupa"
         }
     },
     "components": {
