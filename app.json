@@ -5,7 +5,7 @@
     "owner": "ngsdetroit",
     "slug": "app",
     "privacy": "public",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "primaryColor": "#A3D8F7",
     "icon": "./assets/ngs4.png",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     "android": {
       "package": "com.northernguard.app",
       "icon": "./assets/ngs1.png",
-      "versionCode": 23,
+      "versionCode": 24,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
