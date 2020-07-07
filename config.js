@@ -1,6 +1,7 @@
 // Do not edit these import lines
 import appParams from './app.json';
 import i18n from "./src/i18n";
+import { Layout } from "./src/constants";
 
 /*
   Hooligan Hymnal
@@ -43,9 +44,9 @@ export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
   // If you do, you're gonna have a bad time because your serer calls will not work 
-  HooliganHymnalServer: 'https://radiant-citadel-22556.herokuapp.com',
+  //HooliganHymnalServer: 'https://radiant-citadel-22556.herokuapp.com',
   // dev/beta server
-  //HooliganHymnalServer: 'https://guardbook-beta.herokuapp.com',
+  HooliganHymnalServer: 'https://guardbook-beta.herokuapp.com',
 
   // Social media and websites
   Twitter: 'https://twitter.com/NGSDetroit',
@@ -273,9 +274,11 @@ export const Skin = {
   ModalLoader_Container: "#00000040",
   NavigationDrawer_BackgroundColor: "#333333",
   NavigationDrawer_HeroBackground: Images.NavigationDrawer_HeroBackground,
+  NavigationDrawer_HeroBackgroundHeight: 140 + Layout.notchHeight,
   NavigationDrawer_HeroOverlay: Images.NavigationDrawer_HeroOverlay,
-  NavigationDrawer_HeroOverlayTintColor: DefaultColors.HeaderBackground,
-  NavigationDrawer_HeroOverlayTintOpacity: 0.5,
+  NavigationDrawer_HeroOverlayHeightProportion: 0.5,
+  NavigationDrawer_HeroTintColor: DefaultColors.HeaderBackground,
+  NavigationDrawer_HeroTintOpacity: 0.5,
   NavigationDrawer_LabelActiveBackgroundColor: DefaultColors.Primary,
   NavigationDrawer_LabelActiveTintColor: Palette.White,
   NavigationDrawer_LabelActiveBackgroundColor: 'transparent',
@@ -283,6 +286,7 @@ export const Skin = {
   NavigationDrawer_FontFamily: Fonts.Bold.family,
   NotificationEngagementsModal_Container: "#00000040",
   Songbook_Background: DefaultColors.Secondary,
+  SongbookCover_DefaultImage: Images.Songbook_Cover,
   Songbook_Cover: Images.Songbook_Cover,
   Songbook_ToCButtonBackground: DefaultColors.ButtonBackground,
   SingleSong_Background: DefaultColors.Primary,
