@@ -2,10 +2,8 @@ import React from "react";
 import {
   FlatList,
   Image,
-  Linking,
   Picker,
   Platform,
-  SectionList,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -23,9 +21,8 @@ import { BoldText, MediumText, RegularText } from "../components/StyledText";
 import LoadingPlaceholder from "../components/LoadingPlaceholder";
 
 import { Colors, FontSizes, Layout } from "../constants";
-import Constants from "expo-constants";
+import { openURL } from "../utils/LinkHelper.js";
 
-import { find, propEq } from "ramda";
 import { DefaultColors, Skin, Settings } from "../../config";
 import i18n from "../i18n";
 

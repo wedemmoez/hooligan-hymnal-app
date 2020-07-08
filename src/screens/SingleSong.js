@@ -1,7 +1,7 @@
 import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 import SongView from "../components/SongView";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import { Skin, DefaultColors } from "../../config";
 import i18n from "../i18n";
 
@@ -25,7 +25,7 @@ export default class SingleSong extends React.Component {
       headerTitle: i18n.t("screens.singlesong.title"),
       headerLeft: () => (
         <HeaderBackButton
-          onPress={() => navigation.goBack()}
+          onPress={() => this.props.navigation.goBack()}
           tintColor="#fff"
         />
       ),

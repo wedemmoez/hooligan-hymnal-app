@@ -45,7 +45,6 @@ export default class GlobalDataContainer extends Container {
     goalkeeperNickname: null,
     channels: null,
     htmlColors: null,
-    bearerToken: null,
     currentPostDraft: null,
     feed: [],
     feedAtEnd: false,
@@ -258,7 +257,7 @@ export default class GlobalDataContainer extends Container {
           );
           let song = {};
           Object.assign(song, songOriginal);
-          song.chapterTitle = chapterChild.chapter_title;
+          song.chapterTitle = chapterChild.chapterTitle;
           song.pageLabel = tocPageLabel;
           songList.push(song);
           chapterSongList.push(song);
@@ -270,7 +269,7 @@ export default class GlobalDataContainer extends Container {
 
       if (0 < chapterSongList.length)
         ToCData.push({
-          title: chapterChild.chapter_title,
+          title: chapterChild.chapterTitle,
           data: chapterSongList,
         });
     });
@@ -297,13 +296,7 @@ export default class GlobalDataContainer extends Container {
 
   setLocation = (location) => this.setState({ location });
 
-  setBearerToken = (bearerToken) => this.setState({ bearerToken });
-  getBearerToken = () => {
-    return this.state.bearerToken;
-  };
-
-  // contains .user and .token (above, bearerToken until its refactored out)
-  // rename bearerToken from .token to .loginToken?
+  // contains .user and .token (bearerToken)
   setCurrentUser = (currentUser, callback) => {
     this.setState({ currentUser }, () => {
       if (callback) callback();
@@ -314,7 +307,7 @@ export default class GlobalDataContainer extends Container {
   };
 
   logoutCurrentUser = (callback) => {
-    this.setState({ currentUser: null, bearerToken: null }, () => {
+    this.setState({ currentUser: null }, () => {
       if (callback) callback();
     });
   };

@@ -3,7 +3,6 @@ import {
   Animated,
   FlatList,
   Image,
-  Linking,
   Platform,
   StyleSheet,
   TouchableOpacity,
@@ -14,8 +13,7 @@ import {
 
 import Constants from "expo-constants";
 import FadeIn from "react-native-fade-in-image";
-import ReadMore from "react-native-read-more-text";
-import { HeaderBackButton } from "react-navigation";
+import { HeaderBackButton } from "@react-navigation/stack";
 import { View as AnimatableView } from "react-native-animatable";
 import ParsedText from "react-native-parsed-text";
 import {
@@ -31,10 +29,11 @@ import GlobalDataContainer from "../containers/GlobalDataContainer";
 
 import AnimatedScrollView from "../components/AnimatedScrollView";
 import NavigationBar from "../components/NavigationBar";
-import { FontSizes, Icons, Layout } from "../constants";
+import { FontSizes, Layout } from "../constants";
 import { RegularText, BoldText, MediumText } from "../components/StyledText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import SongCard from "../components/SongCard";
+import { openURL } from "../utils/LinkHelper.js";
 import { Skin, DefaultColors, Settings } from "../../config";
 import i18n from "../i18n";
 
@@ -45,9 +44,11 @@ class Player extends React.Component {
   };
 
   componentDidMount() {
+    /*
     this.props.navigation.setOptions({
       header: null,
     });
+    */
 
     this.setData();
   }
@@ -92,10 +93,9 @@ class Player extends React.Component {
     if (player.twitter) {
       playerSocialIcons.push(
         <TouchableOpacity
-          key={player.twitter}
+          key={"player-twitter-" + player.twitter}
           onPress={() => {
-            //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
-            Linking.openURL("http://twitter.com/" + player.twitter);
+            openURL("http://twitter.com/" + player.twitter);
           }}
         >
           <MaterialCommunityIcons
@@ -116,10 +116,9 @@ class Player extends React.Component {
     if (player.instagram) {
       playerSocialIcons.push(
         <TouchableOpacity
-          key={player.instagram}
+          key={"player-instagram-" + player.instagram}
           onPress={() => {
-            //WebBrowser.openBrowserAsync('http://instagram.com/' + player.instagram);
-            Linking.openURL("http://instagram.com/" + player.instagram);
+            openURL("http://instagram.com/" + player.instagram);
           }}
         >
           <MaterialCommunityIcons
@@ -140,7 +139,9 @@ class Player extends React.Component {
 
     if (playerSocialIcons.length > 0) {
       playerSocialDisplay = (
-        <View style={{ flexDirection: "row" }}>{playerSocialIcons}</View>
+        <View style={{ flexDirection: i18n.getFlexDirection() }}>
+          {playerSocialIcons}
+        </View>
       );
     }
 
