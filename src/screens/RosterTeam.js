@@ -42,8 +42,8 @@ class PlayerRow extends React.Component {
           key={player.twitter}
           onPress={() => {
             //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
-            Linking.openURL(
-              'http://twitter.com/' + player.twitter
+            openURL(
+              'https://twitter.com/' + player.twitter
             );
           }}
         >
