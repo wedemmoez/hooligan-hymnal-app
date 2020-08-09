@@ -285,6 +285,7 @@ export const Skin = {
   NavigationDrawer_LabelInactiveTintColor: Palette.White,
   NavigationDrawer_FontFamily: Fonts.Bold.family,
   NotificationEngagementsModal_Container: "#00000040",
+  SongbookContents_ButtonBackground: DefaultColors.ButtonBackground,
   Songbook_Background: DefaultColors.Secondary,
   SongbookCover_DefaultImage: Images.Songbook_Cover,
   Songbook_Cover: Images.Songbook_Cover,
