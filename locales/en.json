@@ -199,7 +199,7 @@
       "title": "Table of Contents"
     },
     "twitterlist": {
-      "headertitle": "Twitter List",
+      "title": "Roster",
       "heading": "Be the 12th on the pitch",
       "instructions": "Support for the players of DCFC comes in many forms both in and out of the stadium. Tweets from supporters before and after matches are meaningful and appreciated by players.\n\nYou can copy multiple Twitter handles from the box below and paste them into a longer Twitter thread.",
       "opentwitter": "Open Twitter App"
@@ -215,7 +215,8 @@
     "roster": "Roster",
     "links": {
       "events": "Events",
-      "standings": "UWS Standings",
+      "uwsstandings": "UWS Standings",
+      "nisastandings": "NISA Standings",
       "shop": "Merch Shop",
       "volunteer": "Volunteer",
       "instrumentation": "Instrumentation",
