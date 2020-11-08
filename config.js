@@ -314,7 +314,7 @@ export const Skin = {
   PostAttachmentComposePrideraiserMatch_ActivityIndicator: DefaultColors.Primary,
   PostAttachmentMassTweet_TwitterColor: DefaultColors.Secondary,
   PostAttachmentMultiTweet_TwitterColor: DefaultColors.Secondary,
-  PostAttachmentPlayer_InstagramColor: DefaultColors.Secondary,
+  PostAttachmentPlayer_InstagramColor: DefaultColors.Primary,
   PostAttachmentPlayer_TwitterColor: DefaultColors.Secondary,
   PrideraiserCampaignSummary_VersionColor: DefaultColors.HeaderText,
   Roster_DefaultThumbnail: Images.ClubLogo,
