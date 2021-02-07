@@ -1,9 +1,10 @@
 import React from "react";
 import {
   Dimensions,
-  Linking,
+  Image,
   ScrollView,
   StyleSheet,
+  TouchableOpacity,
   View,
 } from "react-native";
 import { Skin, DefaultColors, Palette } from "../../config";
@@ -23,6 +24,7 @@ import {
   onUrlPress,
   onEmailPress,
 } from "../components/ParsedTextHelper";
+import { openURL } from "../utils/LinkHelper.js";
 import withUnstated from "@airship/with-unstated";
 import GlobalDataContainer from "../containers/GlobalDataContainer";
 import i18n from "../i18n";
@@ -63,6 +65,19 @@ class About extends React.Component {
   };
 
   render() {
+    // logo images are all exported to the same size
+    let { width, height } = Image.resolveAssetSource(
+      Skin.About_HooliganHymnalLogoSingleColor
+    );
+    let ratio = width / height;
+    let availableWidth =
+      Dimensions.get("window").width -
+      2 *
+        (styles.container.padding +
+          styles.scrollContainer.padding +
+          styles.platformContainer.paddingHorizontal);
+    let scaledHeight = availableWidth / ratio;
+
     let creditsTexts = [];
     let creditsItems = i18n.t("screens.about.credits");
     let parsedTextOptions = [
@@ -98,21 +113,8 @@ class About extends React.Component {
     });
 
     return (
-      <View
-        style={{
-          flex: 1,
-          padding: 10,
-          backgroundColor: Skin.About_BackgroundColor,
-          flexDirection: i18n.getFlexDirection(),
-        }}
-      >
-        <ScrollView
-          style={{
-            flex: 1,
-            backgroundColor: DefaultColors.Background,
-            padding: 5,
-          }}
-        >
+      <View style={styles.container}>
+        <ScrollView style={styles.scrollContainer}>
           <View
             style={{ flexDirection: i18n.getFlexDirection(), marginBottom: 10 }}
           >
@@ -179,6 +181,7 @@ class About extends React.Component {
               {
                 textAlign: i18n.getRTLTextAlign(),
                 writingDirection: i18n.getWritingDirection(),
+                marginBottom: 10,
               },
             ]}
           >
@@ -187,6 +190,35 @@ class About extends React.Component {
                 appJson.expo.extra.hooliganHymnal.aboutPlug
               )}
           </ParsedText>
+          <TouchableOpacity
+            onPress={() => {
+              openURL("https://github.com/Chattahooligans");
+            }}
+          >
+            <View style={[styles.platformContainer, { height: scaledHeight }]}>
+              <Image
+                source={require("../../assets/about/hooligan-hymnal-layer1.png")}
+                style={{
+                  width: availableWidth,
+                  height: scaledHeight,
+                  position: "absolute",
+                  left: styles.platformContainer.paddingHorizontal,
+                  tintColor: Skin.About_HooliganHymnalLogoLayer1Tint,
+                }}
+              />
+              <Image
+                source={require("../../assets/about/hooligan-hymnal-layer2.png")}
+                style={{
+                  width: availableWidth,
+                  height: scaledHeight,
+                  position: "absolute",
+                  left: styles.platformContainer.paddingHorizontal,
+                  tintColor: Skin.About_HooliganHymnalLogoLayer2Tint,
+                }}
+              />
+            </View>
+          </TouchableOpacity>
+          <View style={{ height: 20 }} />
           <ScrollView style={{ flex: 1 }}>
             <MediumText
               style={{
@@ -232,8 +264,23 @@ class About extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: Skin.About_BackgroundColor,
+    flexDirection: i18n.getFlexDirection(),
+  },
+  scrollContainer: {
+    flex: 1,
+    backgroundColor: DefaultColors.Background,
+    padding: 5,
+  },
   credits: {
     fontFamily: Skin.Font_ParsedText,
+  },
+  platformContainer: {
+    flex: 1,
+    paddingHorizontal: 0,
   },
 });
 
