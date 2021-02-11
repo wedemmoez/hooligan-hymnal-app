@@ -12,7 +12,7 @@ import {
   StyleSheet,
   View,
 } from "react-native";
-import { Asset, LinearGradient, Notifications, WebBrowser, Video } from "expo";
+import * as Notifications from "expo-notifications";
 import { BigButton } from "../components/BigButton";
 import { View as AnimatableView } from "react-native-animatable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -73,7 +73,7 @@ class Home extends React.Component {
       this.setState({ refreshing: false });
     } else this.onRefresh();
 
-    Notifications.addListener(this._handleNotification);
+    Notifications.addNotificationReceivedListener(this._handleNotification)
   }
 
   _handleNotification = async (notification) => {

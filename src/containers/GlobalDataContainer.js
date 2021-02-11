@@ -1,5 +1,5 @@
 import { Platform } from "react-native";
-import { Notifications } from "expo";
+import * as Notifications from "expo-notifications";
 import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
 import { Container } from "unstated";
