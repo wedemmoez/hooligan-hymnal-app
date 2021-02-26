@@ -43,7 +43,7 @@ import { Layout } from "./src/constants";
 export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
-  // If you do, you're gonna have a bad time because your serer calls will not work 
+  // If you do, you're gonna have a bad time because your serer calls will not work
   HooliganHymnalServer: 'https://radiant-citadel-22556.herokuapp.com',
   // dev/beta server
   //HooliganHymnalServer: 'https://guardbook-beta.herokuapp.com',
@@ -132,8 +132,8 @@ export const Images = {
 
 /*
   Common Image Credits
-  
-  It's likely that photos will come from a select few SG or club 
+
+  It's likely that photos will come from a select few SG or club
   photographers. We make it easy to credit those people for letting us use
   their work.
 
@@ -158,7 +158,7 @@ export const CommonImageCredits = [
   Palette
 
   This structure contains a set of key:value pairs for colors used across
-  the app. It feeds into the DefaultColors/Skin structures below, and is 
+  the app. It feeds into the DefaultColors/Skin structures below, and is
   rarely referenced directly.
 
   Feel free to add or remove lines as necessary to suit your needs.
@@ -449,7 +449,7 @@ export const Settings = {
   // Channels_Enabled: true, false
   //      Some SGs will only ever have one channel
   //      and tapping into a whole hunk of UI will be jarring and confusing to users
-  //      
+  //
   //      This feature isn't fully implemented yet, so leave it set to false
   ChannelUI_Enabled: false,
 
