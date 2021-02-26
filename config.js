@@ -44,9 +44,9 @@ export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
   // If you do, you're gonna have a bad time because your serer calls will not work
-  HooliganHymnalServer: 'https://radiant-citadel-22556.herokuapp.com',
+  // HooliganHymnalServer: 'https://radiant-citadel-22556.herokuapp.com',
   // dev/beta server
-  // HooliganHymnalServer: 'https://guardbook-beta.herokuapp.com',
+  HooliganHymnalServer: 'https://guardbook-beta.herokuapp.com',
 
   // Social media and websites
   Twitter: 'https://twitter.com/NGSDetroit',
