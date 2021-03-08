@@ -25,6 +25,7 @@
       "bundleIdentifier": "com.northernguard.app",
       "supportsTablet": false,
       "loadJSInBackgroundExperimental": true,
+      "buildNumber": "2",
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "The Guardbook will use location to ignore notifications when you are not at the stadium."
       }
