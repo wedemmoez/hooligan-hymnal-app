@@ -42,15 +42,9 @@ export const Urls = {
   // production server
   // HEY! Don't include a trailing slash / on this url.
   // If you do, you're gonna have a bad time because your serer calls will not work
-<<<<<<< Updated upstream
-  // HooliganHymnalServer: "https://dbg-hymnal-prod.herokuapp.com",
-  // dev/beta server
-  HooliganHymnalServer: 'https://dbg-hymnal-dev.herokuapp.com',
-=======
  HooliganHymnalServer: "https://dbg-hymnal-prod.herokuapp.com",
   // dev/beta server
   // HooliganHymnalServer: 'https://dbg-hymnal-test.herokuapp.com',
->>>>>>> Stashed changes
 
   // Social media and websites
   Twitter: "https://twitter.com/dallasguardians",
@@ -65,19 +59,11 @@ export const Urls = {
   EsFacebook: "https://facebook.com/",
   EsInstagram: "https://instagram.com/",
   EsWebsite: "http://example.com/es",
-<<<<<<< Updated upstream
-  Events: "http://facebook.com/DallasBeerGrdns/events",
-=======
   Events: "https://dallasbeerguardians.com/events",
->>>>>>> Stashed changes
   Standings: "https://www.mlssoccer.com/standings",
   Reddit: "https://reddit.com/r/fcdallas",
   thirdDeg: "https://3rddegree.net/",
   Dss: "https://dallassoccershow.com/",
-<<<<<<< Updated upstream
-  joinUS: "https://www.dallasbeerguardians.com/join",
-  volunteer: "https://www.dallasbeerguardians.com/get-involved"
-=======
   joinUS: "https://www.dallasbeerguardians.com/Full90",
   volunteer: "https://www.dallasbeerguardians.com/get-involved"
 
@@ -90,7 +76,6 @@ export const Urls = {
   Podcast: "https://example.com/podcast",
 
   */
->>>>>>> Stashed changes
 };
 
 /*
@@ -142,10 +127,6 @@ export const Images = {
 
   // Add optional images
   GoFundMe: require("./assets/gofundme.png"),
-<<<<<<< Updated upstream
-  thirdDegImage: require("./assets/3rddeg.jpg"),
-  DSSImage: require("./assets/DSSlogo.png") 
-=======
 
   // Hooligan Hymnal platform logo, used on About screen
   HooliganHymnalLogoSingleColor: require("./assets/about/hooligan-hymnal-full.png"),
@@ -165,7 +146,6 @@ export const Images = {
   Podcast: require("./assets/podcast.png"),
 
   */
->>>>>>> Stashed changes
 };
 
 /*
@@ -344,11 +324,7 @@ export const Skin = {
   SongbookCover_DefaultImage: Images.Songbook_Cover,
   SongbookPages_Background: DefaultColors.Primary,
   SingleSong_Background: DefaultColors.Navy,
-<<<<<<< Updated upstream
-  Player_Background: Palette.White,
-=======
   Player_Background: DefaultColors.White,
->>>>>>> Stashed changes
   Player_DefaultImage: Images.ClubLogo,
   Player_TopContainerBackground: DefaultColors.HeaderBackground,
   Post_DefaultChannelThumbnail: Images.LogoAvatar,
@@ -487,28 +463,16 @@ export const SocialButtons = [
     header: i18n.t("settings.socialEN"),
     headerColor: DefaultColors.ColorText,
     items: [
-<<<<<<< Updated upstream
-      { icon: "twitter", url: Urls.Twitter },
-      { icon: "facebook", url: Urls.Facebook },
-      { icon: "instagram", url: Urls.Instagram },
-      { icon: "shopping", url: Urls.Shop },
-=======
       { url: Urls.Twitter, icon: "twitter" },
       { url: Urls.Facebook, icon: "facebook" },
       { url: Urls.Instagram, icon: "instagram" },
       { url: Urls.Shop, icon: "shopping" },
->>>>>>> Stashed changes
       { image: Images.thirdDegImage, url: Urls.thirdDeg },
       { image: Images.DSSImage, url: Urls.Dss },
       { icon: "reddit", url: Urls.Reddit },
       // {
-<<<<<<< Updated upstream
-      //   image: Images.PrideraiserIcon,
-      //   url: Urls.Prideraiser,
-=======
       //   url: Urls.Prideraiser,
       //   image: Images.PrideraiserIcon,
->>>>>>> Stashed changes
       //   tintToSkin: false,
       // },
     ],
@@ -517,17 +481,9 @@ export const SocialButtons = [
   //   header: i18n.t("settings.socialES"),
   //   headerColor: DefaultColors.ColorText,
   //   items: [
-<<<<<<< Updated upstream
-  // //     { icon: "twitter", url: Urls.EsTwitter },
-  // //     { icon: "instagram", url: Urls.EsInstagram },
-  //        { icon: "", url: Urls.thirdDeg },
-  //        { icon: "", url: Urls.Dss },
-  //        { icon: "reddit", url: Urls.Reddit },
-=======
   //     { url: Urls.EsTwitter, icon: "twitter" },
   //     { url: Urls.EsInstagram, icon: "instagram" },
   //     { url: Urls.EsWebsite, icon: "link" },
->>>>>>> Stashed changes
   //   ],
   // },
 ];
@@ -617,11 +573,8 @@ export const Settings = {
   //      Each account should be seperated by a space
   //      In Chattanooga, we append the club and our SG accounts. You can choose to pass.
   TwitterList_AppendHandles: "@FCDallas @DallasGuardians",
-<<<<<<< Updated upstream
-=======
 
   // WebLinks_DefaultTarget: "internal", "external"
   //      Sets whether web links open in an in-app internal browser or external to the OS
   WebLinks_DefaultTarget: "internal",
->>>>>>> Stashed changes
 };

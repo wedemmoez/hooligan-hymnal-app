@@ -5,11 +5,7 @@
     "owner": "dallasguardians",
     "slug": "DBG-hymnal",
     "privacy": "unlisted",
-<<<<<<< Updated upstream
-    "version": "2.0.1",
-=======
     "version": "2.3.0",
->>>>>>> Stashed changes
     "primaryColor": "#002457",
     "icon": "./assets/icon-ios.png",
     "orientation": "portrait",
@@ -21,11 +17,7 @@
     "android": {
       "package": "com.dallasguardians.hymnal",
       "icon": "./assets/icon-android.png",
-<<<<<<< Updated upstream
-      "versionCode": 2001,
-=======
       "versionCode": 2300,
->>>>>>> Stashed changes
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
@@ -47,15 +39,9 @@
     "githubUrl": "https://github.com/Chattahooligans/",
     "extra": {
       "hooliganHymnal": {
-<<<<<<< Updated upstream
-        "version": "2.0.1",
-        "aboutPlug": {
-          "en": " is built using the open source *Hooligan Hymnal* platform, v2.0.1.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
-=======
         "version": "2.3.0",
         "aboutPlug": {
           "en": " is built using the open source *Hooligan Hymnal* platform, v2.3.0.\n\nFollow _@hooliganhymnal_ on Twitter and visit the project repository at https://github.com/Chattahooligans"
->>>>>>> Stashed changes
         }
       }
     }

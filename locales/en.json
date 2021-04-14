@@ -325,15 +325,9 @@
     "links": {
       "events": "Events",
       "standings": "Standings",
-<<<<<<< Updated upstream
-      "shop": "Merch Shop",
-      "volunteer": "Volunteer",
-      "joinUs": "Join DBG"
-=======
       "volunteer": "Volunteer",
       "joinUs": "Join DBG",
       "merch" : "Shop"
->>>>>>> Stashed changes
     }
   },
   "components": {
