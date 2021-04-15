@@ -61,13 +61,13 @@ export const Urls = {
   EsWebsite: "http://example.com/es",
   Events: "https://dallasbeerguardians.com/events",
   Standings: "https://www.mlssoccer.com/standings",
-  Reddit: "https://reddit.com/r/fcdallas",
-  thirdDeg: "https://3rddegree.net/",
-  Dss: "https://dallassoccershow.com/",
-  joinUS: "https://www.dallasbeerguardians.com/full90",
-  volunteer: "https://www.dallasbeerguardians.com/get-involved"
+  joinUS: "https://www.dallasbeerguardians.com/join",
+  volunteer: "https://www.dallasbeerguardians.com/get-involved",
 
   // Add additional Urls (optional)
+  Reddit: "https://reddit.com/r/fcdallas",
+  thirdDeg: "https://3rddegree.net/",
+  Dss: "https://dallassoccershow.com/"
   /* 
   
     Example (Note: this Podcast example will be expanded on under 
@@ -268,6 +268,11 @@ export const Fonts = {
 */
 export const Skin = {
   About_BackgroundColor: DefaultColors.Secondary,
+  About_HooliganHymnalLogoSingleColor: Images.HooliganHymnalLogoSingleColor,
+  About_HooliganHymnalLogoLayer1: Images.HooliganHymnalLogoLayer1,
+  About_HooliganHymnalLogoLayer1Tint: DefaultColors.Primary,
+  About_HooliganHymnalLogoLayer2: Images.HooliganHymnalLogoLayer2,
+  About_HooliganHymnalLogoLayer2Tint: DefaultColors.Secondary,
   Font_Light: Fonts.Light.family,
   Font_Regular: Fonts.Regular.family,
   Font_Medium: Fonts.Medium.family,
