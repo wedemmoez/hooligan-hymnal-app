@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
-import { Notifications } from "expo";
-import * as Permissions from "expo-permissions";
 import * as Location from "expo-location";
+import * as Notifications from "expo-notifications";
+import * as Permissions from "expo-permissions";
 import { Container } from "unstated";
 import { getSongs } from "../services/songsService";
 import { getSongbooks } from "../services/songbooksService";
@@ -44,12 +44,12 @@ export default class GlobalDataContainer extends Container {
     goalkeeperNickname: null,
     channels: null,
     htmlColors: null,
-    bearerToken: null,
     currentPostDraft: null,
     feed: [],
     feedAtEnd: false,
     response: null,
     loadDataComplete: false,
+    debug: "",
   };
 
   loadData = async () => {
@@ -173,26 +173,6 @@ export default class GlobalDataContainer extends Container {
     this._setLocation(location);
   };
 
-  handleNotification = (notification) => {
-    if (notification.origin === "selected") {
-      // notification was tapped, either from the app already open or from entering the app
-      console.log("SELECTED notification", notification.data.song.title);
-
-      // TODO: open SingleSong screen and send it the Song object buried inside the notification
-
-      // kinda like this but it doesn't work from this far out (because navigation doesn't exist yet)
-      // this.props.navigation.navigate('SingleSong', {song: notification.data.song});
-
-      // Maybe set app state and do something with it that way?
-      // this.setState({ notification: notification });
-    } else if (notification.origin === "received") {
-      // notification was received, either app was already open or it just opened up but not from the notification
-      // no way to tell which?
-      // console.log('RECEIVED notification', notification.data.song.title);
-      // We don't necessarily want to do anything in this case
-    }
-  };
-
   registerForPushNotificationsAsync = async () => {
     try {
       const { status: existingStatus } = await Permissions.getAsync(
@@ -218,7 +198,8 @@ export default class GlobalDataContainer extends Container {
       }
 
       // Get the pushToken that uniquely identifies this device
-      let pushToken = await Notifications.getExpoPushTokenAsync();
+      let pushTokenObject = await Notifications.getExpoPushTokenAsync();
+      let pushToken = pushTokenObject.data;
       this.setState({ pushToken });
 
       // POST the pushToken to your backend server from where you can retrieve it to send push notifications.
@@ -296,13 +277,7 @@ export default class GlobalDataContainer extends Container {
 
   setLocation = (location) => this.setState({ location });
 
-  setBearerToken = (bearerToken) => this.setState({ bearerToken });
-  getBearerToken = () => {
-    return this.state.bearerToken;
-  };
-
-  // contains .user and .token (above, bearerToken until its refactored out)
-  // rename bearerToken from .token to .loginToken?
+  // contains .user and .token (bearerToken)
   setCurrentUser = (currentUser, callback) => {
     this.setState({ currentUser }, () => {
       if (callback) callback();
@@ -313,7 +288,7 @@ export default class GlobalDataContainer extends Container {
   };
 
   logoutCurrentUser = (callback) => {
-    this.setState({ currentUser: null, bearerToken: null }, () => {
+    this.setState({ currentUser: null }, () => {
       if (callback) callback();
     });
   };
@@ -402,5 +377,10 @@ export default class GlobalDataContainer extends Container {
     this.setState({ feed: feedAfterHide });
 
     await this.refreshFeed();
+  };
+
+  appendDebug = (text) => {
+    let debug = this.state.debug + "\n" + text;
+    this.setState({ debug });
   };
 }

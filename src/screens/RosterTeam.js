@@ -2,10 +2,8 @@ import React from "react";
 import {
   FlatList,
   Image,
-  Linking,
   Picker,
   Platform,
-  SectionList,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -23,9 +21,8 @@ import { BoldText, MediumText, RegularText } from "../components/StyledText";
 import LoadingPlaceholder from "../components/LoadingPlaceholder";
 
 import { Colors, FontSizes, Layout } from "../constants";
-import Constants from "expo-constants";
+import { openURL } from "../utils/LinkHelper.js";
 
-import { find, propEq } from "ramda";
 import { DefaultColors, Skin, Settings } from "../../config";
 import i18n from "../i18n";
 
@@ -42,10 +39,9 @@ class PlayerRow extends React.Component {
       twitterDisplay = (
         <TouchableOpacity
           style={{ justifyContent: "flex-start", alignContent: "center" }}
-          key={player.twitter}
+          key={"player-twitter-" + player.twitter}
           onPress={() => {
-            //WebBrowser.openBrowserAsync('http://twitter.com/' + player.twitter);
-            Linking.openURL(
+            openURL(
               "https://twitter.com/intent/tweet?text=@" + player.twitter + "+"
             );
           }}
@@ -55,16 +51,39 @@ class PlayerRow extends React.Component {
             size={30}
             style={{
               color: Skin.RosterTeam_TwitterColor,
-              marginTop: 3,
-              marginBottom: 3,
-              marginLeft: 10,
-              marginRight: 10,
+              marginVertical: 3,
+              marginHorizontal: 5,
               backgroundColor: "transparent",
             }}
           />
         </TouchableOpacity>
       );
     }
+
+    let instagramDisplay;
+    if (player.instagram) {
+      instagramDisplay = (
+        <TouchableOpacity
+          style={{ alignContent: "center" }}
+          key={"player-instagram-" + player.instagram}
+          onPress={() => {
+            openURL("https://instagram.com/" + player.instagram);
+          }}
+        >
+          <MaterialCommunityIcons
+            name={"instagram"}
+            size={30}
+            style={{
+              color: Skin.PostAttachmentPlayer_InstagramColor,
+              marginVertical: 3,
+              marginHorizontal: 5,
+              backgroundColor: "transparent",
+            }}
+          />
+        </TouchableOpacity>
+      );
+    }
+
     return (
       <View style={styles.row}>
         <RectButton
@@ -117,6 +136,7 @@ class PlayerRow extends React.Component {
           </View>
         </RectButton>
         {twitterDisplay}
+        {instagramDisplay}
       </View>
     );
   }
@@ -190,7 +210,7 @@ class RosterTeam extends React.Component {
       if (["default", "number", "name"].includes(Settings.Roster_SortPlayersBy))
         sortPlayersBy = Settings.Roster_SortPlayersBy;
 
-    if (this.state.rosters.length > 0) {
+    if (this.state.rosters && this.state.rosters.length > 0) {
       let pickerItems = [];
 
       if (Platform.OS === "ios") {
@@ -201,7 +221,10 @@ class RosterTeam extends React.Component {
           <ModalSelector
             data={pickerItems}
             selectedKey={this.state.currentRosterID}
-            onChange={(item) => this.setState({ currentRosterID: item.key })}
+            onModalClose={(item) => {
+              if (item.key != this.state.currentRosterID)
+                this.setState({ currentRosterID: item.key });
+            }}
           >
             <View
               style={{

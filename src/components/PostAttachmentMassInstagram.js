@@ -1,15 +1,19 @@
 import React from "react";
-import { Linking, StyleSheet, TouchableOpacity, View } from "react-native";
+import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
 import { BoldText, RegularText, MediumText } from "./StyledText";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import FadeIn from "react-native-fade-in-image";
-import { openURL } from "../utils/LinkHelper.js";
 import { Skin, DefaultColors, Palette } from "../../config";
 import containerStyle from "./PostAttachmentContainerStyle";
 import i18n from "../i18n";
 
-export default class PostAttachmentMultiTweet extends React.Component {
+export default class PostAttachmentMassInstagram extends React.Component {
   render() {
+    const roster = this.props.roster;
+
+    let thumbnail = Skin.Roster_DefaultThumbnail;
+    if (roster.defaultThumbnail) thumbnail = { uri: roster.defaultThumbnail };
+
     return (
       <View style={styles.container}>
         <TouchableOpacity
@@ -18,19 +22,28 @@ export default class PostAttachmentMultiTweet extends React.Component {
           style={{ flex: 1 }}
         >
           <View style={{ flex: 1, flexDirection: i18n.getFlexDirection() }}>
+            <View style={styles.rowImageContainer}>
+              <FadeIn>
+                <Image
+                  source={thumbnail}
+                  style={{ width: 50, height: 50, borderRadius: 25 }}
+                />
+              </FadeIn>
+            </View>
             <View style={{ flex: 1 }}>
-              <View style={styles.tweetAllContainer}>
+              <BoldText style={styles.title}>{roster.rosterTitle}</BoldText>
+              <View style={styles.tagAllContainer}>
                 <MaterialCommunityIcons
-                  name={"twitter"}
+                  name={"instagram"}
                   size={16}
                   style={{
-                    color: Skin.PostAttachmentMultiTweet_TwitterColor,
+                    color: Skin.PostAttachmentMassInstagram_InstagramColor,
                     backgroundColor: "transparent",
                   }}
                 />
-                <RegularText style={styles.tweetAllText}>
+                <RegularText style={styles.tagAllText}>
                   {i18n.t(
-                    "components.postattachmentmultitweet.tweettheplayers"
+                    "components.postattachmentmassinstagram.tagtheplayers"
                   )}
                 </RegularText>
               </View>
@@ -42,12 +55,7 @@ export default class PostAttachmentMultiTweet extends React.Component {
   }
 
   _handlePress = () => {
-    const players = this.props.players;
-    var handleList = "";
-    for (player of players) {
-      handleList += "@" + player.twitter + "%20";
-    }
-    openURL("https://twitter.com/intent/tweet?text=" + handleList + "+");
+    if (this.props.onPress) this.props.onPress(this.props.roster);
   };
 }
 
@@ -63,23 +71,23 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    color: Palette.Rouge,
+    color: DefaultColors.ColorText,
     backgroundColor: DefaultColors.Background,
     paddingLeft: 4,
     textAlign: i18n.getRTLTextAlign(),
     writingDirection: i18n.getWritingDirection(),
   },
-  tweetAllContainer: {
+  tagAllContainer: {
     flexDirection: i18n.getFlexDirection(),
     alignItems: "center",
     marginHorizontal: 8,
   },
-  tweetAllText: {
+  tagAllText: {
     fontFamily: Skin.Font_ParsedText,
     fontSize: 16,
     lineHeight: 24,
     flex: 1,
-    color: Palette.Rouge,
+    color: DefaultColors.ColorText,
     backgroundColor: DefaultColors.Background,
     marginLeft: 5,
     textAlign: i18n.getRTLTextAlign(),

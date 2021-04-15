@@ -11,8 +11,9 @@ import {
   ScrollView,
   StyleSheet,
   View,
+  Alert,
 } from "react-native";
-import { Asset, LinearGradient, Notifications, WebBrowser, Video } from "expo";
+import * as Notifications from "expo-notifications";
 import { BigButton } from "../components/BigButton";
 import { View as AnimatableView } from "react-native-animatable";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -39,7 +40,7 @@ import { ModalLoader } from "../components/ModalLoader";
 import Post from "../components/Post";
 import { FontSizes, Layout, Colors } from "../constants";
 import Constants from "expo-constants";
-
+import { openURL } from "../utils/LinkHelper.js";
 import {
   DefaultColors,
   Settings,
@@ -49,7 +50,6 @@ import {
   Urls,
 } from "../../config";
 import i18n from "../i18n";
-import { watchPositionAsync } from "expo-location";
 
 class Home extends React.Component {
   state = {
@@ -73,48 +73,69 @@ class Home extends React.Component {
       this.setState({ refreshing: false });
     } else this.onRefresh();
 
-    Notifications.addListener(this._handleNotification);
+    // a notification is received while the app is foregrounded
+    Notifications.addNotificationReceivedListener(
+      this._handleNotificationReceived
+    );
+
+    // the user interacts with a notification
+    Notifications.addNotificationResponseReceivedListener(
+      this._handleNotificationResponseReceived
+    );
   }
 
-  _handleNotification = async (notification) => {
+  _handleNotificationReceived = async (notification) => {
+    console.log("NOTIFICATION RECEIVED (but not responded to)");
+    console.log(JSON.stringify(notification.request.content.data));
+
+    let data = notification.request.content.data;
+
+    // refresh the feed
+    this.onRefresh();
+    /*
+    if (data.postId) {
+      engageNotification(data.postId, this.props.globalData.state.pushToken);
+
+      try {
+        let post = await getPost(data.postId);
+        if (post)
+          if (post.active)
+            this.props.navigation.navigate("SinglePost", { post });
+      } catch (e) {
+        Alert.show("notification error: " + e);
+      }
+    }
+    */
+  };
+
+  _handleNotificationResponseReceived = async (notificationResponse) => {
+    console.log("NOTIFICATION RESPONSE RECEIVED");
     //console.log("notification " + notification.origin + ", data: " + JSON.stringify(notification.data))
+    console.log(
+      JSON.stringify(notificationResponse.notification.request.content.data)
+    );
 
-    if (notification.origin === "selected") {
-      // notification was tapped, either from the app already open or from entering the app
+    let data = notificationResponse.notification.request.content.data;
+    this.props.globalData.appendDebug(JSON.stringify(data));
 
-      if (notification.data.postId) {
-        engageNotification(
-          notification.data.postId,
-          this.props.globalData.state.pushToken
-        );
+    if (data.postId) {
+      engageNotification(data.postId, this.props.globalData.state.pushToken);
 
-        try {
-          let post = await getPost(notification.data.postId);
-          if (post)
-            if (post.active)
-              this.props.navigation.navigate("SinglePost", { post });
-        } catch (e) {
-          //
-        }
+      try {
+        let post = await getPost(data.postId);
+        if (post)
+          if (post.active)
+            this.props.navigation.navigate("SinglePost", { post });
+      } catch (e) {
+        Alert.show("notification error: " + e);
       }
+    }
 
-      // classic Song notifications for users without the update, deprecate this soon
-      if (notification.data.song) {
-        this.props.navigation.navigate("SingleSong", {
-          song: notification.data.song,
-        });
-      }
-    } else if (notification.origin === "received") {
-      // notification was received, either app was already open or it just opened up but not from the notification
-      /*
-      if (notification.data.postId) {
-        // refresh the feed data itself
-        this.onRefresh()
-
-        let post = await getPost(notification.data.postId)
-        this.props.navigation.navigate("SinglePost", { post });
-      }
-      */
+    // classic Song notifications for users without the update, deprecate this soon
+    if (data.song) {
+      this.props.navigation.navigate("SingleSong", {
+        song: data.song,
+      });
     }
   };
 
@@ -172,9 +193,6 @@ class Home extends React.Component {
             [
               {
                 nativeEvent: {
-                  contentInset: {
-                    bottom: 1,
-                  },
                   contentOffset: {
                     y: scrollY,
                   },
@@ -229,7 +247,7 @@ class Home extends React.Component {
           <View
             style={{
               flex: 1,
-              flexDirection: "row",
+              flexDirection: i18n.getFlexDirection(),
               justifyContent: "center",
               paddingVertical: 10,
             }}
@@ -345,7 +363,7 @@ class StaticHomeContent_Links extends React.Component {
             marginBottom: 10,
           }}
           onPress={() => {
-            Linking.openURL(Urls.Website);
+            openURL(Urls.Website);
           }}
         >
           <MediumText style={{ color: Skin.Home_SocialButtons }}>
@@ -397,11 +415,20 @@ class DeferredHomeContent extends React.Component {
 
     let scrollItems = [];
     const posts = this.props.globalData.state.feed;
-    posts.forEach((post) => {
-      let postDisplay = (
-        <Post key={post._id} post={post} navigation={this.props.navigation} />
-      );
-      scrollItems.push(postDisplay);
+    posts.forEach((post, index) => {
+      if (0 === index && Skin.Post_CollapseTextExpandFirstInFeed)
+        scrollItems.push(
+          <Post
+            key={post._id}
+            post={post}
+            navigation={this.props.navigation}
+            expand={true}
+          />
+        );
+      else
+        scrollItems.push(
+          <Post key={post._id} post={post} navigation={this.props.navigation} />
+        );
     });
 
     // for some reason this doesn't blow up when scrollItems.length is small or zero

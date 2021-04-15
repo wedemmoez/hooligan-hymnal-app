@@ -16,10 +16,10 @@ import GlobalDataContainer from "../containers/GlobalDataContainer";
 import { openURL } from "../utils/LinkHelper.js";
 import i18n from "../i18n";
 
-class TwitterList extends React.Component {
+class InstagramList extends React.Component {
   render() {
     this.props.navigation.setOptions({
-      headerTitle: i18n.t("screens.twitterlist.title"),
+      headerTitle: i18n.t("screens.instagramlist.title"),
       headerLeft: () => (
         <HeaderBackButton
           onPress={() => this.props.navigation.goBack()}
@@ -30,17 +30,17 @@ class TwitterList extends React.Component {
 
     let handles = "";
     this.props.route.params.roster.players.forEach((player) => {
-      if (player.twitter) handles += "@" + player.twitter + " ";
+      if (player.instagram) handles += "@" + player.instagram + " ";
     });
 
-    handles += Settings.TwitterList_AppendHandles;
+    handles += Settings.InstagramList_AppendHandles;
 
     return (
       <View
         style={{
           flex: 1,
           padding: 10,
-          backgroundColor: Skin.TwitterList_BackgroundColor,
+          backgroundColor: Skin.InstagramList_BackgroundColor,
           flexDirection: i18n.getFlexDirection(),
         }}
       >
@@ -54,7 +54,7 @@ class TwitterList extends React.Component {
               writingDirection: i18n.getWritingDirection(),
             }}
           >
-            {i18n.t("screens.twitterlist.heading")}
+            {i18n.t("screens.instagramlist.heading")}
           </MediumText>
           <RegularText
             style={{
@@ -65,7 +65,7 @@ class TwitterList extends React.Component {
               writingDirection: i18n.getWritingDirection(),
             }}
           >
-            {i18n.t("screens.twitterlist.instructions")}
+            {i18n.t("screens.instagramlist.instructions")}
           </RegularText>
           <ScrollView
             style={{
@@ -89,24 +89,22 @@ class TwitterList extends React.Component {
             <RectButton
               style={styles.bigButton}
               onPress={() => {
-                openURL("https://twitter.com/intent/tweet?text=");
+                openURL("https://instagram.com");
               }}
               underlayColor="#fff"
             >
               <MaterialCommunityIcons
-                name="twitter"
+                name="instagram"
                 size={23}
                 style={{
                   color: "#fff",
-                  marginTop: 3,
-                  marginBottom: 3,
-                  marginLeft: 5,
-                  marginRight: 5,
+                  marginVertical: 3,
+                  marginHorizontal: 5,
                   backgroundColor: "transparent",
                 }}
               />
               <MediumText style={styles.bigButtonText}>
-                {i18n.t("screens.twitterlist.opentwitter")}
+                {i18n.t("screens.instagramlist.openinstagram")}
               </MediumText>
             </RectButton>
           </ClipBorderRadius>
@@ -152,4 +150,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default withUnstated(TwitterList, { globalData: GlobalDataContainer });
+export default withUnstated(InstagramList, { globalData: GlobalDataContainer });
