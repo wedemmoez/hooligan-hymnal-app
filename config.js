@@ -64,7 +64,7 @@ export const Urls = {
   Reddit: "https://reddit.com/r/fcdallas",
   thirdDeg: "https://3rddegree.net/",
   Dss: "https://dallassoccershow.com/",
-  joinUS: "https://www.dallasbeerguardians.com/Full90",
+  joinUS: "https://www.dallasbeerguardians.com/full90",
   volunteer: "https://www.dallasbeerguardians.com/get-involved"
 
   // Add additional Urls (optional)

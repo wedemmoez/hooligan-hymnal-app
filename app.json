@@ -17,13 +17,13 @@
     "android": {
       "package": "com.dallasguardians.hymnal",
       "icon": "./assets/icon-android.png",
-      "versionCode": 2300,
+      "versionCode": 2301,
       "permissions": [],
       "googleServicesFile": "./google-services.json"
     },
     "ios": {
       "bundleIdentifier": "com.dallasguardians.hymnal",
-      "buildNumber": "1",
+      "buildNumber": "2",
       "supportsTablet": false,
       "loadJSInBackgroundExperimental": true
     },
